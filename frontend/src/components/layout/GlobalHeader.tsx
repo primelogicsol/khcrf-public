@@ -200,7 +200,7 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden xl:flex items-center space-x-8">
+          <ul className="hidden xl:flex items-center space-x-8 mr-auto xl:ml-8">
             {navLinks.map((link) => (
               <li key={link.name} className={`relative group py-6`}>
                 <button className={`flex items-center font-bold text-[16px] uppercase tracking-[0.05em] transition-all duration-300 ${isOverlay ? "text-white" : "text-[#050A1E]"} group-hover:text-icon-on-light`}>
