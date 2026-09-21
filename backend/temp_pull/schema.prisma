@@ -1,0 +1,4507 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AccreditationApplication {
+  id                  String   @id
+  userId              String?
+  businessName        String
+  contactPerson       String
+  emailAddress        String
+  phoneNumber         String
+  businessAddress     String
+  badges              Json
+  businessDescription String
+  productionMethods   String
+  documentation       Json
+  otherDocumentation  String?
+  status              String   @default("PENDING")
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime
+  adminCertificateUrl String?
+  User                User?    @relation(fields: [userId], references: [id])
+}
+
+model AdvisoryApplication {
+  id                     String    @id
+  referenceNumber        String    @unique
+  fullName               String
+  advisoryScope          String
+  category               String
+  organization           String?
+  email                  String
+  phone                  String?
+  district               String?
+  statement              String
+  cvFileUrl              String?
+  cvOriginalFilename     String?
+  cvMimeType             String?
+  cvSizeBytes            Int?
+  consentAccepted        Boolean   @default(false)
+  consentAcceptedAt      DateTime?
+  status                 String    @default("SUBMITTED")
+  assignedReviewerId     String?
+  internalNotes          String?
+  submittedAt            DateTime  @default(now())
+  reviewedAt             DateTime?
+  decisionAt             DateTime?
+  appointmentScope       String?
+  publicProfilePublished Boolean   @default(false)
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime
+}
+
+model ApprenticeshipApplication {
+  id                 String   @id
+  userId             String?
+  fullName           String
+  dob                String
+  gender             String
+  contactNumber      String
+  email              String
+  city               String
+  state              String
+  country            String
+  postalCode         String
+  qualification      String
+  otherQualification String?
+  fieldOfStudy       String
+  institution        String
+  completionYear     String
+  apprenticeTrack    Json
+  preferredLocation  Json
+  availability       Json
+  skills             Json
+  otherSkill         String?
+  experience         String?
+  motivation         String
+  heritageMeaning    String?
+  contribution       String
+  cvUrl              String?
+  portfolioLink      String?
+  portfolioFileUrl   String?
+  status             String   @default("PENDING")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime
+  User               User?    @relation(fields: [userId], references: [id])
+}
+
+model ApprenticeshipOpening {
+  id           String   @id
+  title        String
+  description  String
+  location     String
+  type         String   @default("FULL_TIME")
+  duration     String
+  stipend      String?
+  requirements Json
+  status       String   @default("OPEN")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime
+}
+
+model Artisan {
+  id                   String                 @id
+  canonicalEntityId    String                 @unique
+  birthYear            Int?
+  deathYear            Int?
+  activeRegion         String?
+  biography            String?
+  CanonicalEntity      CanonicalEntity        @relation(fields: [canonicalEntityId], references: [id])
+  MasterArtisanFeature MasterArtisanFeature[]
+}
+
+model ArtisanAssertion {
+  id                      String        @id
+  artisan_id              String
+  field_name              String
+  raw_value               String?
+  normalized_value        String?
+  source_id               String
+  source_page             String?
+  source_row              String?
+  source_record_reference String?
+  confidence              Float?
+  match_method            String?
+  is_canonical            Boolean       @default(false)
+  valid_from              DateTime?
+  valid_to                DateTime?
+  created_at              DateTime      @default(now())
+  reconciliation_reason   String?
+  MasterArtisan           MasterArtisan @relation(fields: [artisan_id], references: [id], onDelete: Cascade)
+  Source                  Source        @relation(fields: [source_id], references: [id], onDelete: Cascade)
+}
+
+model ArtisanAward {
+  id                      String                  @id
+  award_name              String
+  award_year              Int?
+  award_year_text         String?
+  award_level             String?
+  awarding_authority      String?
+  award_craft_original    String?
+  normalized_craft_id     String?
+  source_id               String?
+  source_page             String?
+  source_row              String?
+  source_record_reference String?
+  verification_status     String?
+  associated_work         String?
+  joint_awardee           String?
+  normalized_award_type   String?
+  award_search_status     String?                 @default("NOT_SEARCHED")
+  recognition_exact_title String?
+  recognition_level       String?
+  GiCraft                 GiCraft?                @relation(fields: [normalized_craft_id], references: [id])
+  Source                  Source?                 @relation(fields: [source_id], references: [id])
+  ArtisanAwardRecipient   ArtisanAwardRecipient[]
+}
+
+model ArtisanAwardRecipient {
+  id                   String        @id
+  award_id             String
+  artisan_id           String
+  recipient_role       String?
+  source_name_spelling String?
+  MasterArtisan        MasterArtisan @relation(fields: [artisan_id], references: [id], onDelete: Cascade)
+  ArtisanAward         ArtisanAward  @relation(fields: [award_id], references: [id], onDelete: Cascade)
+
+  @@index([artisan_id])
+  @@index([award_id])
+}
+
+model ArtisanCraftAffiliation {
+  id                  String        @id
+  artisan_id          String
+  craft_id            String
+  relationship_type   String
+  verification_status String?
+  source_id           String?
+  source_page         String?
+  notes               String?
+  created_at          DateTime      @default(now())
+  MasterArtisan       MasterArtisan @relation(fields: [artisan_id], references: [id], onDelete: Cascade)
+  GiCraft             GiCraft       @relation(fields: [craft_id], references: [id])
+  Source              Source?       @relation(fields: [source_id], references: [id])
+
+  @@unique([artisan_id, craft_id, relationship_type])
+  @@index([artisan_id])
+  @@index([craft_id])
+}
+
+model ArtisanGiAuthorization {
+  id                      String        @id
+  artisan_id              String
+  craft_id                String
+  gi_authorized_user_id   String?
+  gi_application_number   String?
+  gi_registration_number  String?
+  authorization_status    String?
+  authorization_date      DateTime?
+  source_id               String?
+  source_page             String?
+  source_row              String?
+  source_record_reference String?
+  MasterArtisan           MasterArtisan @relation(fields: [artisan_id], references: [id], onDelete: Cascade)
+  GiCraft                 GiCraft       @relation(fields: [craft_id], references: [id])
+  Source                  Source?       @relation(fields: [source_id], references: [id])
+}
+
+model ArtisanIdentifier {
+  id                      String        @id
+  artisan_id              String
+  identifier_type         String
+  identifier_value        String
+  issuer                  String?
+  status                  String?
+  issued_date             DateTime?
+  source_id               String?
+  source_page             String?
+  source_row              String?
+  source_record_reference String?
+  MasterArtisan           MasterArtisan @relation(fields: [artisan_id], references: [id], onDelete: Cascade)
+  Source                  Source?       @relation(fields: [source_id], references: [id])
+
+  @@index([identifier_type, identifier_value])
+}
+
+model ArtisanLineage {
+  id                   String                 @id
+  lineage_id           String?                @unique
+  lineage_name         String
+  primary_craft_id     String?
+  district             String?
+  risk_level           String?
+  notes                String?
+  ArtisanLineageMember ArtisanLineageMember[]
+}
+
+model ArtisanLineageMember {
+  id                                                                   String         @id
+  lineage_id                                                           String
+  artisan_id                                                           String
+  related_artisan_id                                                   String?
+  relationship_type                                                    String
+  verified                                                             Boolean        @default(false)
+  source_id                                                            String?
+  source_page                                                          String?
+  source_row                                                           String?
+  source_record_reference                                              String?
+  MasterArtisan_ArtisanLineageMember_artisan_idToMasterArtisan         MasterArtisan  @relation("ArtisanLineageMember_artisan_idToMasterArtisan", fields: [artisan_id], references: [id], onDelete: Cascade)
+  ArtisanLineage                                                       ArtisanLineage @relation(fields: [lineage_id], references: [id], onDelete: Cascade)
+  MasterArtisan_ArtisanLineageMember_related_artisan_idToMasterArtisan MasterArtisan? @relation("ArtisanLineageMember_related_artisan_idToMasterArtisan", fields: [related_artisan_id], references: [id])
+  Source                                                               Source?        @relation(fields: [source_id], references: [id])
+}
+
+model ArtisanNomination {
+  id                         String              @id
+  submissionNumber           String              @unique
+  status                     ParticipationStatus @default(SUBMITTED)
+  nomineeName                String
+  localName                  String?
+  craft                      String?
+  primaryCraft               String?
+  secondaryCrafts            String?
+  unionTerritory             String?
+  district                   String?
+  tehsil                     String?
+  village                    String?
+  pinCode                    String?
+  fullAddress                String?
+  landmark                   String?
+  workshop                   String?
+  biography                  String?
+  yearsOfPractice            Int?
+  skills                     String?
+  awards                     String?
+  familyLineage              String?
+  contactInfo                String?
+  nominatorInfo              String?
+  relationship               String?
+  references                 String?
+  consentGiven               Boolean             @default(false)
+  hasGovtArtisanId           String?
+  govtArtisanId              String?
+  artisanRegistrationType    String?
+  artisanIssuingAuthority    String?
+  artisanYearOfRegistration  String?
+  existingHcrfArtisanId      String?
+  hasWorkshop                String?
+  workshopName               String?
+  workshopType               String?
+  isWorkshopRegistered       String?
+  workshopId                 String?
+  workshopRegistrationType   String?
+  workshopIssuingAuthority   String?
+  workshopYearOfRegistration String?
+  workshopAddress            String?
+  workshopPinCode            String?
+  existingHcrfWorkshopId     String?
+  notes                      String?
+  reviewerId                 String?
+  isDeleted                  Boolean             @default(false)
+  createdAt                  DateTime            @default(now())
+  updatedAt                  DateTime
+  MediaAsset                 MediaAsset[]        @relation("NominationMedia")
+}
+
+model ArtisanProfile {
+  id              String  @id
+  listingId       String  @unique
+  specialty       String?
+  skillLevel      String?
+  experienceYears Int?
+  awards          String?
+  catalogUrl      String?
+  Listing         Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
+
+model AssessmentCycle {
+  id                      String                    @id
+  name                    String
+  year                    Int
+  slug                    String                    @unique
+  status                  String                    @default("DRAFT")
+  timezone                String                    @default("IST")
+  consultationStartAt     DateTime?
+  consultationEndAt       DateTime?
+  validationStartAt       DateTime?
+  validationEndAt         DateTime?
+  reportReleaseAt         DateTime?
+  isActive                Boolean                   @default(false)
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime
+  DraftFinding            DraftFinding[]
+  SkcHearing              SkcHearing[]
+  skc_consultation_themes skc_consultation_themes[]
+}
+
+model BlogPostReport {
+  id             String         @id
+  postId         String
+  userId         String?
+  reason         String
+  status         String         @default("PENDING")
+  createdAt      DateTime       @default(now())
+  OfficeBlogPost OfficeBlogPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  User           User?          @relation(fields: [userId], references: [id])
+}
+
+model BookPage {
+  id         String   @id
+  content    String
+  pageNumber Int
+  chapterId  String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime
+  Chapter    Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+}
+
+model BusinessProfile {
+  id            String  @id
+  listingId     String  @unique
+  name          String?
+  email         String?
+  address       String?
+  foundedYear   Int?
+  type          String?
+  websiteUrl    String?
+  productsSold  String?
+  employeeCount Int?
+  licenseNumber String?
+  Listing       Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
+
+model CanonicalEntity {
+  id                                                                    String                    @id
+  slug                                                                  String                    @unique
+  title                                                                 String
+  summary                                                               String?
+  aliases                                                               Json?
+  transliterations                                                      Json?
+  entityType                                                            CanonicalEntityType
+  lifecycle                                                             LifecycleStatus           @default(DRAFT)
+  visibility                                                            VisibilityStatus          @default(INTERNAL)
+  verificationStatus                                                    VerificationStatus        @default(UNVERIFIED)
+  sensitivity                                                           SensitivityClassification @default(NONE)
+  metadata                                                              Json?
+  aiEmbeddings                                                          Json?
+  seoMetadata                                                           Json?
+  version                                                               Int                       @default(1)
+  createdById                                                           String?
+  publishedAt                                                           DateTime?
+  coverStoryTitle                                                       String?
+  issueOverview                                                         String?
+  featuredCraftName                                                     String?
+  featuredCraftLabel                                                    String?
+  coverImageAlt                                                         String?
+  readerAssetKey                                                        String?
+  downloadable                                                          Boolean                   @default(false)
+  archivedAt                                                            DateTime?
+  createdAt                                                             DateTime                  @default(now())
+  updatedAt                                                             DateTime
+  deletedAt                                                             DateTime?
+  isDemo                                                                Boolean                   @default(false)
+  isFeatured                                                            Boolean                   @default(false)
+  isSeedData                                                            Boolean                   @default(false)
+  displayPriority                                                       Int                       @default(0)
+  Artisan                                                               Artisan?
+  User                                                                  User?                     @relation(fields: [createdById], references: [id])
+  Collection                                                            Collection?
+  Craft                                                                 Craft?
+  EntityRelationship_EntityRelationship_sourceEntityIdToCanonicalEntity EntityRelationship[]      @relation("EntityRelationship_sourceEntityIdToCanonicalEntity")
+  EntityRelationship_EntityRelationship_targetEntityIdToCanonicalEntity EntityRelationship[]      @relation("EntityRelationship_targetEntityIdToCanonicalEntity")
+  GlossaryTerm                                                          GlossaryTerm?
+  Material                                                              Material?
+  Motif                                                                 Motif?
+  Product                                                               Product?
+  ResearchPublication                                                   ResearchPublication?
+  SourceReference                                                       SourceReference[]
+  Studio                                                                Studio?
+  Technique                                                             Technique?
+  Tool                                                                  Tool?
+  VerificationRecord                                                    VerificationRecord[]
+  WorkflowRecord                                                        WorkflowRecord[]
+  MediaAsset                                                            MediaAsset[]              @relation("EntityMedia")
+  TaxonomyCategory                                                      TaxonomyCategory[]        @relation("EntityTaxonomy")
+
+  @@index([createdById])
+  @@index([deletedAt])
+  @@index([entityType, lifecycle])
+  @@index([slug])
+  @@index([title])
+  @@index([verificationStatus])
+  @@index([visibility])
+}
+
+model CceApplication {
+  id                       String             @id
+  userId                   String
+  legislativeOfficeId      String?
+  referenceNumber          String             @unique
+  status                   String             @default("PENDING")
+  stakeholderCategory      String
+  entityName               String
+  ccsiRegistrationId       String
+  referralCode             String?
+  craftCategory            String
+  clusterName              String?
+  phone                    String
+  email                    String
+  address                  String
+  awardCategory            String
+  yearsExperience          Int
+  productionScale          String
+  teamSize                 Int?
+  marketsServed            Json
+  giStatus                 Boolean            @default(false)
+  giAuthorizedNumber       String?
+  giSupportingDoc          String?
+  meritStatement           String
+  productImages            Json?
+  certifications           Json?
+  giDocumentation          Json?
+  exportRecords            Json?
+  mediaCoverage            Json?
+  testimonials             Json?
+  complianceDocs           Json?
+  complianceAccurate       Boolean            @default(false)
+  meritBasedAck            Boolean            @default(false)
+  noSponsorshipImpact      Boolean            @default(false)
+  publicDisplayConsent     Boolean            @default(false)
+  signature                String
+  signatureDate            DateTime           @default(now())
+  communityImpact          Json?
+  sustainability           Json?
+  complianceScore          Float              @default(0)
+  craftQualityScore        Float              @default(0)
+  innovationScore          Float              @default(0)
+  clusterContributionScore Float              @default(0)
+  marketReadinessScore     Float              @default(0)
+  documentationScore       Float              @default(0)
+  totalScore               Float              @default(0)
+  adminNotes               String?
+  createdAt                DateTime           @default(now())
+  updatedAt                DateTime
+  LegislativeOffice        LegislativeOffice? @relation(fields: [legislativeOfficeId], references: [id])
+  User                     User               @relation(fields: [userId], references: [id])
+
+  @@index([ccsiRegistrationId])
+  @@index([referenceNumber])
+  @@index([userId])
+}
+
+model CcsiBatch {
+  id                  String            @id
+  legislativeOfficeId String
+  status              String            @default("PENDING_VERIFICATION")
+  totalProfiles       Int               @default(0)
+  validProfiles       Int               @default(0)
+  errorProfiles       Int               @default(0)
+  riskLevel           String?
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime
+  LegislativeOffice   LegislativeOffice @relation(fields: [legislativeOfficeId], references: [id])
+  CcsiProfile         CcsiProfile[]
+}
+
+model CcsiProfile {
+  id                      String             @id
+  legislativeOfficeId     String?
+  batchId                 String?
+  userId                  String?
+  applicationCode         String?            @unique
+  jurisdictionExpiresAt   DateTime?
+  auditLog                Json?
+  applicantCategory       String
+  fullName                String
+  businessName            String?
+  fatherName              String?
+  gender                  String?
+  primaryContact          String
+  alternateContact        String?
+  email                   String?
+  village                 String
+  district                String
+  clusterName             String?
+  primaryCraft            String
+  secondaryCraft          String?
+  yearsExperience         Int?
+  familyLineage           Boolean?
+  giAssociation           String?
+  monthlyCapacity         String?
+  capacityUnit            String?
+  numberOfWorkers         Int?
+  workshopAddress         String?
+  workshopSeparate        Boolean?
+  rawMaterials            String?
+  toolsUsed               String?
+  geoCaptured             Boolean?           @default(false)
+  latitude                Float?
+  longitude               Float?
+  docGovId                String?
+  docArtisanCard          String?
+  docGiCertificate        String?
+  docGst                  String?
+  docUdyam                String?
+  docInstitution          String?
+  completenessScore       Int?
+  salesChannels           Json?
+  consentDeclared         Boolean            @default(false)
+  digitalSignature        String?
+  signature               String?
+  signatureTimestamp      String?
+  status                  String             @default("SUBMITTED")
+  isCommerceInterested    Boolean            @default(false)
+  isProfileCompleted      Boolean            @default(false)
+  sellingOutsideDistrict  Boolean?
+  bankAccountAvailable    Boolean?
+  gstAvailable            String?
+  maintainsPricingRecords Boolean?
+  productionType          String?
+  productionLeadTime      String?
+  standardPackaging       Boolean?
+  courierCapability       Boolean?
+  digitalTools            Json?
+  digitalPaymentsReady    Boolean?
+  productSamples          Json?
+  commerceConsent         Boolean?
+  commerceStatus          String?            @default("INTEREST_SUBMITTED")
+  referralId              String?            @unique
+  referralCode            String?
+  referralStatus          String?
+  riskScore               String?
+  auditAssigned           Boolean            @default(false)
+  createdAt               DateTime           @default(now())
+  updatedAt               DateTime
+  CcsiBatch               CcsiBatch?         @relation(fields: [batchId], references: [id])
+  LegislativeOffice       LegislativeOffice? @relation(fields: [legislativeOfficeId], references: [id])
+  User                    User?              @relation(fields: [userId], references: [id])
+
+  @@index([legislativeOfficeId])
+  @@index([primaryContact])
+}
+
+model CertificatePackage {
+  id          String   @id
+  name        String
+  description String?
+  price       Float
+  features    Json?
+  validity    String?
+  annualFee   Float    @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime
+}
+
+model Certification {
+  id                  String        @id
+  userId              String?
+  type                String
+  name                String
+  amount              Float
+  firstName           String
+  lastName            String
+  email               String
+  phone               String
+  razorpayOrderId     String
+  razorpayPaymentId   String?
+  paymentMethod       PaymentMethod
+  status              String        @default("pending")
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime
+  adminCertificateUrl String?
+  User                User?         @relation(fields: [userId], references: [id])
+}
+
+model Chapter {
+  id                String              @id
+  title             String
+  order             Int
+  publicationId     String
+  createdAt         DateTime            @default(now())
+  updatedAt         DateTime
+  sectionType       String?             @default("chapter")
+  status            String?             @default("DRAFT")
+  summary           String?
+  BookPage          BookPage[]
+  Publication       Publication         @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  ChapterReview     ChapterReview[]
+  Citation          Citation[]
+  EditorialAuditLog EditorialAuditLog[]
+  Section           Section[]
+
+  @@unique([publicationId, order])
+}
+
+model ChapterReview {
+  id             String                @id
+  chapterId      String
+  reviewerId     String
+  role           ReviewerRole          @default(PRIMARY_REVIEWER)
+  blindType      BlindReviewType       @default(OPEN)
+  recommendation ReviewRecommendation?
+  scores         Json?
+  status         ReviewStatus          @default(PENDING)
+  createdAt      DateTime              @default(now())
+  updatedAt      DateTime
+  Chapter        Chapter               @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  User           User                  @relation(fields: [reviewerId], references: [id], onDelete: Cascade)
+  ReviewComment  ReviewComment[]
+}
+
+model Citation {
+  id             String         @id
+  publicationId  String
+  claim          String
+  evidenceStatus EvidenceStatus @default(UNVERIFIED)
+  sourceData     String?
+  chapterId      String?
+  sectionId      String?
+  blockId        String?
+  ContentBlock   ContentBlock?  @relation(fields: [blockId], references: [id])
+  Chapter        Chapter?       @relation(fields: [chapterId], references: [id])
+  Publication    Publication    @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  Section        Section?       @relation(fields: [sectionId], references: [id])
+}
+
+model Collection {
+  id                String          @id
+  canonicalEntityId String          @unique
+  institutionName   String?
+  curationFocus     String?
+  CanonicalEntity   CanonicalEntity @relation(fields: [canonicalEntityId], references: [id])
+}
+
+model CommunityOrganization {
+  id                String            @id
+  org_type          String
+  org_name          String
+  description       String?
+  community_id      String
+  created_at        DateTime          @default(now())
+  updated_at        DateTime
+  WorkshopCommunity WorkshopCommunity @relation(fields: [community_id], references: [id], onDelete: Cascade)
+}
+
+model ConsultationSubmission {
+  id                       String    @id
+  consultationId           String    @unique
+  participantType          String?
+  district                 String?
+  craft                    String?
+  stakeholderType          String?
+  aiNarrative              String?
+  inferredTags             String[]
+  inferredThemes           String[]
+  challenges               Json?
+  opportunityRanking       Json?
+  governmentRecommendation String?
+  industryRecommendation   String?
+  immediateAction          String?
+  intelligenceScore        Int?
+  confidenceLevel          String?
+  qualityIndicators        Json?
+  evidenceCount            Int       @default(0)
+  graphNodes               Json?
+  graphEdges               Json?
+  rawConsultationData      Json?
+  evidenceMetadata         Json?
+  submissionStatus         String    @default("SUBMITTED")
+  status                   String    @default("RECEIVED")
+  internalNotes            String?
+  version                  String    @default("1.0")
+  createdAt                DateTime  @default(now())
+  updatedAt                DateTime
+  submittedAt              DateTime? @default(now())
+}
+
+model ContactSubmission {
+  id        String   @id
+  firstName String
+  lastName  String
+  email     String
+  subject   String
+  message   String
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  artisanId String?
+}
+
+model ContentBlock {
+  id             String           @id
+  sectionId      String
+  order          Int
+  blockType      ContentBlockType
+  content        String
+  evidenceStatus EvidenceStatus?
+  Citation       Citation[]
+  Section        Section          @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+
+  @@unique([sectionId, order])
+}
+
+model ContributorApplication {
+  id                             String              @id
+  submissionNumber               String              @unique
+  status                         ParticipationStatus @default(SUBMITTED)
+  fullName                       String
+  email                          String
+  phone                          String
+  country                        String
+  stateRegion                    String
+  districtCity                   String
+  pinCode                        String?
+  currentAddress                 String?
+  preferredContactMethod         String?
+  contributorCategory            String
+  currentProfession              String
+  organization                   String?
+  highestQualification           String?
+  shortBio                       String
+  linkedinProfile                String?
+  personalWebsite                String?
+  portfolioUrl                   String?
+  orcidProfile                   String?
+  existingHcrfMemberId           String?
+  areasOfContribution            String
+  primaryCraftSpecialisation     String?
+  additionalCraftSpecialisations String?
+  natureOfKnowledge              String?
+  yearsOfExperience              String
+  geographicAvailability         String
+  accessibleDistricts            String?
+  preferredEngagementType        String
+  availability                   String
+  timeCommitment                 String
+  equipmentAndSoftware           String?
+  relevantCertifications         String?
+  relevantTraining               String?
+  referenceName                  String?
+  referenceOrganization          String?
+  referenceRelationship          String?
+  referenceEmail                 String?
+  referencePhone                 String?
+  motivation                     String
+  proposedContribution           String?
+  relevantCommunityAccess        String?
+  conflictOfInterest             String?
+  declarationAccuracy            Boolean             @default(false)
+  declarationRights              Boolean             @default(false)
+  declarationEthical             Boolean             @default(false)
+  declarationConfidentiality     Boolean             @default(false)
+  declarationRepresentation      Boolean             @default(false)
+  declarationSelection           Boolean             @default(false)
+  declarationPrivacy             Boolean             @default(false)
+  notes                          String?
+  reviewerId                     String?
+  isDeleted                      Boolean             @default(false)
+  createdAt                      DateTime            @default(now())
+  updatedAt                      DateTime
+  MediaAsset                     MediaAsset[]        @relation("ContributorMedia")
+}
+
+model Craft {
+  id                   String             @id
+  canonicalEntityId    String             @unique
+  historicalOrigin     String?
+  culturalSignificance String?
+  endangermentStatus   EndangermentStatus @default(STABLE)
+  CanonicalEntity      CanonicalEntity    @relation(fields: [canonicalEntityId], references: [id])
+  HearingCraft         HearingCraft[]
+  SubscriberCraft      SubscriberCraft[]
+}
+
+model DashboardAuditLog {
+  id               String   @id
+  module           String
+  recordType       String
+  recordId         String
+  action           String
+  previousValue    String?
+  newValue         String?
+  notes            String?
+  performedById    String?
+  performedByEmail String?
+  performedByRole  String?
+  ipAddress        String?
+  userAgent        String?
+  createdAt        DateTime @default(now())
+}
+
+model District {
+  id                 String               @id
+  name               String               @unique
+  slug               String               @unique
+  region             String?
+  description        String?
+  displayOrder       Int                  @default(0)
+  enabled            Boolean              @default(true)
+  archivedAt         DateTime?
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime
+  HearingDistrict    HearingDistrict[]
+  SubscriberDistrict SubscriberDistrict[]
+}
+
+model Donation {
+  id            String        @id
+  userId        String?
+  amount        Float
+  donationType  String?
+  firstName     String?
+  lastName      String?
+  email         String?
+  phone         String?
+  address       String?
+  city          String?
+  state         String?
+  zip           String?
+  country       String?
+  paymentMethod PaymentMethod
+  status        String        @default("pending")
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime
+  pool          String?
+  User          User?         @relation(fields: [userId], references: [id])
+}
+
+model DraftFinding {
+  id                        String                      @id
+  assessmentCycleId         String
+  title                     String
+  slug                      String                      @unique
+  findingType               String
+  craftId                   String?
+  districtId                String?
+  themeId                   String?
+  stakeholderGroupId        String?
+  summary                   String
+  fullAnalysis              String
+  majorConcern              String?
+  emergingOpportunity       String?
+  primaryIssue              String?
+  keyOpportunity            String?
+  evidenceStrength          String?
+  confidenceLevel           String?
+  stakeholderCount          Int                         @default(0)
+  evidenceRecordCount       Int                         @default(0)
+  hearingCount              Int                         @default(0)
+  sourceMethod              String?
+  limitations               String?
+  status                    FindingStatus               @default(DRAFT_INTERNAL)
+  version                   Int                         @default(1)
+  createdBy                 String?
+  reviewedBy                String?
+  approvedBy                String?
+  publishedAt               DateTime?
+  validationOpensAt         DateTime?
+  validationClosesAt        DateTime?
+  createdAt                 DateTime                    @default(now())
+  updatedAt                 DateTime
+  AssessmentCycle           AssessmentCycle             @relation(fields: [assessmentCycleId], references: [id])
+  FindingAuditLog           FindingAuditLog[]
+  FindingConsultation       FindingConsultation[]
+  FindingEvidence           FindingEvidence[]
+  FindingHearing            FindingHearing[]
+  FindingValidationResponse FindingValidationResponse[]
+  FindingVersion            FindingVersion[]
+}
+
+model EditorialAuditLog {
+  id            String      @id
+  publicationId String
+  chapterId     String?
+  userId        String?
+  action        String
+  details       String?
+  createdAt     DateTime    @default(now())
+  Chapter       Chapter?    @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  Publication   Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  User          User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model EntityRelationship {
+  id                                                                 String             @id
+  sourceEntityId                                                     String
+  targetEntityId                                                     String
+  relationshipType                                                   RelationshipType
+  confidenceScore                                                    Int?
+  verificationStatus                                                 VerificationStatus @default(UNVERIFIED)
+  sourceReferenceId                                                  String?
+  notes                                                              String?
+  metadata                                                           Json?
+  createdById                                                        String?
+  createdAt                                                          DateTime           @default(now())
+  updatedAt                                                          DateTime
+  deletedAt                                                          DateTime?
+  User                                                               User?              @relation(fields: [createdById], references: [id])
+  CanonicalEntity_EntityRelationship_sourceEntityIdToCanonicalEntity CanonicalEntity    @relation("EntityRelationship_sourceEntityIdToCanonicalEntity", fields: [sourceEntityId], references: [id])
+  SourceReference                                                    SourceReference?   @relation(fields: [sourceReferenceId], references: [id])
+  CanonicalEntity_EntityRelationship_targetEntityIdToCanonicalEntity CanonicalEntity    @relation("EntityRelationship_targetEntityIdToCanonicalEntity", fields: [targetEntityId], references: [id])
+
+  @@unique([sourceEntityId, targetEntityId, relationshipType])
+  @@index([relationshipType, sourceEntityId])
+  @@index([relationshipType, targetEntityId])
+  @@index([sourceEntityId])
+  @@index([targetEntityId])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model EvaluationSubmission {
+  id                  String                 @id
+  userId              String
+  businessName        String?
+  yearsInOperation    Int?
+  craftType           String?
+  annualRevenue       String?
+  website             String?
+  score               Float
+  tier                String?
+  answers             Json
+  status              MemberStatus           @default(PENDING)
+  createdAt           DateTime               @default(now())
+  updatedAt           DateTime
+  evaluationType      String?                @default("SELF_ASSESSMENT")
+  adminCertificateUrl String?
+  trackingId          String?                @unique
+  entityType          RegisterType?
+  origin              VerificationOrigin     @default(KHCRF)
+  caseStatus          VerificationCaseStatus @default(DRAFT)
+  currentRevision     Int                    @default(0)
+  craftloreEntityId   String?
+  snapshotId          String?
+  snapshotSha256      String?
+  methodologyVersion  String?
+  selfReportedPts     Float?
+  submittedAt         DateTime?
+  receivedAt          DateTime?
+  reviewStartedAt     DateTime?
+  completedAt         DateTime?
+  User                User                   @relation(fields: [userId], references: [id])
+  VerificationFinding VerificationFinding[]
+
+  @@index([caseStatus])
+  @@index([craftloreEntityId])
+  @@index([entityType])
+  @@index([origin])
+}
+
+model FellowshipApplication {
+  id              String   @id
+  referenceNumber String   @unique
+  fullName        String
+  email           String
+  phone           String?
+  district        String?
+  education       String?
+  institution     String?
+  position        String?
+  skills          String?
+  statement       String?
+  cvUrl           String?
+  portfolioUrl    String?
+  status          String   @default("SUBMITTED")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime
+  cohortId        String   @default("2026")
+  normalizedEmail String?
+
+  @@unique([cohortId, normalizedEmail, position])
+}
+
+model FindingAuditLog {
+  id           String       @id
+  findingId    String
+  action       String
+  actor        String?
+  details      Json?
+  createdAt    DateTime     @default(now())
+  DraftFinding DraftFinding @relation(fields: [findingId], references: [id], onDelete: Cascade)
+}
+
+model FindingConsultation {
+  id             String       @id
+  findingId      String
+  consultationId String
+  relevanceNote  String?
+  addedAt        DateTime     @default(now())
+  DraftFinding   DraftFinding @relation(fields: [findingId], references: [id], onDelete: Cascade)
+}
+
+model FindingEvidence {
+  id            String       @id
+  findingId     String
+  evidenceId    String
+  relevanceNote String?
+  addedAt       DateTime     @default(now())
+  DraftFinding  DraftFinding @relation(fields: [findingId], references: [id], onDelete: Cascade)
+}
+
+model FindingHearing {
+  id            String       @id
+  findingId     String
+  hearingId     String
+  relevanceNote String?
+  addedAt       DateTime     @default(now())
+  DraftFinding  DraftFinding @relation(fields: [findingId], references: [id], onDelete: Cascade)
+  SkcHearing    SkcHearing   @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+}
+
+model FindingValidationResponse {
+  id                  String                   @id
+  findingId           String
+  respondentName      String
+  respondentEmail     String?
+  organization        String?
+  stakeholderCategory String?
+  responseType        String
+  body                String
+  evidenceUrl         String?
+  status              ValidationResponseStatus @default(SUBMITTED)
+  adminNotes          String?
+  createdAt           DateTime                 @default(now())
+  updatedAt           DateTime
+  DraftFinding        DraftFinding             @relation(fields: [findingId], references: [id], onDelete: Cascade)
+}
+
+model FindingVersion {
+  id            String       @id
+  findingId     String
+  versionNumber Int
+  snapshotData  Json
+  commitMessage String?
+  createdBy     String?
+  createdAt     DateTime     @default(now())
+  DraftFinding  DraftFinding @relation(fields: [findingId], references: [id], onDelete: Cascade)
+}
+
+model GiCraft {
+  id                      String                    @id
+  canonical_name          String
+  gi_application_no       String?
+  gi_registration_no      String?
+  gi_year                 Int?
+  category                String?
+  craftlore_url           String?
+  active                  Boolean                   @default(true)
+  ArtisanAward            ArtisanAward[]
+  ArtisanCraftAffiliation ArtisanCraftAffiliation[]
+  ArtisanGiAuthorization  ArtisanGiAuthorization[]
+  MasterArtisan           MasterArtisan[]
+  WorkshopCommunity       WorkshopCommunity[]
+}
+
+model GlossaryTerm {
+  id                String          @id
+  canonicalEntityId String          @unique
+  termContext       TermContext     @default(GENERAL)
+  regionalDialect   String?
+  CanonicalEntity   CanonicalEntity @relation(fields: [canonicalEntityId], references: [id])
+}
+
+model GrantApplication {
+  id                   String   @id
+  userId               String
+  applicantName        String
+  organizationName     String?
+  applicantType        String
+  otherApplicantType   String?
+  contactNumber        String
+  email                String
+  village              String
+  district             String
+  state                String
+  country              String
+  postalCode           String
+  primaryCraft         String
+  experienceYears      String
+  artisansInvolved     String
+  businessStage        String
+  certificationStatus  String
+  grantTypes           Json
+  grantAmount          String
+  grantPurpose         Json
+  briefDescription     String
+  projectDescription   String
+  livelihoodImpact     String
+  heritageContribution String
+  budgetTools          String?
+  budgetMaterials      String?
+  budgetLabor          String?
+  budgetMarketing      String?
+  budgetOther          String?
+  timeline             String
+  previousGrants       String
+  previousGrantDetails String?
+  progressUpdates      String
+  identityDoc          String?
+  businessDoc          String?
+  craftPhotosDoc       String?
+  supportingDoc        String?
+  status               String   @default("PENDING")
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime
+  User                 User     @relation(fields: [userId], references: [id])
+}
+
+model HearingAuditLog {
+  id         String   @id
+  actorId    String
+  action     String
+  entityType String
+  entityId   String
+  beforeData Json?
+  afterData  Json?
+  ipAddress  String?
+  userAgent  String?
+  createdAt  DateTime @default(now())
+}
+
+model HearingCraft {
+  hearingId  String
+  craftId    String
+  Craft      Craft      @relation(fields: [craftId], references: [id], onDelete: Cascade)
+  SkcHearing SkcHearing @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+
+  @@id([hearingId, craftId])
+}
+
+model HearingDistrict {
+  hearingId  String
+  districtId String
+  District   District   @relation(fields: [districtId], references: [id], onDelete: Cascade)
+  SkcHearing SkcHearing @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+
+  @@id([hearingId, districtId])
+}
+
+model HearingDocument {
+  id                String     @id
+  hearingId         String
+  category          String
+  title             String
+  description       String?
+  version           String?
+  publicationStatus String     @default("DRAFT")
+  fileKey           String?
+  externalUrl       String?
+  mimeType          String?
+  fileSize          Int?
+  checksum          String?
+  publishedAt       DateTime?
+  createdBy         String?
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime
+  SkcHearing        SkcHearing @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+}
+
+model HearingEvidence {
+  id          String     @id
+  hearingId   String
+  title       String
+  url         String
+  description String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime
+  SkcHearing  SkcHearing @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+}
+
+model HearingFormat {
+  id           String       @id
+  name         String       @unique
+  slug         String       @unique
+  description  String?
+  displayOrder Int          @default(0)
+  enabled      Boolean      @default(true)
+  archivedAt   DateTime?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime
+  SkcHearing   SkcHearing[]
+}
+
+model HearingNotificationDelivery {
+  id                            String                        @id
+  hearingId                     String
+  campaignId                    String?
+  subscriberId                  String
+  status                        String                        @default("SENT")
+  sentAt                        DateTime                      @default(now())
+  deliveredAt                   DateTime?
+  failedAt                      DateTime?
+  bouncedAt                     DateTime?
+  errorCode                     String?
+  HearingNotificationSubscriber HearingNotificationSubscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+}
+
+model HearingNotificationSubscriber {
+  id                            String                          @id
+  fullName                      String
+  email                         String                          @unique
+  status                        String                          @default("PENDING_VERIFICATION")
+  verificationTokenHash         String?                         @unique
+  verificationExpiresAt         DateTime?
+  verifiedAt                    DateTime?
+  unsubscribedAt                DateTime?
+  privacyPolicyVersion          String?
+  consentAt                     DateTime                        @default(now())
+  formatPreferences             String[]
+  notificationFrequency         String                          @default("all")
+  createdAt                     DateTime                        @default(now())
+  updatedAt                     DateTime
+  HearingNotificationDelivery   HearingNotificationDelivery[]
+  SubscriberCraft               SubscriberCraft[]
+  SubscriberDistrict            SubscriberDistrict[]
+  SubscriberStakeholderCategory SubscriberStakeholderCategory[]
+  SubscriberTopic               SubscriberTopic[]
+}
+
+model HearingRegistration {
+  id                        String             @id
+  hearingId                 String
+  fullName                  String
+  email                     String
+  phone                     String?
+  organization              String?
+  designation               String?
+  stakeholderCategoryId     String?
+  districtId                String?
+  craftInterests            String[]
+  attendanceType            String
+  accessibilityRequirements String?
+  consentAccepted           Boolean            @default(false)
+  privacyPolicyVersion      String?
+  publicListingConsent      Boolean            @default(false)
+  status                    String             @default("PENDING_VERIFICATION")
+  referenceNumber           String             @unique
+  verificationTokenHash     String?
+  verificationExpiresAt     DateTime?
+  verifiedAt                DateTime?
+  checkedInAt               DateTime?
+  attended                  Boolean            @default(false)
+  cancellationAt            DateTime?
+  cancellationReason        String?
+  createdAt                 DateTime           @default(now())
+  updatedAt                 DateTime
+  stakeholderCategory       String?
+  district                  String?
+  craftInterest             String?
+  accessibilityReq          String?
+  consent                   Boolean            @default(true)
+  dataProvenance            DataProvenance     @default(UNKNOWN)
+  sourceSystem              RecordSourceSystem @default(ONLINE_PORTAL)
+  SkcHearing                SkcHearing         @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+
+  @@index([dataProvenance, status])
+}
+
+model HearingSpeakerAssignment {
+  hearingId     String
+  speakerId     String
+  role          String
+  sessionTitle  String?
+  speakingTopic String?
+  displayOrder  Int        @default(0)
+  status        String     @default("PUBLISHED")
+  SkcHearing    SkcHearing @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+  Speaker       Speaker    @relation(fields: [speakerId], references: [id], onDelete: Cascade)
+
+  @@id([hearingId, speakerId])
+}
+
+model HearingStakeholderCategory {
+  id                            String                          @id
+  name                          String                          @unique
+  slug                          String                          @unique
+  description                   String?
+  displayOrder                  Int                             @default(0)
+  enabled                       Boolean                         @default(true)
+  archivedAt                    DateTime?
+  createdAt                     DateTime                        @default(now())
+  updatedAt                     DateTime
+  SkcHearingStakeholderCategory SkcHearingStakeholderCategory[]
+  SubscriberStakeholderCategory SubscriberStakeholderCategory[]
+}
+
+model HearingTestimony {
+  id                       String                @id
+  hearingId                String
+  assessmentCycleId        String?
+  topicId                  String?
+  title                    String
+  summary                  String?
+  testimonyBody            String
+  submitterName            String
+  submitterEmail           String
+  organization             String?
+  designation              String?
+  stakeholderCategoryId    String?
+  districtId               String?
+  publicAttributionConsent Boolean               @default(true)
+  confidentialityLevel     String                @default("PUBLIC")
+  consentAccepted          Boolean               @default(true)
+  privacyPolicyVersion     String?
+  status                   String                @default("SUBMITTED")
+  reviewerNotes            String?
+  clarificationRequestedAt DateTime?
+  acceptedAt               DateTime?
+  publishedAt              DateTime?
+  createdAt                DateTime              @default(now())
+  updatedAt                DateTime
+  topic                    String?
+  writtenSubmission        String?
+  supportingEvidence       String?
+  attachmentUrl            String?
+  consent                  Boolean               @default(true)
+  publicAttribution        Boolean               @default(true)
+  confidential             Boolean               @default(false)
+  dataProvenance           DataProvenance        @default(UNKNOWN)
+  sourceSystem             RecordSourceSystem    @default(ONLINE_PORTAL)
+  SkcHearing               SkcHearing            @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+  TestimonyAttachment      TestimonyAttachment[]
+
+  @@index([dataProvenance, status])
+}
+
+model HearingTopic {
+  id                     String                   @id
+  name                   String                   @unique
+  slug                   String                   @unique
+  description            String?
+  thematicArea           String?
+  displayOrder           Int                      @default(0)
+  enabled                Boolean                  @default(true)
+  archivedAt             DateTime?
+  createdAt              DateTime                 @default(now())
+  updatedAt              DateTime
+  HearingTopicAssignment HearingTopicAssignment[]
+  SubscriberTopic        SubscriberTopic[]
+}
+
+model HearingTopicAssignment {
+  hearingId    String
+  topicId      String
+  SkcHearing   SkcHearing   @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+  HearingTopic HearingTopic @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@id([hearingId, topicId])
+}
+
+model HearingType {
+  id           String       @id
+  name         String       @unique
+  slug         String       @unique
+  description  String?
+  displayOrder Int          @default(0)
+  enabled      Boolean      @default(true)
+  archivedAt   DateTime?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime
+  SkcHearing   SkcHearing[]
+}
+
+model HeroAnalytics {
+  id                 String    @id
+  heroSlideId        String
+  date               DateTime  @default(now())
+  impressions        Int       @default(0)
+  manualViews        Int       @default(0)
+  completedViews     Int       @default(0)
+  ctaClicks          Int       @default(0)
+  secondaryCtaClicks Int       @default(0)
+  pauseEvents        Int       @default(0)
+  previousClicks     Int       @default(0)
+  nextClicks         Int       @default(0)
+  deviceType         String?
+  audienceSegment    String?
+  HeroSlide          HeroSlide @relation(fields: [heroSlideId], references: [id], onDelete: Cascade)
+}
+
+model HeroConfiguration {
+  id                    String         @id
+  pageKey               String         @unique
+  route                 String
+  pageFamily            String
+  variant               String
+  fixedEyebrow          String?
+  fixedTitle            String?
+  fixedIdentity         String?
+  autoplayEnabled       Boolean        @default(true)
+  autoplayIntervalMs    Int            @default(6000)
+  transitionType        String         @default("crossfade")
+  accentColor           String         @default("#C5A437")
+  animationEnabled      Boolean        @default(true)
+  reducedMotionFallback Boolean        @default(true)
+  showBreadcrumb        Boolean        @default(true)
+  showProgress          Boolean        @default(true)
+  showPauseControl      Boolean        @default(true)
+  active                Boolean        @default(false)
+  status                String         @default("DRAFT")
+  version               Int            @default(1)
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime
+  publishedAt           DateTime?
+  createdBy             String?
+  updatedBy             String?
+  HeroRevision          HeroRevision[]
+  HeroSlide             HeroSlide[]
+}
+
+model HeroRevision {
+  id                  String            @id
+  heroConfigurationId String
+  version             Int
+  snapshot            Json
+  status              String
+  changeSummary       String?
+  createdBy           String?
+  createdAt           DateTime          @default(now())
+  publishedAt         DateTime?
+  rollbackSourceId    String?
+  HeroConfiguration   HeroConfiguration @relation(fields: [heroConfigurationId], references: [id], onDelete: Cascade)
+}
+
+model HeroSlide {
+  id                  String            @id
+  heroConfigurationId String
+  internalName        String
+  eyebrow             String?
+  titleLineOne        String
+  titleConnector      String?
+  titleLineTwo        String
+  description         String
+  quotation           String?
+  primaryCtaLabel     String?
+  primaryCtaUrl       String?
+  secondaryCtaLabel   String?
+  secondaryCtaUrl     String?
+  tertiaryLinkLabel   String?
+  tertiaryLinkUrl     String?
+  meta1               String?
+  meta2               String?
+  meta3               String?
+  meta4               String?
+  layoutVariant       String            @default("editorial-split")
+  contentAlignment    String            @default("left")
+  theme               String            @default("dark")
+  metadata            Json?
+  tags                String[]
+  displayOrder        Int
+  enabled             Boolean           @default(true)
+  startDate           DateTime?
+  endDate             DateTime?
+  phaseTargets        String[]
+  audienceTargets     String[]
+  geographyTargets    String[]
+  stakeholderTargets  String[]
+  campaignPriority    Int               @default(0)
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime
+  createdBy           String?
+  updatedBy           String?
+  HeroAnalytics       HeroAnalytics[]
+  HeroConfiguration   HeroConfiguration @relation(fields: [heroConfigurationId], references: [id], onDelete: Cascade)
+}
+
+model IdempotencyRecord {
+  idempotencyKey String
+  commandType    String
+  aggregateId    String
+  userId         String
+  requestHash    String?
+  resultStatus   String
+  resultPayload  Json?
+  createdAt      DateTime  @default(now())
+  expiresAt      DateTime?
+
+  @@id([userId, commandType, idempotencyKey])
+  @@index([aggregateId])
+  @@index([createdAt])
+}
+
+model Initiative {
+  id          String         @id
+  type        InitiativeType
+  title       String
+  tagline     String
+  description String
+  hashtags    Json
+  images      Json?
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime
+  link        String?
+}
+
+model InstituteProfile {
+  id               String  @id
+  listingId        String  @unique
+  name             String?
+  email            String?
+  address          String?
+  representative   String?
+  repDesignation   String?
+  type             String?
+  websiteUrl       String?
+  missionStatement String?
+  Listing          Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
+
+model JobApplication {
+  id              String            @id
+  jobId           String?
+  fullName        String
+  email           String
+  phone           String
+  resumeUrl       String
+  coverLetter     String?
+  linkedinProfile String?
+  portfolioUrl    String?
+  status          ApplicationStatus @default(PENDING)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime
+  JobPosting      JobPosting?       @relation(fields: [jobId], references: [id])
+}
+
+model JobPosting {
+  id               String           @id
+  slug             String           @unique
+  jobCode          String           @unique
+  title            String
+  department       String
+  location         String
+  type             String
+  salaryRange      String?
+  description      String
+  responsibilities Json
+  requirements     Json
+  status           JobStatus        @default(OPEN)
+  postedAt         DateTime         @default(now())
+  expiresAt        DateTime?
+  updatedAt        DateTime
+  JobApplication   JobApplication[]
+}
+
+model LegislativeOffice {
+  id                     String               @id
+  userId                 String?
+  representativeName     String
+  designation            String
+  constituency           String
+  party                  String?
+  termStart              String
+  termEnd                String
+  officeAddress          String
+  officialEmail          String
+  contactNumber          String
+  officeRepName          String?
+  officeRepDesignation   String?
+  officeRepMobile        String?
+  username               String               @unique
+  primaryGroups          Json?
+  craftSectors           Json
+  intendedUse            Json?
+  campaignDisclaimer     Boolean              @default(true)
+  authDocUrl             String?
+  sealDocUrl             String?
+  digitalSignature       String?
+  status                 String               @default("PENDING")
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime
+  artisanPopulation      String?
+  artisanPresence        String?
+  craftClusters          String?
+  craftIssues            Json?
+  district               String?
+  engagementSummary      String?
+  legislativeBody        String?
+  officialWebsite        String?
+  orgTypes               Json?
+  priorityAreas          String?
+  socialHandle           String?
+  supportRequests        Json?
+  verificationPreference Json?
+  officeImageUrl         String?
+  knownCraft             String?
+  hcrfSupport            Boolean              @default(false)
+  lcadUpdatesConfig      Json?
+  overviewConfig         Json?
+  referralCode           String?              @unique
+  CceApplication         CceApplication[]
+  CcsiBatch              CcsiBatch[]
+  CcsiProfile            CcsiProfile[]
+  User                   User?                @relation(fields: [userId], references: [id])
+  OfficeBlogPost         OfficeBlogPost[]
+  OfficeSubscription     OfficeSubscription[]
+}
+
+model Listing {
+  id                  String             @id
+  userId              String?
+  type                RegisterType
+  fullName            String
+  email               String
+  phone               String
+  address             String
+  status              MemberStatus       @default(PENDING)
+  createdAt           DateTime           @default(now())
+  updatedAt           DateTime
+  adminCertificateUrl String?
+  ArtisanProfile      ArtisanProfile?
+  BusinessProfile     BusinessProfile?
+  InstituteProfile    InstituteProfile?
+  User                User?              @relation(fields: [userId], references: [id])
+  ListingCompliance   ListingCompliance?
+
+  @@index([email])
+}
+
+model ListingCompliance {
+  id                String   @id
+  listingId         String   @unique
+  materialSource    String?
+  craftingProcess   String?
+  isSustainable     Boolean?
+  sustainableDesc   String?
+  paysFairWage      Boolean?
+  supportsGender    Boolean?
+  femaleEmployeePct Int?
+  hasWorkplaceStd   Boolean?
+  workplaceStdDesc  String?
+  childLaborPolicy  Boolean?
+  fairTradeCert     Boolean?
+  fairTradeDoc      String?
+  giCert            Boolean?
+  giCertNumber      String?
+  giCertDoc         String?
+  blockchainCert    Boolean?
+  blockchainCertDoc String?
+  qualityConsent    Boolean?
+  profileConsent    Boolean?
+  complianceAck     Boolean?
+  Listing           Listing  @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
+
+model LoginHistory {
+  id        String   @id
+  userId    String
+  sessionId String?
+  ipAddress String?
+  device    String?
+  loginAt   DateTime @default(now())
+  User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model MagazineIssue {
+  id                      String                    @id
+  issueNumber             String                    @unique
+  title                   String
+  subtitle                String?
+  slug                    String                    @unique
+  coverImage              String?
+  thumbnail               String?
+  coverStory              String?
+  featuredCraft           String?
+  edition                 String?
+  shortDescription        String?
+  featureHighlights       String[]
+  status                  String                    @default("PUBLISHED")
+  visibility              String                    @default("MEMBERS_ONLY")
+  publishedAt             DateTime?
+  coverStoryTitle         String?
+  issueOverview           String?
+  featuredCraftName       String?
+  featuredCraftLabel      String?
+  coverImageAlt           String?
+  readerAssetKey          String?
+  downloadable            Boolean                   @default(false)
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime
+  heroEyebrow             String?
+  heroFooterLine          String?
+  heroKicker              String?
+  heroOverlayStrength     String?                   @default("MEDIUM")
+  heroTextPosition        String?                   @default("BOTTOM_LEFT")
+  publicationMasthead     String?
+  MasterArtisanIssueStory MasterArtisanIssueStory[]
+}
+
+model MasterArtisan {
+  id                                                                          String                    @id
+  khcrf_master_id                                                             String?                   @unique
+  artisan_name                                                                String
+  father_husband_name                                                         String?
+  gender                                                                      String?
+  historical_state                                                            String?
+  current_ut                                                                  String?
+  district                                                                    String?
+  tehsil                                                                      String?
+  panchayat                                                                   String?
+  village_locality                                                            String?
+  primary_craft_id                                                            String?
+  birth_year                                                                  Int?
+  age                                                                         Int?
+  status                                                                      String?
+  practice_status                                                             String?
+  public_mobile                                                               String?
+  public_email                                                                String?
+  historical_address                                                          String?
+  current_public_address                                                      String?
+  government_verified                                                         Boolean                   @default(false)
+  pehchan_verified                                                            Boolean                   @default(false)
+  gi_verified                                                                 Boolean                   @default(false)
+  khcrf_verified                                                              Boolean                   @default(false)
+  evidence_grade                                                              String?
+  last_verified_at                                                            DateTime?
+  created_at                                                                  DateTime                  @default(now())
+  updated_at                                                                  DateTime
+  documentation_level                                                         String?
+  reconciliation_status                                                       String?                   @default("PENDING")
+  craftlore_id                                                                String?                   @unique
+  artisanClass                                                                String?
+  identity_status                                                             String?                   @default("PROVISIONAL")
+  merged_into_artisan_id                                                      String?
+  master_status_basis                                                         String?
+  contact_search_status                                                       String?                   @default("NOT_SEARCHED")
+  gi_search_status                                                            String?                   @default("NOT_SEARCHED")
+  gov_artisan_id_search_status                                                String?                   @default("NOT_SEARCHED")
+  internal_contact_note                                                       String?
+  internal_contact_source                                                     String?
+  internal_mobile                                                             String?
+  pehchan_search_status                                                       String?                   @default("NOT_SEARCHED")
+  record_completeness                                                         String?                   @default("INCOMPLETE")
+  ArtisanAssertion                                                            ArtisanAssertion[]
+  ArtisanAwardRecipient                                                       ArtisanAwardRecipient[]
+  ArtisanCraftAffiliation                                                     ArtisanCraftAffiliation[]
+  ArtisanGiAuthorization                                                      ArtisanGiAuthorization[]
+  ArtisanIdentifier                                                           ArtisanIdentifier[]
+  ArtisanLineageMember_ArtisanLineageMember_artisan_idToMasterArtisan         ArtisanLineageMember[]    @relation("ArtisanLineageMember_artisan_idToMasterArtisan")
+  ArtisanLineageMember_ArtisanLineageMember_related_artisan_idToMasterArtisan ArtisanLineageMember[]    @relation("ArtisanLineageMember_related_artisan_idToMasterArtisan")
+  GiCraft                                                                     GiCraft?                  @relation(fields: [primary_craft_id], references: [id])
+  Source                                                                      Source[]                  @relation("MasterArtisanSources")
+}
+
+model MasterArtisanFeature {
+  id                 String                     @id
+  artisanId          String
+  linkedStoryId      String?
+  headline           String?
+  summary            String?
+  featureImage       String?
+  status             MasterArtisanFeatureStatus @default(DRAFT)
+  accessLevel        MasterArtisanAccessLevel   @default(PUBLIC)
+  startsAt           DateTime?
+  endsAt             DateTime?
+  createdAt          DateTime                   @default(now())
+  updatedAt          DateTime
+  version            Int                        @default(1)
+  Artisan            Artisan                    @relation(fields: [artisanId], references: [id])
+  MasterArtisanStory MasterArtisanStory?        @relation(fields: [linkedStoryId], references: [id])
+
+  @@index([endsAt])
+  @@index([startsAt])
+  @@index([status])
+}
+
+model MasterArtisanIssueStory {
+  id                 String             @id
+  issueId            String
+  storyId            String
+  position           Int                @default(0)
+  isCoverStory       Boolean            @default(false)
+  createdAt          DateTime           @default(now())
+  MagazineIssue      MagazineIssue      @relation(fields: [issueId], references: [id], onDelete: Cascade)
+  MasterArtisanStory MasterArtisanStory @relation(fields: [storyId], references: [id], onDelete: Cascade)
+
+  @@unique([issueId, storyId])
+  @@index([issueId, position])
+  @@index([storyId])
+}
+
+model MasterArtisanSeries {
+  id                       String                     @id
+  slug                     String                     @unique
+  title                    String
+  subtitle                 String?
+  description              String?
+  coverImage               String?
+  status                   MasterArtisanSeriesStatus  @default(PLANNED)
+  accessLevel              MasterArtisanAccessLevel   @default(PUBLIC)
+  publishedAt              DateTime?
+  createdAt                DateTime                   @default(now())
+  updatedAt                DateTime
+  archivedAt               DateTime?
+  version                  Int                        @default(1)
+  MasterArtisanSeriesStory MasterArtisanSeriesStory[]
+
+  @@index([accessLevel])
+  @@index([status, publishedAt])
+}
+
+model MasterArtisanSeriesStory {
+  id                  String              @id
+  seriesId            String
+  storyId             String
+  position            Int                 @default(0)
+  createdAt           DateTime            @default(now())
+  MasterArtisanSeries MasterArtisanSeries @relation(fields: [seriesId], references: [id], onDelete: Cascade)
+  MasterArtisanStory  MasterArtisanStory  @relation(fields: [storyId], references: [id], onDelete: Cascade)
+
+  @@unique([seriesId, storyId])
+  @@index([seriesId, position])
+  @@index([storyId])
+}
+
+model MasterArtisanStory {
+  id                       String                         @id
+  slug                     String                         @unique
+  title                    String
+  subtitle                 String?
+  excerpt                  String?
+  bodyMarkdown             String?
+  bodyJson                 Json?
+  heroImage                String?
+  contributorId            String?
+  authorDisplayName        String?
+  storyType                String
+  primaryCraft             String
+  publicationStatus        MasterArtisanPublicationStatus @default(DRAFT)
+  accessLevel              MasterArtisanAccessLevel       @default(PUBLIC)
+  publishedAt              DateTime?
+  readingMinutes           Int?
+  seoTitle                 String?
+  seoDescription           String?
+  createdAt                DateTime                       @default(now())
+  updatedAt                DateTime
+  archivedAt               DateTime?
+  version                  Int                            @default(1)
+  MasterArtisanFeature     MasterArtisanFeature[]
+  MasterArtisanIssueStory  MasterArtisanIssueStory[]
+  MasterArtisanSeriesStory MasterArtisanSeriesStory[]
+  User                     User?                          @relation(fields: [contributorId], references: [id])
+
+  @@index([accessLevel])
+  @@index([contributorId])
+  @@index([primaryCraft])
+  @@index([publicationStatus, publishedAt])
+  @@index([storyType])
+}
+
+model Material {
+  id                   String               @id
+  canonicalEntityId    String               @unique
+  sourcingRegion       String
+  sustainabilityStatus SustainabilityStatus @default(SUSTAINABLE)
+  processingMethod     String?
+  CanonicalEntity      CanonicalEntity      @relation(fields: [canonicalEntityId], references: [id])
+}
+
+model MediaAsset {
+  id                        String                    @id
+  mediaType                 MediaType
+  storageProvider           String
+  providerId                String?
+  storageKey                String?
+  publicUrl                 String
+  fileName                  String
+  mimeType                  String?
+  sizeBytes                 Int?
+  width                     Int?
+  height                    Int?
+  durationSeconds           Int?
+  checksum                  String?
+  title                     String?
+  altText                   String?
+  caption                   String?
+  credit                    String?
+  photographer              String?
+  copyrightOwner            String?
+  license                   String?
+  attribution               String?
+  sourceReference           String?
+  thumbnailUrl              String?
+  sensitivityClassification SensitivityClassification @default(NONE)
+  metadata                  Json?
+  aiTags                    Json?
+  uploadedById              String?
+  createdAt                 DateTime                  @default(now())
+  updatedAt                 DateTime
+  deletedAt                 DateTime?
+  User                      User?                     @relation(fields: [uploadedById], references: [id])
+  ContributorApplication    ContributorApplication[]  @relation("ContributorMedia")
+  CanonicalEntity           CanonicalEntity[]         @relation("EntityMedia")
+  ArtisanNomination         ArtisanNomination[]       @relation("NominationMedia")
+  StorySubmission           StorySubmission[]         @relation("StoryMedia")
+  SupportDocumentation      SupportDocumentation[]    @relation("SupportDocMedia")
+
+  @@index([mediaType])
+}
+
+model Member {
+  id                String                      @id
+  userId            String                      @unique
+  fullName          String
+  dob               DateTime?
+  gender            Gender?
+  nationality       String?
+  phone             String
+  streetAddress     String?
+  city              String?
+  state             String?
+  country           String?
+  postalCode        String?
+  membershipType    MembershipType
+  paymentMethod     PaymentMethod
+  status            MemberStatus                @default(PENDING)
+  razorpayOrderId   String?                     @unique
+  razorpayPaymentId String?                     @unique
+  createdAt         DateTime                    @default(now())
+  updatedAt         DateTime
+  profileData       Json?
+  applicationStatus MembershipApplicationStatus @default(NOT_SUBMITTED)
+  approvedAt        DateTime?
+  approvedBy        String?
+  expiresAt         DateTime?
+  membershipStatus  MembershipStatus            @default(INACTIVE)
+  permissions       String[]
+  rejectedAt        DateTime?
+  rejectionReason   String?
+  suspendedAt       DateTime?
+  User              User                        @relation(fields: [userId], references: [id])
+}
+
+model Motif {
+  id                  String          @id
+  canonicalEntityId   String          @unique
+  symbolicMeaning     String?
+  geometricProperties Json?
+  CanonicalEntity     CanonicalEntity @relation(fields: [canonicalEntityId], references: [id])
+}
+
+model OfficeBlogPost {
+  id                String            @id
+  officeId          String
+  title             String
+  content           String
+  tags              Json
+  documents         Json?
+  isPinned          Boolean           @default(false)
+  isPublished       Boolean           @default(true)
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime
+  isTakedown        Boolean           @default(false)
+  BlogPostReport    BlogPostReport[]
+  LegislativeOffice LegislativeOffice @relation(fields: [officeId], references: [id])
+}
+
+model OfficeSubscription {
+  id                String            @id
+  userId            String
+  officeId          String
+  createdAt         DateTime          @default(now())
+  LegislativeOffice LegislativeOffice @relation(fields: [officeId], references: [id], onDelete: Cascade)
+  User              User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, officeId])
+}
+
+model OfficialMessage {
+  id                  String    @id
+  referenceNumber     String    @unique
+  slug                String    @unique
+  title               String
+  excerpt             String?
+  body                String
+  language            String    @default("en")
+  translatedBody      String?
+  category            String
+  contributorType     String
+  institutionType     String?
+  status              String    @default("DRAFT")
+  contributorName     String
+  publicDisplayName   String?
+  designation         String?
+  organization        String?
+  biography           String?
+  email               String
+  phone               String?
+  website             String?
+  publicProfileUrl    String?
+  district            String?
+  region              String?
+  country             String?
+  portraitUrl         String?
+  organizationLogoUrl String?
+  signedLetterUrl     String?
+  formattedPdfUrl     String?
+  isFeatured          Boolean   @default(false)
+  isVerified          Boolean   @default(false)
+  authorityVerified   Boolean   @default(false)
+  publicationConsent  Boolean   @default(false)
+  submittedAt         DateTime?
+  verifiedAt          DateTime?
+  approvedAt          DateTime?
+  scheduledAt         DateTime?
+  publishedAt         DateTime?
+  archivedAt          DateTime?
+  createdById         String?
+  reviewedById        String?
+  approvedById        String?
+  editorialNote       String?
+  rejectionReason     String?
+  internalNotes       String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime
+
+  @@index([category, status])
+  @@index([country])
+  @@index([district])
+  @@index([organization])
+  @@index([status, publishedAt])
+}
+
+model OfficialMessageInvitation {
+  id                               String                           @id
+  requestId                        String                           @unique
+  codeHash                         String                           @unique
+  codeDisplaySuffix                String
+  applicantEmail                   String
+  applicantName                    String
+  institution                      String
+  contributorCategory              String
+  status                           String                           @default("ACTIVE")
+  issuedAt                         DateTime                         @default(now())
+  expiresAt                        DateTime
+  firstAccessedAt                  DateTime?
+  lastAccessedAt                   DateTime?
+  revokedAt                        DateTime?
+  completedAt                      DateTime?
+  submissionId                     String?                          @unique
+  issuedByUserId                   String?
+  createdAt                        DateTime                         @default(now())
+  updatedAt                        DateTime
+  OfficialMessageInvitationRequest OfficialMessageInvitationRequest @relation(fields: [requestId], references: [id])
+}
+
+model OfficialMessageInvitationRequest {
+  id                        String                     @id
+  referenceNumber           String                     @unique
+  fullName                  String
+  designation               String?
+  institution               String
+  officialEmail             String
+  proposedRelevance         String?
+  contributorCategory       String
+  reasonForRequest          String
+  consentAccepted           Boolean
+  consentAcceptedAt         DateTime?
+  status                    String                     @default("SUBMITTED")
+  reviewPriority            String?
+  assignedReviewerId        String?
+  reviewerNotes             String?
+  decisionReason            String?
+  invitationIssuedAt        DateTime?
+  invitationToken           String?                    @unique
+  invitationExpiresAt       DateTime?
+  submittedAt               DateTime                   @default(now())
+  reviewedAt                DateTime?
+  createdAt                 DateTime                   @default(now())
+  updatedAt                 DateTime
+  OfficialMessageInvitation OfficialMessageInvitation?
+}
+
+model OfficialMessagePublication {
+  id        String   @id
+  createdAt DateTime @default(now())
+}
+
+model OfficialMessageReview {
+  id        String   @id
+  createdAt DateTime @default(now())
+}
+
+model OfficialMessageSubmission {
+  id        String   @id
+  createdAt DateTime @default(now())
+}
+
+model PageContent {
+  id        String   @id
+  slug      String   @unique
+  title     String
+  content   Json
+  updatedAt DateTime
+}
+
+model PageVisit {
+  id        String   @id
+  pagePath  String
+  ipAddress String?
+  userAgent String?
+  visitedAt DateTime @default(now())
+}
+
+model PartnerApplication {
+  id                 String   @id
+  orgName            String
+  website            String?
+  contactName        String
+  email              String
+  phone              String?
+  country            String
+  collaborationAreas Json
+  otherArea          String?
+  projectTitle       String?
+  projectDescription String?
+  expectedOutcomes   String?
+  collaborationType  Json
+  otherCollaboration String?
+  status             String   @default("PENDING")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime
+  supportingDoc      String?
+  userId             String?
+  logoUrl            String?
+  User               User?    @relation(fields: [userId], references: [id])
+}
+
+model PartnerRegistryEntity {
+  id                 String   @id
+  registryId         String   @unique
+  orgName            String
+  collection         String
+  entityType         String
+  parentId           String?
+  parentName         String?
+  country            String?
+  status             String   @default("ACTIVE")
+  collaborationType  Json?
+  collaborationAreas Json?
+  projectDescription String?
+  website            String?
+  displayOrder       Int      @default(0)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @default(now())
+}
+
+model Product {
+  id                      String          @id
+  canonicalEntityId       String          @unique
+  typicalUse              String?
+  averageCreationTimeDays Int?
+  CanonicalEntity         CanonicalEntity @relation(fields: [canonicalEntityId], references: [id])
+}
+
+model Publication {
+  id                                                            String                       @id
+  title                                                         String
+  subtitle                                                      String?
+  author                                                        String
+  published                                                     String
+  category                                                      String
+  price                                                         Float
+  pages                                                         Int
+  description                                                   String
+  imagePath                                                     String
+  slug                                                          String                       @unique
+  features                                                      Json?
+  tableOfContents                                               Json?
+  language                                                      String?
+  formats                                                       Json?
+  createdAt                                                     DateTime                     @default(now())
+  updatedAt                                                     DateTime
+  categoryId                                                    String?
+  pdfPath                                                       String?
+  type                                                          PublicationType              @default(PDF)
+  accessType                                                    String                       @default("PUBLIC")
+  citationEnabled                                               Boolean                      @default(false)
+  downloadUrl                                                   String?
+  fullContent                                                   String?
+  isMemberOnly                                                  Boolean                      @default(false)
+  isPublic                                                      Boolean                      @default(true)
+  memberDownloadUrl                                             String?
+  previewContent                                                String?
+  publicationType                                               String                       @default("EBOOK")
+  publishedStatus                                               String                       @default("DRAFT")
+  seoDescription                                                String?
+  seoTitle                                                      String?
+  structuredDataType                                            String?                      @default("Book")
+  contributorId                                                 String?
+  metadata                                                      Json?
+  submittedByContributor                                        Boolean                      @default(false)
+  revision                                                      Int                          @default(1)
+  Chapter                                                       Chapter[]
+  Citation                                                      Citation[]
+  EditorialAuditLog                                             EditorialAuditLog[]
+  PublicationCategory                                           PublicationCategory?         @relation(fields: [categoryId], references: [id])
+  User                                                          User?                        @relation(fields: [contributorId], references: [id])
+  PublicationAsset                                              PublicationAsset[]
+  PublicationContributor                                        PublicationContributor[]
+  PublicationDiscoverability                                    PublicationDiscoverability?
+  PublicationEdition                                            PublicationEdition[]
+  PublicationEditorial                                          PublicationEditorial?
+  PublicationEntityRelation                                     PublicationEntityRelation[]
+  PublicationMetadata                                           PublicationMetadata?
+  PublicationReaderExperience                                   PublicationReaderExperience?
+  PublicationRelation_PublicationRelation_sourceIdToPublication PublicationRelation[]        @relation("PublicationRelation_sourceIdToPublication")
+  PublicationRelation_PublicationRelation_targetIdToPublication PublicationRelation[]        @relation("PublicationRelation_targetIdToPublication")
+  PublicationResearch                                           PublicationResearch?
+  PublicationWorkflowHistory                                    PublicationWorkflowHistory[]
+  UserPurchase                                                  UserPurchase[]
+  publication_reviews                                           publication_reviews[]
+
+  @@index([revision])
+}
+
+model PublicationAsset {
+  id              String      @id
+  publicationId   String
+  originChapterId String?
+  assetType       AssetType
+  title           String
+  description     String?
+  referenceId     String?
+  isReusable      Boolean     @default(true)
+  Publication     Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+}
+
+model PublicationCategory {
+  id          String        @id
+  name        String        @unique
+  slug        String        @unique
+  description String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime
+  Publication Publication[]
+}
+
+model PublicationContributor {
+  id            String          @id
+  publicationId String
+  userId        String
+  role          ContributorRole
+  assignedAt    DateTime        @default(now())
+  Publication   Publication     @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+
+  @@unique([publicationId, userId, role])
+}
+
+model PublicationDiscoverability {
+  id             String      @id
+  publicationId  String      @unique
+  seoTitle       String?
+  seoDescription String?
+  jsonLdType     String      @default("Book")
+  canonicalUrl   String?
+  Publication    Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+}
+
+model PublicationEdition {
+  id                 String                    @id
+  publicationId      String
+  version            String
+  edition            String
+  publicationDate    DateTime?
+  isbn               String?
+  doi                String?
+  manuscriptSnapshot Json?
+  status             PublicationWorkflowStatus @default(CONCEPT)
+  createdAt          DateTime                  @default(now())
+  Publication        Publication               @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+
+  @@unique([publicationId, version, edition])
+}
+
+model PublicationEditorial {
+  id                String      @id
+  publicationId     String      @unique
+  executiveSummary  String?
+  whyItMatters      String?
+  objectives        Json?
+  researchQuestions Json?
+  scope             String?
+  audience          Json?
+  learningOutcomes  Json?
+  Publication       Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+}
+
+model PublicationEntityRelation {
+  id            String                     @id
+  publicationId String
+  entityType    KnowledgeEntityType
+  entityId      String
+  entityName    String
+  relationship  KnowledgeRelationshipType?
+  Publication   Publication                @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+
+  @@unique([publicationId, entityType, entityId])
+}
+
+model PublicationMetadata {
+  id                  String      @id
+  publicationId       String      @unique
+  isbn                String?     @unique
+  doi                 String?     @unique
+  publisher           String      @default("HCRF Heritage Press")
+  copyright           String?
+  license             String?
+  keywords            Json?
+  recommendedCitation String?
+  Publication         Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+}
+
+model PublicationReaderExperience {
+  id                   String      @id
+  publicationId        String      @unique
+  estimatedReadingTime Int?
+  estimatedPageCount   Int?
+  estimatedWordCount   Int?
+  difficultyLevel      String?
+  prerequisites        Json?
+  Publication          Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+}
+
+model PublicationRelation {
+  id                                                    String                    @id
+  sourceId                                              String
+  targetId                                              String
+  relationship                                          KnowledgeRelationshipType @default(RELATED_TO)
+  Publication_PublicationRelation_sourceIdToPublication Publication               @relation("PublicationRelation_sourceIdToPublication", fields: [sourceId], references: [id], onDelete: Cascade)
+  Publication_PublicationRelation_targetIdToPublication Publication               @relation("PublicationRelation_targetIdToPublication", fields: [targetId], references: [id], onDelete: Cascade)
+
+  @@unique([sourceId, targetId, relationship])
+}
+
+model PublicationResearch {
+  id               String      @id
+  publicationId    String      @unique
+  methodology      String?
+  primarySources   String?
+  secondarySources String?
+  standards        Json?
+  regulations      Json?
+  geographicScope  Json?
+  timePeriod       String?
+  Publication      Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+}
+
+model PublicationWorkflowHistory {
+  id               String                    @id
+  publicationId    String
+  expectedRevision Int?
+  status           PublicationWorkflowStatus
+  changedBy        String
+  changedAt        DateTime                  @default(now())
+  reason           String?
+  comments         String?
+  Publication      Publication               @relation(fields: [publicationId], references: [id])
+
+  @@index([changedAt])
+  @@index([publicationId])
+}
+
+model ResearchPublication {
+  id                String          @id
+  canonicalEntityId String          @unique
+  doi               String?
+  journalName       String?
+  publicationYear   Int?
+  CanonicalEntity   CanonicalEntity @relation(fields: [canonicalEntityId], references: [id])
+}
+
+model ReviewComment {
+  id            String            @id
+  reviewId      String
+  userId        String
+  commentType   ReviewCommentType
+  content       String
+  createdAt     DateTime          @default(now())
+  ChapterReview ChapterReview     @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  User          User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Section {
+  id            String                @id
+  chapterId     String
+  parentId      String?
+  order         Int
+  title         String
+  status        SectionWorkflowStatus @default(DRAFT)
+  Citation      Citation[]
+  ContentBlock  ContentBlock[]
+  Chapter       Chapter               @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  Section       Section?              @relation("SectionToSection", fields: [parentId], references: [id], onDelete: Cascade)
+  other_Section Section[]             @relation("SectionToSection")
+
+  @@unique([chapterId, parentId, order])
+}
+
+model SkcAdvisoryMember {
+  id        String   @id
+  name      String
+  role      String
+  bio       String?
+  imageUrl  String?
+  status    String   @default("ACTIVE")
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+model SkcConfig {
+  key         String   @id
+  value       Json
+  description String?
+  updatedAt   DateTime
+}
+
+model SkcDataClassificationAudit {
+  id                 String                  @id
+  entityType         SkcClassifiedEntityType
+  recordId           String
+  previousProvenance DataProvenance
+  newProvenance      DataProvenance
+  previousSource     RecordSourceSystem
+  newSource          RecordSourceSystem
+  reason             String
+  batchId            String
+  idempotencyKey     String                  @unique
+  classifiedById     String?
+  classifiedAt       DateTime                @default(now())
+  User               User?                   @relation(fields: [classifiedById], references: [id])
+
+  @@index([batchId])
+  @@index([classifiedAt])
+  @@index([classifiedById])
+  @@index([entityType, recordId])
+}
+
+model SkcEvidence {
+  id                         String                @id
+  referenceNumber            String                @unique
+  title                      String
+  slug                       String                @unique
+  description                String?
+  evidenceType               String
+  category                   String?
+  district                   String?
+  craftSector                String?
+  organization               String?
+  contributorName            String?
+  email                      String?
+  source                     String?
+  publicationDate            DateTime?
+  provenance                 String?
+  relevance                  String?
+  copyrightDeclaration       Boolean               @default(false)
+  attributionPreference      Boolean               @default(false)
+  confidentialityExplanation String?
+  visibility                 String                @default("REVIEW_ONLY")
+  status                     String                @default("SUBMITTED")
+  fileUrl                    String?
+  fileType                   String?
+  fileSize                   Int?
+  tags                       String[]
+  assessmentCycle            String                @default("2026")
+  isReferencedInDraft        Boolean               @default(false)
+  isReferencedInFinal        Boolean               @default(false)
+  createdAt                  DateTime              @default(now())
+  updatedAt                  DateTime
+  dataProvenance             DataProvenance        @default(UNKNOWN)
+  sourceSystem               RecordSourceSystem    @default(ONLINE_PORTAL)
+  SkcEvidenceAuditLog        SkcEvidenceAuditLog[]
+
+  @@index([dataProvenance, status])
+}
+
+model SkcEvidenceAuditLog {
+  id          String      @id
+  evidenceId  String
+  actorId     String
+  action      String
+  notes       String?
+  createdAt   DateTime    @default(now())
+  SkcEvidence SkcEvidence @relation(fields: [evidenceId], references: [id], onDelete: Cascade)
+}
+
+model SkcFinding {
+  id            String   @id
+  title         String
+  content       String
+  status        String   @default("DRAFT")
+  phase         String?
+  district      String?
+  author        String?
+  attachmentUrl String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime
+}
+
+model SkcHearing {
+  id                            String                          @id
+  code                          String                          @default("LEGACY")
+  assessmentCycleId             String?
+  title                         String
+  slug                          String                          @unique
+  shortSummary                  String
+  fullDescription               String?
+  purpose                       String?
+  objectives                    String?
+  expectedOutcomes              String?
+  hearingTypeId                 String?
+  formatId                      String?
+  status                        String                          @default("DRAFT")
+  publicationStatus             String                          @default("DRAFT")
+  registrationStatus            String                          @default("CLOSED")
+  startAt                       DateTime?
+  endAt                         DateTime?
+  timezone                      String                          @default("IST")
+  registrationOpensAt           DateTime?
+  registrationClosesAt          DateTime?
+  capacity                      Int                             @default(0)
+  waitlistEnabled               Boolean                         @default(false)
+  venueName                     String?
+  venueAddress                  String?
+  virtualPlatform               String?
+  virtualJoinUrlEncrypted       String?
+  publicMeetingUrl              String?
+  accessibilityInformation      String?
+  contactName                   String?
+  contactEmail                  String?
+  publicNoticeId                String?
+  agendaId                      String?
+  createdBy                     String?
+  updatedBy                     String?
+  publishedBy                   String?
+  publishedAt                   DateTime?
+  postponedAt                   DateTime?
+  cancelledAt                   DateTime?
+  completedAt                   DateTime?
+  archivedAt                    DateTime?
+  cancellationReason            String?
+  postponementNotice            String?
+  date                          DateTime?
+  time                          String?
+  venue                         String?
+  meetingLink                   String?
+  district                      String?
+  craftFocus                    String?
+  topics                        String[]
+  agenda                        String?
+  stakeholderCategories         String[]
+  panelChair                    String?
+  moderators                    String[]
+  registrationDeadline          DateTime?
+  contactInfo                   String?
+  accessibilityInfo             String?
+  summary                       String?
+  recordingUrl                  String?
+  transcriptUrl                 String?
+  minutesUrl                    String?
+  recommendations               String?
+  photos                        String[]
+  statistics                    Json?
+  attendeeCount                 Int                             @default(0)
+  createdAt                     DateTime                        @default(now())
+  updatedAt                     DateTime
+  dataProvenance                DataProvenance                  @default(UNKNOWN)
+  isPublic                      Boolean                         @default(false)
+  sourceSystem                  RecordSourceSystem              @default(ONLINE_PORTAL)
+  assessmentQuestions           String[]
+  coverageDistricts             String[]
+  regionalCoverageLabel         String?
+  eventType                     String                          @default("PUBLIC_HEARING")
+  activityType                  String?                         @default("PUBLIC_HEARING")
+  timelineVisible               Boolean?                        @default(true)
+  hearingVisible                Boolean?                        @default(true)
+  publicNoticeVisible           Boolean?                        @default(false)
+  hearingStartsAt               DateTime?                       @db.Timestamptz(6)
+  hearingEndsAt                 DateTime?                       @db.Timestamptz(6)
+  testimonyOpensAt              DateTime?                       @db.Timestamptz(6)
+  testimonyClosesAt             DateTime?                       @db.Timestamptz(6)
+  statusOverride                String?
+  allowLateSubmission           Boolean                         @default(true)
+  lateSubmissionReviewRequired  Boolean                         @default(true)
+  FindingHearing                FindingHearing[]
+  HearingCraft                  HearingCraft[]
+  HearingDistrict               HearingDistrict[]
+  HearingDocument               HearingDocument[]
+  HearingEvidence               HearingEvidence[]
+  HearingRegistration           HearingRegistration[]
+  HearingSpeakerAssignment      HearingSpeakerAssignment[]
+  HearingTestimony              HearingTestimony[]
+  HearingTopicAssignment        HearingTopicAssignment[]
+  AssessmentCycle               AssessmentCycle?                @relation(fields: [assessmentCycleId], references: [id])
+  HearingFormat                 HearingFormat?                  @relation(fields: [formatId], references: [id])
+  HearingType                   HearingType?                    @relation(fields: [hearingTypeId], references: [id])
+  SkcHearingStakeholderCategory SkcHearingStakeholderCategory[]
+  skc_hearing_theme_assignments skc_hearing_theme_assignments[]
+
+  @@unique([assessmentCycleId, code])
+  @@index([dataProvenance, publicationStatus, status])
+}
+
+model SkcHearingStakeholderCategory {
+  hearingId                  String
+  stakeholderCategoryId      String
+  SkcHearing                 SkcHearing                 @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+  HearingStakeholderCategory HearingStakeholderCategory @relation(fields: [stakeholderCategoryId], references: [id], onDelete: Cascade)
+
+  @@id([hearingId, stakeholderCategoryId])
+}
+
+model SkcInstitution {
+  id                String   @id
+  name              String
+  type              String
+  district          String?
+  contactPerson     String?
+  email             String?
+  status            String   @default("ACTIVE")
+  participationType String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime
+}
+
+model SkcInstitutionRegistration {
+  id                      String             @id
+  userId                  String?            @unique
+  referenceNumber         String             @unique
+  participationScope      String
+  institutionName         String
+  category                String
+  website                 String?
+  country                 String
+  stateProvince           String?
+  districtCity            String?
+  primaryLocation         String?
+  operationalCoverage     String?
+  representativeName      String
+  designation             String
+  email                   String
+  phone                   String
+  participationTypes      String[]
+  areasOfExpertise        String[]
+  profile                 String?
+  proposedContribution    String?
+  authConsent             Boolean            @default(false)
+  authConsentAt           DateTime?
+  privacyConsent          Boolean            @default(false)
+  privacyConsentAt        DateTime?
+  publicDirectoryConsent  Boolean            @default(false)
+  communicationsConsent   Boolean            @default(false)
+  communicationsConsentAt DateTime?
+  status                  String             @default("SUBMITTED")
+  reviewerNotes           String?
+  assignedReviewerId      String?
+  reviewedAt              DateTime?
+  verifiedAt              DateTime?
+  approvedAt              DateTime?
+  submittedAt             DateTime           @default(now())
+  createdAt               DateTime           @default(now())
+  updatedAt               DateTime
+  dataProvenance          DataProvenance     @default(UNKNOWN)
+  sourceSystem            RecordSourceSystem @default(ONLINE_PORTAL)
+  User                    User?              @relation(fields: [userId], references: [id])
+
+  @@index([dataProvenance, status])
+}
+
+model SkcOfficialMessage {
+  id                           String                        @id
+  referenceNumber              String                        @unique
+  slug                         String                        @unique
+  fullName                     String
+  publicDisplayName            String?
+  honorific                    String?
+  designation                  String
+  institution                  String
+  department                   String?
+  contributorCategory          String
+  institutionType              String?
+  officialEmail                String
+  phone                        String?
+  country                      String
+  region                       String?
+  district                     String?
+  title                        String?
+  fullBody                     String?
+  excerpt                      String?
+  themes                       String[]
+  language                     String                        @default("English")
+  translation                  String?
+  photographUrl                String?
+  photographStatus             String                        @default("PENDING")
+  photographAltText            String?
+  photographSettings           Json?
+  institutionLogoUrl           String?
+  signedLetterUrl              String?
+  signedLetterStatus           String                        @default("PENDING")
+  supportingFiles              Json?
+  identityStatus               String                        @default("PENDING")
+  authorityStatus              String                        @default("PENDING")
+  editorialStatus              String                        @default("PENDING")
+  consentStatus                String                        @default("PENDING")
+  contributorApproval          String                        @default("PENDING")
+  workflowStatus               String                        @default("SUBMITTED")
+  editorialNotes               String?
+  internalNotes                String?
+  assignedReviewerId           String?
+  categoryId                   String
+  isFeatured                   Boolean                       @default(false)
+  displayPriority              Int                           @default(0)
+  scheduledFor                 DateTime?
+  publishedAt                  DateTime?
+  unpublishedAt                DateTime?
+  archivedAt                   DateTime?
+  pageViews                    Int                           @default(0)
+  pdfDownloads                 Int                           @default(0)
+  invitationId                 String?                       @unique
+  createdAt                    DateTime                      @default(now())
+  updatedAt                    DateTime
+  SkcOfficialMessageCategory   SkcOfficialMessageCategory    @relation(fields: [categoryId], references: [id])
+  SkcOfficialMessageInvitation SkcOfficialMessageInvitation? @relation(fields: [invitationId], references: [id])
+  SkcOfficialMessageAuditLog   SkcOfficialMessageAuditLog[]
+  SkcOfficialMessageRevision   SkcOfficialMessageRevision[]
+}
+
+model SkcOfficialMessageAccessRequest {
+  id                 String   @id
+  referenceNumber    String   @unique
+  fullName           String
+  officialEmail      String
+  designation        String
+  institution        String
+  requestedCategory  String
+  reasonForRequest   String
+  proposedRelevance  String
+  consentToTerms     Boolean  @default(false)
+  status             String   @default("PENDING")
+  assignedReviewerId String?
+  internalNotes      String?
+  rejectionReason    String?
+  invitationId       String?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime
+}
+
+model SkcOfficialMessageAuditLog {
+  id                 String              @id
+  messageId          String?
+  invitationId       String?
+  actorId            String
+  actorName          String
+  action             String
+  previousValue      Json?
+  newValue           Json?
+  reason             String?
+  ipAddress          String?
+  createdAt          DateTime            @default(now())
+  SkcOfficialMessage SkcOfficialMessage? @relation(fields: [messageId], references: [id])
+}
+
+model SkcOfficialMessageCategory {
+  id                 String               @id
+  title              String
+  slug               String               @unique
+  description        String?
+  icon               String?
+  displayOrder       Int                  @default(0)
+  visibility         Boolean              @default(true)
+  disclaimer         String?
+  isActive           Boolean              @default(true)
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime
+  SkcOfficialMessage SkcOfficialMessage[]
+}
+
+model SkcOfficialMessageInvitation {
+  id                    String              @id
+  tokenHash             String              @unique
+  tokenLastFour         String
+  purpose               String?
+  fullName              String
+  publicDisplayName     String?
+  honorific             String?
+  designation           String
+  institution           String
+  department            String?
+  contributorCategory   String
+  institutionType       String?
+  officialEmail         String
+  phone                 String?
+  country               String
+  region                String?
+  district              String?
+  preferredLanguage     String              @default("English")
+  expiryDate            DateTime
+  assignedReviewerId    String?
+  internalPriority      String              @default("NORMAL")
+  invitationNote        String?
+  targetPublicationDate DateTime?
+  categoryId            String?
+  status                String              @default("DRAFT")
+  maxUses               Int                 @default(1)
+  useCount              Int                 @default(0)
+  resubmissionAllowed   Boolean             @default(false)
+  createdBy             String?
+  sentAt                DateTime?
+  firstAccessedAt       DateTime?
+  lastAccessedAt        DateTime?
+  completedAt           DateTime?
+  revokedAt             DateTime?
+  revokedBy             String?
+  revocationReason      String?
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime
+  SkcOfficialMessage    SkcOfficialMessage?
+}
+
+model SkcOfficialMessageRevision {
+  id                 String             @id
+  messageId          String
+  content            String
+  excerpt            String?
+  title              String?
+  changedBy          String
+  changeReason       String?
+  createdAt          DateTime           @default(now())
+  SkcOfficialMessage SkcOfficialMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+}
+
+model SkcOfficialMessageSettings {
+  id                         String    @id @default("global")
+  consultationOpeningDate    DateTime?
+  consultationClosingDate    DateTime?
+  invitedSubmissionsEnabled  Boolean   @default(true)
+  invitationRequestsEnabled  Boolean   @default(true)
+  publicRegisterEnabled      Boolean   @default(true)
+  featuredMessagesEnabled    Boolean   @default(true)
+  emptyCategoryVisibility    Boolean   @default(true)
+  defaultSort                String    @default("publishedAt_desc")
+  recordsPerPage             Int       @default(20)
+  downloadCenterVisibility   Boolean   @default(true)
+  invitationValidityDays     Int       @default(30)
+  messageLengthLimit         Int       @default(2000)
+  requirePhotograph          Boolean   @default(true)
+  requireSignedLetter        Boolean   @default(true)
+  requireInstitutionLogo     Boolean   @default(false)
+  requireContributorApproval Boolean   @default(true)
+  referenceNumberPrefix      String    @default("SKC2026")
+  referenceNumberType        String    @default("OM")
+  nextSequenceNumber         Int       @default(1)
+  updatedAt                  DateTime
+}
+
+model SkcRegistryResource {
+  id               String    @id
+  title            String
+  slug             String    @unique
+  shortDescription String
+  longDescription  String?
+  category         String
+  documentType     String
+  version          String
+  status           String    @default("DRAFT")
+  language         String    @default("en")
+  fileUrl          String
+  storageKey       String?
+  originalFilename String?
+  publicFilename   String?
+  mimeType         String?
+  fileSizeBytes    Int?
+  checksum         String?
+  publicationDate  DateTime?
+  effectiveDate    DateTime?
+  expiryDate       DateTime?
+  lastUpdatedAt    DateTime?
+  displayOrder     Int       @default(0)
+  isFeatured       Boolean   @default(false)
+  isPublic         Boolean   @default(false)
+  downloadCount    Int       @default(0)
+  viewCount        Int       @default(0)
+  createdBy        String?
+  updatedBy        String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime
+
+  @@index([category])
+  @@index([status])
+}
+
+model SkcRegistryResourceVersion {
+  id               String   @id
+  resourceId       String
+  title            String
+  version          String
+  status           String
+  fileUrl          String
+  storageKey       String?
+  originalFilename String?
+  publicFilename   String?
+  mimeType         String?
+  fileSizeBytes    Int?
+  checksum         String?
+  createdBy        String?
+  notes            String?
+  publishedAt      DateTime @default(now())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime
+
+  @@index([resourceId])
+}
+
+model SkcScheduleOverride {
+  id            String                    @id
+  cycleYear     Int                       @default(2026)
+  milestoneCode SkcMilestoneCode
+  originalAt    DateTime
+  overrideAt    DateTime
+  reason        String
+  status        SkcScheduleOverrideStatus @default(DRAFT)
+  approvedById  String?
+  approvedAt    DateTime?
+  isActive      Boolean                   @default(false)
+  createdAt     DateTime                  @default(now())
+  updatedAt     DateTime
+  User          User?                     @relation(fields: [approvedById], references: [id])
+
+  @@index([approvedById])
+  @@index([cycleYear, milestoneCode, status, isActive])
+}
+
+model SkcStakeholderRegistration {
+  id                                                 String             @id
+  userId                                             String?            @unique
+  referenceNumber                                    String             @unique
+  fullName                                           String
+  organization                                       String?
+  category                                           String
+  designation                                        String?
+  district                                           String?
+  country                                            String?
+  stateProvinceRegion                                String?
+  city                                               String?
+  districtOfOrigin                                   String?
+  locationType                                       String?
+  craftSector                                        String?
+  email                                              String
+  phone                                              String?
+  website                                            String?
+  participationModes                                 String[]
+  consent                                            Boolean            @default(false)
+  consentAt                                          DateTime?
+  participationScope                                 String             @default("BOTH")
+  status                                             String             @default("SUBMITTED")
+  submittedAt                                        DateTime           @default(now())
+  createdAt                                          DateTime           @default(now())
+  updatedAt                                          DateTime
+  dataProvenance                                     DataProvenance     @default(UNKNOWN)
+  sourceSystem                                       RecordSourceSystem @default(ONLINE_PORTAL)
+  verifiedAt                                         DateTime?
+  verifiedById                                       String?
+  User_SkcStakeholderRegistration_userIdToUser       User?              @relation("SkcStakeholderRegistration_userIdToUser", fields: [userId], references: [id])
+  User_SkcStakeholderRegistration_verifiedByIdToUser User?              @relation("SkcStakeholderRegistration_verifiedByIdToUser", fields: [verifiedById], references: [id])
+
+  @@index([dataProvenance, status])
+  @@index([dataProvenance, verifiedAt])
+  @@index([verifiedById])
+}
+
+model Source {
+  id                      String                    @id
+  source_agency           String?
+  source_title            String
+  source_url              String?
+  document_date           DateTime?
+  retrieved_at            DateTime?
+  source_type             String?
+  document_hash           String?
+  document_hash_algorithm String?
+  notes                   String?
+  ArtisanAssertion        ArtisanAssertion[]
+  ArtisanAward            ArtisanAward[]
+  ArtisanCraftAffiliation ArtisanCraftAffiliation[]
+  ArtisanGiAuthorization  ArtisanGiAuthorization[]
+  ArtisanIdentifier       ArtisanIdentifier[]
+  ArtisanLineageMember    ArtisanLineageMember[]
+  MasterArtisan           MasterArtisan[]           @relation("MasterArtisanSources")
+}
+
+model SourceReference {
+  id                 String               @id
+  entityId           String
+  sourceType         SourceType
+  title              String?
+  author             String?
+  publisher          String?
+  year               Int?
+  doi                String?
+  citationText       String
+  url                String?
+  confidenceScore    Int?
+  metadata           Json?
+  createdById        String?
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime
+  deletedAt          DateTime?
+  EntityRelationship EntityRelationship[]
+  User               User?                @relation(fields: [createdById], references: [id])
+  CanonicalEntity    CanonicalEntity      @relation(fields: [entityId], references: [id])
+
+  @@index([entityId])
+}
+
+model Speaker {
+  id                       String                     @id
+  name                     String
+  slug                     String                     @unique
+  designation              String?
+  institution              String?
+  biography                String?
+  expertise                String?
+  photo                    String?
+  publicEmailOptional      String?
+  profileVisibility        Boolean                    @default(true)
+  consentConfirmed         Boolean                    @default(false)
+  createdAt                DateTime                   @default(now())
+  updatedAt                DateTime
+  HearingSpeakerAssignment HearingSpeakerAssignment[]
+}
+
+model StagingArtisan {
+  id                         String    @id
+  source_authority           String?
+  source_title               String?
+  source_url                 String?
+  source_page                String?
+  source_date                String?
+  source_name_spelling       String?
+  candidate_name             String
+  candidate_father_name      String?
+  candidate_gender           String?
+  craft_raw                  String?
+  craft_normalized           String?
+  craft_gi_no                String?
+  district_raw               String?
+  locality_raw               String?
+  recognition_raw            String?
+  recognition_normalized     String?
+  recognition_year           Int?
+  recognition_year_text      String?
+  recognition_authority      String?
+  pehchan_id                 String?
+  government_artisan_id      String?
+  gi_au_id                   String?
+  entity_type                String?
+  candidate_match_artisan_id String?
+  match_confidence           String?
+  reconciliation_status      String?   @default("DISCOVERED")
+  reject_reason              String?
+  promoted_at                DateTime?
+  promoted_to_artisan_id     String?
+  mining_batch               String?
+  created_at                 DateTime  @default(now())
+  updated_at                 DateTime
+}
+
+model StorySubmission {
+  id                             String              @id
+  submissionNumber               String              @unique
+  status                         ParticipationStatus @default(SUBMITTED)
+  submissionType                 String
+  submissionStage                String
+  primaryEditorialTheme          String
+  primaryCraft                   String
+  secondaryCrafts                String?
+  geographicScope                String
+  authorName                     String
+  authorEmail                    String
+  authorPhone                    String
+  contributorCategory            String
+  country                        String
+  stateRegion                    String?
+  cityDistrict                   String?
+  institutionalAffiliation       String?
+  professionalRole               String?
+  shortBio                       String
+  portfolioUrl                   String?
+  title                          String
+  synopsis                       String
+  subjectFeatured                String?
+  subjectLocation                String?
+  researchDetails                String?
+  previousPublicationStatus      String
+  conflictOfInterest             String?
+  interviewsIncluded             Boolean             @default(false)
+  fieldResearchIncluded          Boolean             @default(false)
+  archiveConsulted               Boolean             @default(false)
+  bibliographyIncluded           Boolean             @default(false)
+  supportingEvidenceAvailable    Boolean             @default(false)
+  existingRecordIds              String?
+  originalityDeclaration         Boolean             @default(false)
+  copyrightDeclaration           Boolean             @default(false)
+  interviewConsent               Boolean             @default(false)
+  accuracyDeclaration            Boolean             @default(false)
+  priorPublicationDeclaration    Boolean             @default(false)
+  sensitiveKnowledgeDeclaration  Boolean             @default(false)
+  editorialReviewAcknowledgement Boolean             @default(false)
+  notes                          String?
+  accessRestrictions             String?
+  translationSupportRequired     String?
+  preferredTimeframe             String?
+  story                          String?
+  contributor                    String?
+  source                         String?
+  reviewerId                     String?
+  isDeleted                      Boolean             @default(false)
+  createdAt                      DateTime            @default(now())
+  updatedAt                      DateTime
+  MediaAsset                     MediaAsset[]        @relation("StoryMedia")
+}
+
+model Studio {
+  id                String          @id
+  canonicalEntityId String          @unique
+  address           String?
+  foundingYear      Int?
+  CanonicalEntity   CanonicalEntity @relation(fields: [canonicalEntityId], references: [id])
+}
+
+model SubscriberCraft {
+  subscriberId                  String
+  craftId                       String
+  Craft                         Craft                         @relation(fields: [craftId], references: [id], onDelete: Cascade)
+  HearingNotificationSubscriber HearingNotificationSubscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+
+  @@id([subscriberId, craftId])
+}
+
+model SubscriberDistrict {
+  subscriberId                  String
+  districtId                    String
+  District                      District                      @relation(fields: [districtId], references: [id], onDelete: Cascade)
+  HearingNotificationSubscriber HearingNotificationSubscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+
+  @@id([subscriberId, districtId])
+}
+
+model SubscriberStakeholderCategory {
+  subscriberId                  String
+  stakeholderCategoryId         String
+  HearingStakeholderCategory    HearingStakeholderCategory    @relation(fields: [stakeholderCategoryId], references: [id], onDelete: Cascade)
+  HearingNotificationSubscriber HearingNotificationSubscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+
+  @@id([subscriberId, stakeholderCategoryId])
+}
+
+model SubscriberTopic {
+  subscriberId                  String
+  topicId                       String
+  HearingNotificationSubscriber HearingNotificationSubscriber @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+  HearingTopic                  HearingTopic                  @relation(fields: [topicId], references: [id], onDelete: Cascade)
+
+  @@id([subscriberId, topicId])
+}
+
+model SupportDocumentation {
+  id                         String              @id
+  submissionNumber           String              @unique
+  status                     ParticipationStatus @default(SUBMITTED)
+  purpose                    String
+  purposeOther               String?
+  title                      String
+  materialType               String
+  primaryCraft               String
+  secondaryCrafts            String?
+  peopleOrInstitutions       String?
+  identifiablePersons        String
+  identifiablePersonsDetails String?
+  historicalContext          String
+  dateType                   String
+  dateEstimate               String?
+  basisForDate               String?
+  placeAssociated            String?
+  placeFound                 String?
+  currentLocation            String?
+  legalOwner                 String
+  currentCustodian           String?
+  ownerType                  String?
+  relationshipToOwner        String
+  ownerAuthorisation         Boolean
+  ownershipDisputed          Boolean?
+  ownershipHistory           String?
+  copyrightStatus            String
+  copyrightHolder            String?
+  permissionPrivateReview    Boolean
+  publicUsePermissions       String?
+  attributionPreference      String
+  preferredCreditLine        String?
+  containsSensitiveInfo      String
+  sensitiveInfoDetails       String?
+  requestedRestrictions      String?
+  digitisationInfo           String?
+  alterationStatus           String?
+  submitterName              String
+  submitterEmail             String
+  submitterPhone             String
+  submitterLocation          String?
+  relationshipToMaterial     String
+  submitterOrganisation      String?
+  authToSubmit               Boolean
+  accuracyDeclaration        Boolean
+  rightsDisclosure           Boolean
+  sensitiveDisclosure        Boolean
+  noAutomaticTransfer        Boolean
+  noGuaranteedPublication    Boolean
+  notes                      String?
+  reviewerId                 String?
+  isDeleted                  Boolean             @default(false)
+  createdAt                  DateTime            @default(now())
+  updatedAt                  DateTime
+  MediaAsset                 MediaAsset[]        @relation("SupportDocMedia")
+}
+
+model TaxonomyCategory {
+  id                     String             @id
+  slug                   String             @unique
+  name                   String
+  description            String?
+  parentId               String?
+  createdAt              DateTime           @default(now())
+  updatedAt              DateTime
+  deletedAt              DateTime?
+  TaxonomyCategory       TaxonomyCategory?  @relation("TaxonomyCategoryToTaxonomyCategory", fields: [parentId], references: [id])
+  other_TaxonomyCategory TaxonomyCategory[] @relation("TaxonomyCategoryToTaxonomyCategory")
+  CanonicalEntity        CanonicalEntity[]  @relation("EntityTaxonomy")
+
+  @@index([parentId])
+}
+
+model Technique {
+  id                     String          @id
+  canonicalEntityId      String          @unique
+  complexityLevel        ComplexityLevel @default(INTERMEDIATE)
+  learningDurationMonths Int?
+  CanonicalEntity        CanonicalEntity @relation(fields: [canonicalEntityId], references: [id])
+}
+
+model TestimonyAttachment {
+  id               String           @id
+  testimonyId      String
+  filename         String
+  storageKey       String
+  mimeType         String
+  size             Int
+  checksum         String?
+  scanStatus       String?
+  publicAccess     Boolean          @default(false)
+  uploadedAt       DateTime         @default(now())
+  HearingTestimony HearingTestimony @relation(fields: [testimonyId], references: [id], onDelete: Cascade)
+}
+
+model Tool {
+  id                      String          @id
+  canonicalEntityId       String          @unique
+  primaryMaterial         String
+  maintenanceRequirements String?
+  CanonicalEntity         CanonicalEntity @relation(fields: [canonicalEntityId], references: [id])
+}
+
+model Transaction {
+  id         String   @id
+  userId     String?
+  amount     Float
+  currency   String   @default("INR")
+  status     String
+  orderId    String   @unique
+  paymentId  String?
+  signature  String?
+  entityId   String?
+  entityType String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime
+}
+
+model User {
+  id                                                                       String                       @id
+  name                                                                     String
+  email                                                                    String                       @unique
+  password                                                                 String
+  avatarUrl                                                                String?
+  isAdmin                                                                  Boolean                      @default(false)
+  isVerified                                                               Boolean                      @default(false)
+  otp                                                                      String?
+  otpExpiresAt                                                             DateTime?
+  role                                                                     Role                         @default(USER)
+  createdAt                                                                DateTime                     @default(now())
+  updatedAt                                                                DateTime
+  currentSessionId                                                         String?
+  isMember                                                                 Boolean                      @default(false)
+  authProvider                                                             String                       @default("local")
+  googleId                                                                 String?                      @unique
+  isTrashed                                                                Boolean                      @default(false)
+  status                                                                   UserStatus                   @default(PENDING)
+  AccreditationApplication                                                 AccreditationApplication[]
+  ApprenticeshipApplication                                                ApprenticeshipApplication[]
+  BlogPostReport                                                           BlogPostReport[]
+  CanonicalEntity                                                          CanonicalEntity[]
+  CceApplication                                                           CceApplication[]
+  CcsiProfile                                                              CcsiProfile[]
+  Certification                                                            Certification[]
+  ChapterReview                                                            ChapterReview[]
+  Donation                                                                 Donation[]
+  EditorialAuditLog                                                        EditorialAuditLog[]
+  EntityRelationship                                                       EntityRelationship[]
+  EvaluationSubmission                                                     EvaluationSubmission[]
+  GrantApplication                                                         GrantApplication[]
+  LegislativeOffice                                                        LegislativeOffice[]
+  Listing                                                                  Listing[]
+  LoginHistory                                                             LoginHistory[]
+  MasterArtisanStory                                                       MasterArtisanStory[]
+  MediaAsset                                                               MediaAsset[]
+  Member                                                                   Member?
+  OfficeSubscription                                                       OfficeSubscription[]
+  PartnerApplication                                                       PartnerApplication[]
+  Publication                                                              Publication[]
+  ReviewComment                                                            ReviewComment[]
+  SkcDataClassificationAudit                                               SkcDataClassificationAudit[]
+  SkcInstitutionRegistration                                               SkcInstitutionRegistration?
+  SkcScheduleOverride                                                      SkcScheduleOverride[]
+  SkcStakeholderRegistration_SkcStakeholderRegistration_userIdToUser       SkcStakeholderRegistration?  @relation("SkcStakeholderRegistration_userIdToUser")
+  SkcStakeholderRegistration_SkcStakeholderRegistration_verifiedByIdToUser SkcStakeholderRegistration[] @relation("SkcStakeholderRegistration_verifiedByIdToUser")
+  SourceReference                                                          SourceReference[]
+  UserPurchase                                                             UserPurchase[]
+  VerificationFinding                                                      VerificationFinding[]
+  VerificationRecord                                                       VerificationRecord[]
+  WorkflowRecord                                                           WorkflowRecord[]
+  donors                                                                   donors?
+  knowledge_intake                                                         knowledge_intake[]
+  publication_reviews                                                      publication_reviews[]
+
+  @@index([email])
+}
+
+model UserPurchase {
+  id            String      @id
+  userId        String
+  publicationId String
+  purchaseDate  DateTime    @default(now())
+  amount        Float
+  transactionId String?
+  Publication   Publication @relation(fields: [publicationId], references: [id])
+  User          User        @relation(fields: [userId], references: [id])
+
+  @@unique([userId, publicationId])
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model VerificationFinding {
+  id                   String                  @id
+  submissionId         String
+  revision             Int
+  factorKey            String
+  selfReportedValue    Json?
+  verifiedValue        Json?
+  status               FactorVerificationState @default(SELF_REPORTED)
+  confidence           Float?
+  reviewerNotes        String?
+  reviewerId           String?
+  reviewedAt           DateTime?
+  verifiedAt           DateTime?
+  createdAt            DateTime                @default(now())
+  updatedAt            DateTime
+  User                 User?                   @relation(fields: [reviewerId], references: [id])
+  EvaluationSubmission EvaluationSubmission    @relation(fields: [submissionId], references: [id])
+
+  @@unique([submissionId, revision, factorKey])
+  @@index([status])
+  @@index([submissionId, revision])
+}
+
+model VerificationRecord {
+  id              String             @id
+  entityId        String
+  verifierId      String
+  status          VerificationStatus
+  notes           String?
+  createdAt       DateTime           @default(now())
+  CanonicalEntity CanonicalEntity    @relation(fields: [entityId], references: [id])
+  User            User               @relation(fields: [verifierId], references: [id])
+
+  @@index([entityId])
+  @@index([verifierId])
+}
+
+model WorkflowRecord {
+  id              String          @id
+  entityId        String
+  actorId         String
+  fromStage       WorkflowStage?
+  toStage         WorkflowStage
+  notes           String?
+  createdAt       DateTime        @default(now())
+  User            User            @relation(fields: [actorId], references: [id])
+  CanonicalEntity CanonicalEntity @relation(fields: [entityId], references: [id])
+
+  @@index([entityId])
+}
+
+model Workshop {
+  id                String            @id
+  khcrf_workshop_id String?           @unique
+  workshop_name     String
+  karkhandar_name   String?
+  registration_id   String?
+  address           String?
+  status            String?
+  community_id      String
+  created_at        DateTime          @default(now())
+  updated_at        DateTime
+  WorkshopCommunity WorkshopCommunity @relation(fields: [community_id], references: [id], onDelete: Cascade)
+}
+
+model WorkshopCommunity {
+  id                               String                  @id
+  khcrf_community_id               String                  @unique
+  community_name                   String
+  alternative_names                String?
+  record_type                      String                  @default("Living Workshop Community")
+  community_type                   String
+  primary_craft_id                 String?
+  associated_crafts                String?
+  specialization                   String?
+  materials                        String?
+  products                         String?
+  production_processes             String?
+  division                         String?
+  district                         String?
+  tehsil                           String?
+  block                            String?
+  village_locality                 String?
+  postal_address                   String?
+  pin_code                         String?
+  latitude                         Float?
+  longitude                        Float?
+  historical_location_name         String?
+  documented_artisans              Int?
+  estimated_artisans               Int?
+  craft_households                 Int?
+  registered_workshops             Int?
+  informal_workshops               Int?
+  master_artisans                  Int?
+  women_artisans                   Int?
+  trainees_apprentices             Int?
+  shgs                             Int?
+  cooperatives                     Int?
+  gi_authorized_users_in_community Int?
+  karkhandar_scheme_units          Int?
+  registered_artisans              Int?
+  pehchan_linked_artisans          Int?
+  government_artisan_ids           Int?
+  gi_status                        String?
+  evidence_grade                   String?
+  current_status                   String?
+  last_verified                    DateTime?
+  sources_count                    Int                     @default(0)
+  created_at                       DateTime                @default(now())
+  updated_at                       DateTime
+  CommunityOrganization            CommunityOrganization[]
+  Workshop                         Workshop[]
+  GiCraft                          GiCraft?                @relation(fields: [primary_craft_id], references: [id])
+}
+
+model advisor_interest_applications {
+  id               String   @id
+  application_id   String   @unique
+  full_name        String
+  email            String
+  phone            String
+  category         String
+  organization     String?
+  district         String
+  short_statement  String
+  cv_file_url      String?
+  cv_file_name     String?
+  cv_file_size     Int?
+  status           String   @default("Received")
+  consent_accepted Boolean
+  source_page      String   @default("/state-of-kashmir-crafts/advisory-council")
+  internal_notes   String?
+  submitted_at     DateTime @default(now())
+  updated_at       DateTime
+}
+
+model audit_logs {
+  id         String   @id
+  userId     String?
+  action     String
+  details    String?
+  ipAddress  String?
+  createdAt  DateTime @default(now())
+  entityId   String?
+  entityType String?
+  newValue   String?
+  oldValue   String?
+  userAgent  String?
+
+  @@index([action])
+  @@index([createdAt])
+  @@index([entityType, entityId])
+  @@index([userId])
+}
+
+model donation_allocations {
+  id                    String                @id
+  donationTransactionId String
+  categoryId            String?
+  amount                Float
+  createdAt             DateTime              @default(now())
+  donation_categories   donation_categories?  @relation(fields: [categoryId], references: [id])
+  donation_transactions donation_transactions @relation(fields: [donationTransactionId], references: [id], onDelete: Cascade)
+}
+
+model donation_categories {
+  id                   String                 @id
+  name                 String                 @unique
+  slug                 String                 @unique
+  description          String?
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime
+  donation_allocations donation_allocations[]
+  donation_intents     donation_intents[]
+}
+
+model donation_intents {
+  id                          String                        @id
+  donorId                     String?
+  amount                      Float
+  currency                    String                        @default("INR")
+  donorType                   String
+  purposeId                   String?
+  purpose                     String?
+  name                        String
+  email                       String
+  phone                       String?
+  isAnonymous                 Boolean                       @default(false)
+  wantsReceipt                Boolean                       @default(true)
+  recognitionConsent          Boolean                       @default(false)
+  razorpayOrderId             String?                       @unique
+  status                      String                        @default("PENDING")
+  createdAt                   DateTime                      @default(now())
+  updatedAt                   DateTime
+  pan                         String?
+  paymentMethod               DonationPaymentMethod         @default(RAZORPAY)
+  donors                      donors?                       @relation(fields: [donorId], references: [id])
+  donation_categories         donation_categories?          @relation(fields: [purposeId], references: [id])
+  donation_transactions       donation_transactions[]
+  offline_payment_submissions offline_payment_submissions[]
+}
+
+model donation_receipts {
+  id                    String                @id
+  donationTransactionId String
+  donorId               String?
+  receiptNumber         String                @unique
+  receiptUrl            String?
+  status                String                @default("GENERATED")
+  createdAt             DateTime              @default(now())
+  donation_transactions donation_transactions @relation(fields: [donationTransactionId], references: [id], onDelete: Cascade)
+  donors                donors?               @relation(fields: [donorId], references: [id])
+
+  @@index([donationTransactionId])
+  @@index([donorId])
+}
+
+model donation_refunds {
+  id                    String                @id
+  donationTransactionId String
+  razorpayRefundId      String                @unique
+  amount                Float
+  status                String
+  reason                String?
+  createdAt             DateTime              @default(now())
+  donation_transactions donation_transactions @relation(fields: [donationTransactionId], references: [id], onDelete: Cascade)
+}
+
+model donation_transactions {
+  id                   String                 @id
+  donationIntentId     String?
+  donorId              String?
+  amount               Float
+  currency             String                 @default("INR")
+  status               String
+  razorpayOrderId      String?
+  razorpayPaymentId    String?                @unique
+  razorpaySignature    String?
+  paymentMethod        String?
+  capturedAt           DateTime?
+  settlementStatus     String                 @default("unreconciled")
+  settlementId         String?
+  metadata             Json?
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime
+  donation_allocations donation_allocations[]
+  donation_receipts    donation_receipts[]
+  donation_refunds     donation_refunds[]
+  donation_intents     donation_intents?      @relation(fields: [donationIntentId], references: [id])
+  donors               donors?                @relation(fields: [donorId], references: [id])
+
+  @@index([createdAt])
+  @@index([donationIntentId])
+  @@index([donorId])
+  @@index([razorpayOrderId])
+  @@index([status])
+}
+
+model donors {
+  id                    String                  @id
+  userId                String?                 @unique
+  name                  String
+  email                 String                  @unique
+  phone                 String?
+  type                  String
+  recognitionConsent    Boolean                 @default(false)
+  isAnonymous           Boolean                 @default(false)
+  createdAt             DateTime                @default(now())
+  updatedAt             DateTime
+  pan                   String?
+  donation_intents      donation_intents[]
+  donation_receipts     donation_receipts[]
+  donation_transactions donation_transactions[]
+  User                  User?                   @relation(fields: [userId], references: [id])
+}
+
+model knowledge_intake {
+  id               String   @id
+  trackingId       String?  @unique
+  userId           String?
+  fullName         String
+  email            String
+  phone            String?
+  country          String
+  roleType         String
+  institution      String?
+  profileLink      String?
+  purpose          String
+  expertise        String
+  craftFocus       String
+  title            String
+  summary          String
+  contributionType String
+  evidence         String?
+  fileUrl          String?
+  sourceNotes      String?
+  status           String   @default("Submitted")
+  assignedEditor   String?
+  adminReview      String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime
+  User             User?    @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
+
+model offline_payment_submissions {
+  id                                String                        @id
+  donationIntentId                  String?
+  paymentMethod                     DonationPaymentMethod
+  amount                            Float
+  currency                          String                        @default("INR")
+  utrNumber                         String?                       @unique
+  paymentDate                       DateTime?
+  originatingBank                   String?
+  accountHolderName                 String?
+  paymentProofUrl                   String?
+  instrumentType                    String?
+  instrumentNumber                  String?
+  issuingBank                       String?
+  instrumentDate                    DateTime?
+  courierTracking                   String?
+  submissionStatus                  String                        @default("SUBMITTED")
+  paymentStatus                     String                        @default("AWAITING_VERIFICATION")
+  receiptStatus                     String                        @default("NOT_ELIGIBLE")
+  verifiedAt                        DateTime?
+  verifiedBy                        String?
+  adminNotes                        String?
+  rejectionReason                   String?
+  duplicateOfId                     String?
+  duplicateReason                   String?
+  createdAt                         DateTime                      @default(now())
+  updatedAt                         DateTime
+  donation_intents                  donation_intents?             @relation(fields: [donationIntentId], references: [id])
+  offline_payment_submissions       offline_payment_submissions?  @relation("offline_payment_submissionsTooffline_payment_submissions", fields: [duplicateOfId], references: [id])
+  other_offline_payment_submissions offline_payment_submissions[] @relation("offline_payment_submissionsTooffline_payment_submissions")
+
+  @@index([createdAt])
+  @@index([donationIntentId])
+  @@index([paymentMethod])
+  @@index([paymentStatus])
+  @@index([verifiedBy])
+}
+
+model publication_reviews {
+  id                      String      @id
+  publicationId           String
+  userId                  String?
+  reviewType              String
+  rating                  Int
+  title                   String?
+  review                  String
+  verifiedReader          Boolean     @default(false)
+  helpfulCount            Int         @default(0)
+  recommendCount          Int         @default(0)
+  reportedCount           Int         @default(0)
+  isExpert                Boolean     @default(false)
+  expertType              String?
+  expertName              String?
+  expertDesignation       String?
+  status                  String      @default("Submitted")
+  reviewerName            String?
+  institution             String?
+  country                 String?
+  disclosure              String?
+  permissionToDisplayName Boolean     @default(true)
+  createdAt               DateTime    @default(now())
+  updatedAt               DateTime
+  Publication             Publication @relation(fields: [publicationId], references: [id], onDelete: Cascade)
+  User                    User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([publicationId])
+  @@index([userId])
+}
+
+model razorpay_webhook_events {
+  id        String   @id
+  eventType String
+  payload   Json
+  processed Boolean  @default(false)
+  error     String?
+  createdAt DateTime @default(now())
+
+  @@index([eventType])
+  @@index([processed])
+}
+
+model skc_assessment_cycles {
+  id                      String    @id
+  status                  String    @default("PREPARING")
+  isActive                Boolean   @default(true)
+  createdAt               DateTime  @default(now())
+  updatedAt               DateTime
+  cycle_id                String    @unique
+  cycle_label             String
+  approved_by             String?
+  approval_date           DateTime?
+  approval_reference      String?
+  cycle_start_date        DateTime?
+  cycle_end_date          DateTime?
+  publication_target_date DateTime?
+}
+
+model skc_consultation_categories {
+  id                      String                    @id
+  name                    String                    @unique
+  slug                    String                    @unique
+  summary                 String?
+  displayOrder            Int                       @default(0)
+  enabled                 Boolean                   @default(true)
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime
+  skc_consultation_themes skc_consultation_themes[]
+}
+
+model skc_consultation_themes {
+  id                            String                          @id
+  categoryId                    String?
+  title                         String
+  slug                          String                          @unique
+  summary                       String?
+  displayOrder                  Int                             @default(0)
+  enabled                       Boolean                         @default(true)
+  icon                          String?
+  color                         String?
+  isPublic                      Boolean                         @default(true)
+  currentStatus                 String                          @default("PLANNING")
+  progress                      Int                             @default(0)
+  nextMilestoneDate             String?
+  nextMilestoneLoc              String?
+  nextMilestoneMode             String?
+  assessmentCycleId             String?
+  createdAt                     DateTime                        @default(now())
+  updatedAt                     DateTime
+  AssessmentCycle               AssessmentCycle?                @relation(fields: [assessmentCycleId], references: [id])
+  skc_consultation_categories   skc_consultation_categories?    @relation(fields: [categoryId], references: [id])
+  skc_hearing_theme_assignments skc_hearing_theme_assignments[]
+}
+
+model skc_districts {
+  id             String   @id
+  name           String   @unique
+  region         String   @default("Kashmir")
+  displayOrder   Int      @default(1)
+  publicVisible  Boolean  @default(true)
+  status         String   @default("Preparing")
+  latitude       Float?
+  longitude      Float?
+  launchSchedule String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime
+}
+
+model skc_hearing_theme_assignments {
+  hearingId               String
+  themeId                 String
+  SkcHearing              SkcHearing              @relation(fields: [hearingId], references: [id], onDelete: Cascade)
+  skc_consultation_themes skc_consultation_themes @relation(fields: [themeId], references: [id], onDelete: Cascade)
+
+  @@id([hearingId, themeId])
+}
+
+model skc_institution_categories {
+  id            String   @id
+  name          String   @unique
+  invitedCount  Int      @default(0)
+  displayOrder  Int      @default(1)
+  publicVisible Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime
+}
+
+model skc_lifecycle_audit_logs {
+  id             String   @id
+  stageId        String
+  stageKey       String
+  previousStatus String
+  newStatus      String
+  updatedBy      String
+  timestamp      DateTime @default(now())
+  reason         String?
+  publicVisible  Boolean  @default(true)
+}
+
+model skc_lifecycle_stages {
+  id                String    @id
+  assessmentCycleId String    @default("2026")
+  key               String    @unique
+  title             String
+  description       String?
+  status            String    @default("NOT_STARTED")
+  order             Int
+  weight            Int       @default(10)
+  startDate         DateTime?
+  targetEndDate     DateTime?
+  completedDate     DateTime?
+  progressPercent   Int?      @default(0)
+  publicVisible     Boolean   @default(true)
+  linkedRoute       String?
+  statusMode        String    @default("MANUAL")
+  updatedAt         DateTime
+  updatedBy         String?
+}
+
+enum ApplicationStatus {
+  PENDING
+  REVIEWED
+  SHORTLISTED
+  REJECTED
+  HIRED
+}
+
+enum AssetType {
+  CRAFTLORE_ARTICLE
+  GLOSSARY_ENTRY
+  DATASET
+  INFOGRAPHIC
+  TIMELINE
+  CASE_STUDY
+  VIDEO
+  PODCAST
+  POLICY_BRIEF
+  FAQ
+  KNOWLEDGE_GRAPH_NODE
+}
+
+enum BlindReviewType {
+  SINGLE_BLIND
+  DOUBLE_BLIND
+  OPEN
+}
+
+enum CanonicalEntityType {
+  KNOWLEDGE_OBJECT
+  HUMAN_OBJECT
+  HERITAGE_OBJECT
+  ADMINISTRATIVE_OBJECT
+  SKC_RECORD
+}
+
+enum ChapterWorkflowStatus {
+  DRAFT
+  READY
+  PUBLISHED
+}
+
+enum ComplexityLevel {
+  BASIC
+  INTERMEDIATE
+  MASTER
+}
+
+enum ContentBlockType {
+  PARAGRAPH
+  HEADING
+  QUOTE
+  TABLE
+  FIGURE
+  IMAGE
+  CALLOUT
+  CODE
+  MERMAID
+  CHECKLIST
+  FORMULA
+  VIDEO
+  AUDIO
+  EMBED
+  REFERENCE
+}
+
+enum ContributorRole {
+  EDITORIAL_OWNER
+  SCIENTIFIC_REVIEWER
+  TECHNICAL_REVIEWER
+  LANGUAGE_EDITOR
+  CITATION_REVIEWER
+  SEO_REVIEWER
+  FINAL_APPROVER
+}
+
+enum DataProvenance {
+  UNKNOWN
+  PRODUCTION
+  IMPORTED
+  SEED
+  DEMO
+  TEST
+}
+
+enum DonationPaymentMethod {
+  RAZORPAY
+  BANK_TRANSFER
+  UPI_STATIC_QR
+  CHEQUE
+  DEMAND_DRAFT
+}
+
+enum EndangermentStatus {
+  THRIVING
+  STABLE
+  VULNERABLE
+  ENDANGERED
+  EXTINCT
+}
+
+enum EvidenceStatus {
+  VERIFIED
+  UNVERIFIED
+  HYPOTHESIS
+  PROHIBITED_UNTIL_SOURCED
+}
+
+enum FactorVerificationState {
+  SELF_REPORTED
+  EVIDENCE_SUBMITTED
+  UNDER_REVIEW
+  DOCUMENT_VERIFIED
+  GROUND_VERIFIED
+  PARTIALLY_VERIFIED
+  MORE_EVIDENCE_REQUIRED
+  DISPUTED
+  REJECTED
+  EXPIRED
+}
+
+enum FindingStatus {
+  DRAFT_INTERNAL
+  ANALYSIS_IN_PROGRESS
+  READY_FOR_EDITORIAL_REVIEW
+  APPROVED_FOR_DRAFT_PUBLICATION
+  PUBLISHED_FOR_VALIDATION
+  UNDER_VALIDATION
+  REVISED_AFTER_VALIDATION
+  APPROVED_FOR_EXPERT_REVIEW
+  FINALIZED
+  ARCHIVED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum InitiativeType {
+  ADVOCACY
+  CAMPAIGN
+  LOBBYING
+}
+
+enum JobStatus {
+  OPEN
+  CLOSED
+  DRAFT
+}
+
+enum KnowledgeEntityType {
+  CRAFT
+  POLICY
+  LAW
+  REGULATION
+  STANDARD
+  PERSON
+  INSTITUTION
+  MARKET
+  COUNTRY
+  CITY
+  DATASET
+  TECHNOLOGY
+  PROCESS
+  GLOSSARY
+  PUBLICATION
+}
+
+enum KnowledgeRelationshipType {
+  ANALYZES
+  REFERENCES
+  USES
+  REGULATED_BY
+  RELATED_TO
+  COMPARES
+  SUPPORTED_BY
+  LOCATED_IN
+  DERIVED_FROM
+}
+
+enum LifecycleStatus {
+  DRAFT
+  IN_REVIEW
+  VERIFIED
+  PUBLISHED
+  SUPERSEDED
+  DEPRECATED
+  ARCHIVED
+}
+
+enum MasterArtisanAccessLevel {
+  PUBLIC
+  REGISTERED_USERS
+  MEMBERS_ONLY
+}
+
+enum MasterArtisanFeatureStatus {
+  DRAFT
+  SCHEDULED
+  ACTIVE
+  EXPIRED
+}
+
+enum MasterArtisanPublicationStatus {
+  DRAFT
+  REVIEW
+  SCHEDULED
+  PUBLISHED
+  ARCHIVED
+}
+
+enum MasterArtisanSeriesStatus {
+  PLANNED
+  ACTIVE
+  PAUSED
+  COMPLETED
+  ARCHIVED
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  AUDIO
+  DOCUMENT
+  ARCHIVE
+  CAD
+  MODEL_3D
+}
+
+enum MemberStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  EXPIRED
+}
+
+enum MembershipApplicationStatus {
+  NOT_SUBMITTED
+  SUBMITTED
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+  WITHDRAWN
+}
+
+enum MembershipStatus {
+  INACTIVE
+  ACTIVE
+  SUSPENDED
+  EXPIRED
+  REVOKED
+}
+
+enum MembershipType {
+  ARTISAN
+  INDIVIDUAL
+  PROFESSIONAL
+  CORPORATE
+  PATRON
+  STUDENT
+}
+
+enum ParticipationStatus {
+  SUBMITTED
+  SCREENING
+  UNDER_REVIEW
+  INFORMATION_REQUESTED
+  EVIDENCE_VERIFICATION
+  FACT_CHECK
+  RIGHTS_REVIEW
+  EDITORIAL_REVIEW
+  CHANGES_REQUESTED
+  APPROVED
+  SCHEDULED
+  PUBLISHED
+  REJECTED
+  CONVERTED_TO_ARTISAN
+  ARCHIVED
+  SHORTLISTED
+  SOURCE_VERIFICATION
+  TECHNICAL_REVIEW
+  VERIFIED
+  LINKED
+  FIELD_VERIFICATION
+}
+
+enum PaymentMethod {
+  UPI
+  BANK_TRANSFER
+  RAZORPAY
+  PAYPAL
+  STRIPE
+}
+
+enum PublicationType {
+  PDF
+  WRITTEN
+}
+
+enum PublicationWorkflowStatus {
+  CONCEPT
+  BLUEPRINT_DRAFT
+  BLUEPRINT_REVIEW
+  BLUEPRINT_APPROVED
+  RESEARCH
+  WRITING
+  INTERNAL_REVIEW
+  TECHNICAL_REVIEW
+  EDITORIAL_REVIEW
+  PUBLISHED
+  REVISION
+  SUPERSEDED
+  ARCHIVED
+}
+
+enum RecordSourceSystem {
+  ONLINE_PORTAL
+  CSV_IMPORT
+  ADMIN_ENTRY
+  LEGACY_IMPORT
+  API
+  MIGRATION
+}
+
+enum RegisterType {
+  ARTISAN
+  BUSINESS
+  INSTITUTION
+}
+
+enum RelationshipType {
+  RELATES_TO
+  USES_MATERIAL
+  USES_TOOL
+  USES_TECHNIQUE
+  PRACTICES_CRAFT
+  MENTORS
+  PART_OF
+  CREATED_BY
+  APPEARS_IN
+  REFERENCES
+  DERIVED_FROM
+  LOCATED_IN
+  CERTIFIED_BY
+  VERIFIED_BY
+  DOCUMENTED_IN
+}
+
+enum ReviewCommentType {
+  PUBLIC_EDITORIAL
+  INTERNAL_NOTE
+  REQUIRED_REVISION
+  SUGGESTED_IMPROVEMENT
+  BLOCKING_ISSUE
+}
+
+enum ReviewRecommendation {
+  ACCEPT
+  MINOR_REVISION
+  MAJOR_REVISION
+  REJECT
+  WITHDRAW
+}
+
+enum ReviewStatus {
+  PENDING
+  IN_PROGRESS
+  SUBMITTED
+  COMPLETED
+}
+
+enum ReviewerRole {
+  PRIMARY_REVIEWER
+  SECONDARY_REVIEWER
+  SUBJECT_EXPERT
+  TECHNICAL_REVIEWER
+  COPY_EDITOR
+  MANAGING_EDITOR
+}
+
+enum Role {
+  SYSTEM_ADMIN
+  ADMIN
+  OPERATIONS_MANAGER
+  USER
+  MEMBERSHIP_MODERATOR
+  MEMBERSHIP_REVIEWER
+  VOLUNTEER_COORDINATOR
+  COMMUNITY_COORDINATOR
+  MASTER_ARTISAN_MODERATOR
+  MASTER_ARTISAN_REVIEWER
+  NOMINATION_REVIEWER
+  STORY_EDITOR
+  RESEARCH_MODERATOR
+  RESEARCH_REVIEWER
+  POLICY_MODERATOR
+  POLICY_REVIEWER
+  ASSESSMENT_ADMINISTRATOR
+  ASSESSMENT_MODERATOR
+  EVIDENCE_REVIEWER
+  PUBLIC_HEARING_MODERATOR
+  EXPERT_REVIEWER
+  VALIDATION_REVIEWER
+  MAGAZINE_EDITOR
+  PUBLICATIONS_EDITOR
+  EDITORIAL_REVIEWER
+  EBOOKS_MODERATOR
+  KNOWLEDGE_MODERATOR
+  GLOSSARY_EDITOR
+  LEARNING_CONTENT_MODERATOR
+  ARCHIVE_CURATOR
+  DOCUMENTATION_MODERATOR
+  ORAL_HISTORY_MODERATOR
+  MEDIA_ARCHIVIST
+  MUSEUM_CURATOR
+  COLLECTIONS_MANAGER
+  ARTIFACT_DOCUMENTATION_MODERATOR
+  COLLECTIONS_CURATOR
+  BUSINESS_SUPPORT_MODERATOR
+  EXPORT_ADVISOR
+  MARKET_DEVELOPMENT_MODERATOR
+  BUYER_RELATIONS_COORDINATOR
+  ADVOCACY_COLLABORATOR
+  CAMPAIGN_COORDINATOR
+  LOBBYING_COLLABORATOR
+  CERTIFICATION_MODERATOR
+  CERTIFICATION_REVIEWER
+  ACCREDITATION_MODERATOR
+  ACCREDITATION_REVIEWER
+  COMPLIANCE_REVIEWER
+  DONATIONS_MODERATOR
+  FINANCE_REVIEWER
+  GRANT_COORDINATOR
+  FUNDRAISING_COORDINATOR
+  MEDIA_MODERATOR
+  PRESS_COORDINATOR
+  PHOTO_EDITOR
+  VIDEO_EDITOR
+  EVENTS_MODERATOR
+  WORKSHOP_COORDINATOR
+  CONFERENCE_COORDINATOR
+  TRAINING_COORDINATOR
+  PARTNER_COORDINATOR
+  INSTITUTION_COORDINATOR
+  INTERNATIONAL_RELATIONS_COORDINATOR
+  WEBSITE_CONTENT_MANAGER
+  SEO_MANAGER
+  DASHBOARD_AUDITOR
+  API_MANAGER
+  DEVELOPER
+  QA_REVIEWER
+  MODERATOR_DONATION
+  MODERATOR_CAREER
+  MODERATOR_CERTIFICATIONS
+  MODERATOR_ACCREDITATION
+  MODERATOR_EBOOKS
+  COLLABORATOR_ADVOCACY
+  COLLABORATOR_CAMPAIGNING
+  COLLABORATOR_LOBBYING
+  COLLABORATOR_EBOOKS
+  RESEARCH_CONTRIBUTOR
+  FIELD_CONTRIBUTOR
+  ARTISAN_CONTRIBUTOR
+  INDUSTRY_CONTRIBUTOR
+  POLICY_CONTRIBUTOR
+  INSTITUTIONAL_PARTNER
+  EDITOR_REVIEWER
+}
+
+enum SectionWorkflowStatus {
+  DRAFT
+  READY
+  PUBLISHED
+}
+
+enum SensitivityClassification {
+  NONE
+  CULTURALLY_SENSITIVE
+  COMMERCIALLY_SENSITIVE
+  PII_SENSITIVE
+}
+
+enum SkcClassifiedEntityType {
+  SKC_STAKEHOLDER_REGISTRATION
+  SKC_INSTITUTION_REGISTRATION
+  SKC_HEARING
+  HEARING_REGISTRATION
+  HEARING_TESTIMONY
+  SKC_EVIDENCE
+}
+
+enum SkcMilestoneCode {
+  DESIGN_START
+  STAKEHOLDER_REGISTRATION_OPEN
+  PUBLIC_PARTICIPATION_OPEN
+  HEARING_ORIENTATION
+  PUBLIC_HEARINGS_START
+  PUBLIC_HEARINGS_END
+  EVIDENCE_REVIEW_START
+  DRAFT_FINDINGS_REVIEW
+  STAKEHOLDER_VALIDATION
+  EXPERT_REVIEW
+  FINAL_REPORT_TABLED
+}
+
+enum SkcScheduleOverrideStatus {
+  DRAFT
+  PENDING_APPROVAL
+  APPROVED
+  REJECTED
+  REVOKED
+}
+
+enum SourceType {
+  FIELD_SURVEY
+  INTERVIEW
+  ARCHIVAL_DOCUMENT
+  ACADEMIC_PUBLICATION
+  MUSEUM_RECORD
+  GOVERNMENT_RECORD
+  OTHER
+}
+
+enum SustainabilityStatus {
+  SUSTAINABLE
+  CONCERN
+  DEPLETED
+}
+
+enum TermContext {
+  WORKSHOP
+  TRADE
+  GENERAL
+}
+
+enum UserStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  SUSPENDED
+  DEACTIVATED
+}
+
+enum ValidationResponseStatus {
+  SUBMITTED
+  UNDER_REVIEW
+  ACCEPTED
+  PARTIALLY_ACCEPTED
+  REJECTED
+  REQUIRES_CLARIFICATION
+  INCORPORATED
+}
+
+enum VerificationCaseStatus {
+  DRAFT
+  SUBMITTED
+  RECEIVED
+  UNDER_REVIEW
+  MORE_EVIDENCE_REQUIRED
+  GROUND_VERIFICATION_REQUIRED
+  GROUND_VERIFICATION_SCHEDULED
+  GROUND_VERIFICATION_COMPLETE
+  READY_FOR_DECISION
+  VERIFICATION_COMPLETED
+  REJECTED
+  SUSPENDED
+  WITHDRAWN
+}
+
+enum VerificationOrigin {
+  CRAFTLORE
+  KHCRF
+}
+
+enum VerificationStatus {
+  UNVERIFIED
+  PARTIALLY_VERIFIED
+  VERIFIED
+  DISPUTED
+  REJECTED
+}
+
+enum VisibilityStatus {
+  PUBLIC
+  RESTRICTED
+  INTERNAL
+  CLASSIFIED
+}
+
+enum WorkflowStage {
+  DRAFTING
+  EDITORIAL_REVIEW
+  EXPERT_REVIEW
+  APPROVAL
+  PUBLISHED
+  ARCHIVED
+}

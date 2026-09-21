@@ -1,0 +1,695 @@
+[
+  {
+    "id": "a8931ed6-d7c3-4838-945b-effe50650f29",
+    "award_id": "8012fbf5-2e03-4bd8-83a6-56b39afaba6a",
+    "artisan_id": "e0cdf04e-1ced-49b8-a282-8a570421b06f",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "18b8b4df-9db3-4130-95a3-0c4a566bea02",
+    "award_id": "249ab29b-67fc-4446-ae2f-462bb357b716",
+    "artisan_id": "e0cdf04e-1ced-49b8-a282-8a570421b06f",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "d62fa13a-2395-4634-b239-66b0283844c7",
+    "award_id": "3347cbe0-c4d2-4bcc-8a47-ab9b0a83c22d",
+    "artisan_id": "9150c3f8-1b22-4270-b7e6-c361ee5e93b0",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "5f0e8c0b-e3d1-4acc-ab93-757831e59d2b",
+    "award_id": "19c1ac0c-e91b-43d3-b1fb-b10b4759d63a",
+    "artisan_id": "9150c3f8-1b22-4270-b7e6-c361ee5e93b0",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "b54a5595-6178-4ab6-b1d6-d80a671c4d66",
+    "award_id": "cd5b4cf5-c578-4311-87fe-781f6bb20fde",
+    "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "ffdd0a7e-5b2d-439f-99ad-521557e7c7c1",
+    "award_id": "233151b1-fbb7-4519-b0b0-77412e507b57",
+    "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "df47512c-2d02-48fb-bf58-54d7af3c1df4",
+    "award_id": "6cf9c3a6-d08e-4b18-828b-666eebffcc8a",
+    "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "1b0976e9-ecf7-484a-af90-4369017208bb",
+    "award_id": "3fc8efa6-b991-4553-974b-d7f6e3d40c52",
+    "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "6d024511-0dbf-4c03-8944-ea20e582f56d",
+    "award_id": "c3581388-0abb-44a0-8326-20d02bb37aaa",
+    "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "cdf3d3d9-bc3d-469c-a41e-dd454caf6410",
+    "award_id": "ca92c944-6332-48a5-abca-dc67971185b5",
+    "artisan_id": "1101c179-f497-4cc6-a53a-0ff4abcea82f",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "78d5c1a0-fff0-4ffe-8b92-ce3f69b59011",
+    "award_id": "51f0af35-68c2-4c1f-bd3d-9986b47ca0a8",
+    "artisan_id": "fc83956a-fb6f-43bd-a43b-a16c9f590dae",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "f7d2501e-9924-454a-9b68-238104bc8224",
+    "award_id": "6ac38b56-f23b-4ceb-863f-bf452e57f5db",
+    "artisan_id": "f450b2a8-06c2-4850-8c9c-e6d17bbf67ad",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "54aab3b4-b028-43ea-a06f-0cd3fc486c05",
+    "award_id": "8939fbb2-dedb-4e25-b372-fc12ad2e4623",
+    "artisan_id": "8b5282a2-a7d3-4cd8-b095-c35e4a204170",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "dbae6aad-06b6-4c00-994b-6ee3f7972d94",
+    "award_id": "cfe3d420-6e8b-4022-8d18-31aeeb2d0064",
+    "artisan_id": "9c1afac8-da30-407e-9ca4-40306e079bb2",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "90d48125-e1a5-4436-8efd-9c743c1b30d0",
+    "award_id": "4538ed52-e110-46af-a443-97b099d0fbd0",
+    "artisan_id": "7d72fe53-a525-47b0-8a9e-3c630a2246fe",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "2db2b367-7112-4615-be1c-abc923a96815",
+    "award_id": "c32a0ce1-901b-4de9-8176-7f3e92ec2553",
+    "artisan_id": "4b73f8b2-ff5c-42fe-aa28-eabf7d1eff20",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "ce5fdf03-2ead-4279-94b5-aaa6cfc5f27b",
+    "award_id": "fb2d2050-aa99-4827-b91d-fb95f3b1796c",
+    "artisan_id": "0d743aad-30d1-4ef5-a776-a1a48d979579",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "21e76537-2d2f-4fa1-b00f-6cdcb4c9f1de",
+    "award_id": "48297e50-4dfd-4c48-a2f5-e1d7e13e32c1",
+    "artisan_id": "f2a86ba9-ee2b-46f3-822a-81fb2000db53",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "dfe1025a-8927-40b0-a112-84a93c38a3a6",
+    "award_id": "9fa233d9-94b8-4142-916c-1c8beca06bef",
+    "artisan_id": "f2a86ba9-ee2b-46f3-822a-81fb2000db53",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "b2505e83-456e-42b4-94f3-58855e2ad1b8",
+    "award_id": "4e021826-c960-4d3e-ab2d-fa97bac92208",
+    "artisan_id": "471f440d-d55e-4e54-aa7c-b9b0402535ae",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "d9a6ad8b-ad9c-443f-9602-eadde17bbb08",
+    "award_id": "25375c17-9412-41cd-a726-dc4ab41ed545",
+    "artisan_id": "471f440d-d55e-4e54-aa7c-b9b0402535ae",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "90c915e3-961b-4b37-9f69-db2fbb6c26ba",
+    "award_id": "02165df5-03d2-4ddc-a385-2735962197d4",
+    "artisan_id": "0c04c882-50fd-4b51-95f4-51580e8de1bd",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "2cda2a8c-26c0-4828-87c4-83c0bc0aed53",
+    "award_id": "68477bbf-49f1-4487-b362-b7f64125b71f",
+    "artisan_id": "1f4f6656-1111-48f1-863a-eb02cc5ca21b",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "0b96d3a8-e6cd-4988-bb27-9a6026f485e9",
+    "award_id": "e9f57c7d-f156-4889-a08c-74b20471ccb6",
+    "artisan_id": "7ced33ed-a2e7-4e24-93e0-5c703147f244",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "2ef8519b-258b-4aa2-a91c-e0638e97e811",
+    "award_id": "6c381fe9-3d13-4f6d-97fb-cb4100253b23",
+    "artisan_id": "01eab8ef-0069-4893-8199-82d56579e8f7",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "bca91a22-eea1-4ca9-ab63-9c3751eb34f1",
+    "award_id": "e14adba0-c102-478c-9d09-73135b964643",
+    "artisan_id": "7ef72e86-3c5b-45e9-b048-fb0895faeba3",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "93021d00-31e5-4a8f-b6cb-daf10c00f098",
+    "award_id": "0a55ab8e-7838-4867-b44f-946741015e76",
+    "artisan_id": "d8787371-fb8b-4053-aae5-8da93e20f718",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "1045aa5f-e65a-407f-a801-f372b471d982",
+    "award_id": "ae80d199-d74e-4c95-835e-a70c6da839c8",
+    "artisan_id": "c497febf-eae8-496a-9c34-046c8db8982c",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "c7c7f7b5-785f-40fa-86df-73b9cab75a25",
+    "award_id": "b3d1ae06-782e-4902-94a9-7bb17d349648",
+    "artisan_id": "fb88de96-c84d-4bf1-a1c2-e4f0f4238bd7",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "477235f1-9df1-41bb-b04f-e41d34f1bcf3",
+    "award_id": "5552a2db-1f7a-49bc-8d38-46c184167b18",
+    "artisan_id": "d56ca55a-8e35-45fb-b12e-3a1d9b14d82a",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "2e4656de-e3e8-492e-b82c-ecb864826003",
+    "award_id": "b7cada68-893f-46e2-a739-0a5759ac27d1",
+    "artisan_id": "7622c486-26de-4e72-a5e0-31359b6251bb",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "4aa1bf2d-1f7a-4a70-980f-642e4e331837",
+    "award_id": "19af9712-3b24-4d27-adc4-b43d44ad2a99",
+    "artisan_id": "621f31a3-ac01-4a22-8780-4284d59f8a2e",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "550980ff-6941-4cb5-95fb-faebcab4e7e8",
+    "award_id": "519c1be7-79c9-4cbc-9ad8-8f36ebbb8d42",
+    "artisan_id": "547c80d4-937d-4242-a75c-778fba60bce5",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "9f736e34-413a-467c-8926-c1084001c6e3",
+    "award_id": "72de8cd4-b83e-4514-8e2c-470855bed40f",
+    "artisan_id": "60cd9850-08a8-462b-82ec-5bf3d945dde1",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "f6eec861-ab07-4af6-b241-e4195de7298d",
+    "award_id": "8877d317-fd5b-437e-8e03-916af81e6a04",
+    "artisan_id": "31e96623-9e45-44ee-b91f-be6924e89c7f",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "ba6268f6-0950-4e94-b0cd-ef06e79392f7",
+    "award_id": "fee651ec-e88b-4487-a099-7db644177b93",
+    "artisan_id": "f9e89337-1ee2-432c-bc7a-b3a4f6861665",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "e23b3526-4017-483d-b951-275eae1aaf56",
+    "award_id": "0867da53-8839-4cae-9017-1e2bb43808b1",
+    "artisan_id": "9150c3f8-1b22-4270-b7e6-c361ee5e93b0",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "aa270c98-62fd-41cd-a5ce-1f5ed830bfbd",
+    "award_id": "3e6feb42-e65a-4baa-9229-47d2e63b6d07",
+    "artisan_id": "f2a86ba9-ee2b-46f3-822a-81fb2000db53",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "23e9645e-f9e7-491f-b7f5-fcaf38ba7dda",
+    "award_id": "0c49f749-36c4-459d-b860-9d7265625bc9",
+    "artisan_id": "fe5e55d9-57b6-474f-94a5-4c775b7ab09d",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "424350a9-ef17-4fe4-9c36-49c18497606c",
+    "award_id": "1828bb9c-048c-4a61-b79c-070b68e61f6a",
+    "artisan_id": "176effd3-c1af-4ece-97f7-c631d3c69ad7",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "a4a49fa8-55ab-4137-9db9-c8b188255709",
+    "award_id": "d2d4e1db-ec55-4aba-8ab4-7c64c905d8a3",
+    "artisan_id": "85edab2e-50a2-4281-89d1-3dfd6e69b599",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "5ebe96d0-44c8-41a7-8595-5e3c381976d0",
+    "award_id": "df744654-2dac-49f2-9acb-4d1917f600dc",
+    "artisan_id": "98e130cc-ca6f-4fa3-9f79-b5c47bdba0a9",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "a682fa04-a870-4809-9512-fdc6ece2f0f9",
+    "award_id": "6990f757-8c56-4266-aa4f-9cb1f8b19006",
+    "artisan_id": "d9aaf25f-799b-4407-bcc9-58448d674778",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "cbab0bc4-2eb3-43d7-bbe1-fcc93f96aaf1",
+    "award_id": "b48c083c-2cb1-43db-b89c-069f8b181f76",
+    "artisan_id": "8a353001-9818-4762-8a02-1a93c2be0b81",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "5c83de32-83db-49b8-995b-fb1d4ba65419",
+    "award_id": "1b08692b-af94-4622-b7b4-fd3034ab3a34",
+    "artisan_id": "1ceaaccd-9ac2-4200-89ae-3e181bbfe649",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "875db089-124a-47fe-b198-9759988c2273",
+    "award_id": "782ace1d-2722-45d6-aa95-e70145dc7974",
+    "artisan_id": "b6d21d7b-e4ad-4b28-93ae-e9fa3e75fa09",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "c2f8cdd6-34b5-417e-94ef-f2445938d12c",
+    "award_id": "c24e4689-8d38-4f32-872e-ea3124edd1e6",
+    "artisan_id": "ba0ec6ce-cde9-44d3-8e4c-d36425f03d0b",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "dc550b99-8d2c-4f19-a18e-c9ffa16b64f8",
+    "award_id": "27922a5d-6e9f-4939-9fec-9aff346ca3c1",
+    "artisan_id": "4d5eb5ec-6ee8-489c-a2a5-fae6f2efb77b",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "29ae362d-7810-491d-8d21-af2d757b53c3",
+    "award_id": "e6a34ad0-e5c8-435e-8544-512e4192493f",
+    "artisan_id": "29b69966-9ebf-4641-a50a-fd63ebf37a87",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "724489ce-39ce-41b2-abb5-8b9da2d1083f",
+    "award_id": "6570f5ef-e464-4221-af25-42e77956cc2d",
+    "artisan_id": "f1bb3349-ae8c-4fe8-a08c-939afe345050",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "ee2a1cd1-3418-4117-9e21-20104f7a721b",
+    "award_id": "a2ac1af9-bf1d-48ab-84f0-ffcd13f5fb34",
+    "artisan_id": "62281ab0-0b40-4a5d-9b97-cd760e702c7b",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "3a9e3ad6-8a8c-4e7d-ae0b-3a6d31cf8336",
+    "award_id": "1e7d86dd-c25e-4ff9-bb9f-e0c3c5b41393",
+    "artisan_id": "d56ca55a-8e35-45fb-b12e-3a1d9b14d82a",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "2f001c5f-437d-4060-a1ef-5832c2174145",
+    "award_id": "f304be9b-ba73-4eac-a1b2-e17a20ee9425",
+    "artisan_id": "31e96623-9e45-44ee-b91f-be6924e89c7f",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "93fbf7ea-96fc-49ff-98ac-3876595a4582",
+    "award_id": "212702fe-9a6e-4037-9e8b-dccfb6541b34",
+    "artisan_id": "71e5324f-6bac-4988-bc83-f879bfa3fed3",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "2a322be4-27be-4e9f-aef8-312d5437d2b2",
+    "award_id": "1db3410c-5cb0-46fc-a701-4f1b882eb842",
+    "artisan_id": "de70e866-c03f-4938-9529-5fbff2bc669d",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "b9099dfe-2b40-4035-ba6e-661d7d390f59",
+    "award_id": "9a098bc3-6ecb-45c2-8218-ad3c3c2e8274",
+    "artisan_id": "62281ab0-0b40-4a5d-9b97-cd760e702c7b",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "89554478-b858-4059-a7ab-cc7d7b33f55a",
+    "award_id": "666a5811-bab2-412c-af30-2d3b834ccebe",
+    "artisan_id": "cd3cd55d-2186-4158-af9e-b1627395a849",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "4b5177f0-0005-4761-a8b4-33dc0ec4f82a",
+    "award_id": "e7bed712-ec23-47c1-a986-ff19601827c9",
+    "artisan_id": "a365a69b-7789-48dd-b8f4-cccadd1fe46f",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "4667c8eb-68cd-4417-b2e8-73f2db07f93e",
+    "award_id": "a2473d9b-9839-4a48-b851-6ee0dff3bdd5",
+    "artisan_id": "8146f1a2-d41c-48dd-ae01-edd06c7a935a",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "0e9265b5-a5e2-4b5c-9d1a-351552d33c4d",
+    "award_id": "3a4de077-cd4b-4133-8e04-eba0edbeba28",
+    "artisan_id": "c3a0c30e-1414-4993-9737-dce5236d6f1e",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "0974468e-69db-408f-a387-7087243d9108",
+    "award_id": "813875ab-1367-40bd-b6cb-1f4b462c1a38",
+    "artisan_id": "3550afb1-1246-4156-aa48-ca9d418280b6",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "0b61cb29-6c1f-43c9-8b0c-36b895203d56",
+    "award_id": "0f85ade6-2d93-4256-b595-7b738be0b000",
+    "artisan_id": "497ca278-efb8-4177-81fe-8cfab778c3f2",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "50f18a0f-0c2f-4654-b18c-6449efbe4ed3",
+    "award_id": "7e389b17-ffab-46e3-8c6d-df8221b14aa1",
+    "artisan_id": "389fa727-e2c9-44b4-8064-76db496e577a",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "e6a2d47b-63d0-46e8-b581-ec94c1667232",
+    "award_id": "f037432a-51be-4046-9365-efa0239a19bd",
+    "artisan_id": "1945bbb7-4159-4ee0-94ee-24208942f8c6",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "c35f9fa3-bd9a-4320-9712-d117dbd7b3bb",
+    "award_id": "73a9bced-821b-4f22-ab11-2ebb0ffebc48",
+    "artisan_id": "51e15830-14a8-447c-97bf-6408a6e94e2d",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "81691a9e-0fea-4fff-a73a-c71eff7231d8",
+    "award_id": "220729c1-923e-44b3-8755-f9ea7897751b",
+    "artisan_id": "1ceaaccd-9ac2-4200-89ae-3e181bbfe649",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "6c367020-bfc7-4762-adb9-e41c9f5d0bf7",
+    "award_id": "8b318eef-4eae-47ca-84b5-79eea2114e8c",
+    "artisan_id": "b6d21d7b-e4ad-4b28-93ae-e9fa3e75fa09",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "30705bf4-890d-407c-8d80-83f321096a54",
+    "award_id": "79e69a31-ce0f-43ae-a33f-6da65fbd11e9",
+    "artisan_id": "e8417e4f-b7f1-480e-9272-a257e22b9f7d",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "a47f3d2f-17a8-4b99-9846-5001cfb0cf4e",
+    "award_id": "8ef78417-a5fa-4d6a-b872-47e31d3044d3",
+    "artisan_id": "d9aaf25f-799b-4407-bcc9-58448d674778",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "d1a239f5-f1a5-42fa-a20c-682d1307981b",
+    "award_id": "bb347174-0946-43d4-922a-6821ce83122a",
+    "artisan_id": "eec1b32b-8a49-49b3-bd6d-ac443be77fe1",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "169fd5db-7a9d-4ff1-b007-80179f198fb9",
+    "award_id": "cc9a5156-05e8-4c4a-833d-18b9956855ad",
+    "artisan_id": "edc18161-1702-48e6-a685-44f9762597b8",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "f97dcd3a-becf-49fb-b2b9-e72e6b297ca6",
+    "award_id": "77a1c247-13bc-444c-90eb-dfdd7b470644",
+    "artisan_id": "d6e4c36d-2545-4b88-bf9b-ecf2351aad19",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "272848fb-166b-44d4-b5ec-b0c7d165220d",
+    "award_id": "2d5a1778-326d-4938-9106-0a714d33902d",
+    "artisan_id": "4e49ce37-7806-4733-98d9-d8c85e658df1",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "276eb570-3569-48e8-a898-ae88880e8b4e",
+    "award_id": "5925966a-dfa3-4e71-b35b-fcc4021d0fac",
+    "artisan_id": "de9ab7ba-18a7-47c9-9877-a0ed9185f4c5",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "bc26c436-cf2c-4a0c-8d43-530451a219be",
+    "award_id": "dde2d8eb-dada-4e65-aa1c-4175598f58dd",
+    "artisan_id": "c497febf-eae8-496a-9c34-046c8db8982c",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "a8c7ed94-0c5b-4635-b5a6-3cb696d2bb9f",
+    "award_id": "ba6131e4-cdd2-42a9-9d35-52daf672e123",
+    "artisan_id": "fb45fea7-b0f3-49a1-a7f7-227b5b7e50a1",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "a26be4d2-032e-4488-9908-7e3eeab5efaa",
+    "award_id": "3ee48e9c-5ef1-429d-a7de-98a88b390c57",
+    "artisan_id": "321d3354-0a6d-43be-84f9-7fd36af32cf8",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "c71878d5-ad97-4db0-87e2-3224cdd23530",
+    "award_id": "fef51b14-c230-439a-b056-0b1dd995ebc1",
+    "artisan_id": "b46af5e1-f4ed-4fef-a5b0-839a3286389a",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "b1f510ef-45e9-42f8-8538-ebd7bc3c1388",
+    "award_id": "b1caf9fb-6728-4385-8764-a0bcb09e0a13",
+    "artisan_id": "1680c677-c534-43aa-8f9b-ba8a4bc2518a",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "34ec8bee-1be5-4109-bb78-352bf7acdcc6",
+    "award_id": "da312aaf-a385-426e-9b51-5ae9b8953009",
+    "artisan_id": "fb88de96-c84d-4bf1-a1c2-e4f0f4238bd7",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "a3da9ce0-cdf4-4e7e-9b40-f4afa89fd441",
+    "award_id": "606cc2ef-d3c7-4941-8a16-13f24e2ede8f",
+    "artisan_id": "f159e2aa-1826-4d21-a19a-e0d77ffdbbc0",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "3fe693db-6b3a-4e90-8a78-14983c74bc41",
+    "award_id": "1b48852e-f8c2-4e5a-9feb-400da838a6b5",
+    "artisan_id": "176effd3-c1af-4ece-97f7-c631d3c69ad7",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "1dc84b35-f433-4b8d-8a91-be14dc7c753b",
+    "award_id": "390102e5-ffd5-4e4c-8c4a-a890f2e23368",
+    "artisan_id": "9a8cd8dd-6b54-4f32-bbe5-0e492cd98344",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "c9191c24-ce49-4a3e-883c-906fdde919ce",
+    "award_id": "71a9409e-0c0b-4e50-90e6-1ab31df2e26b",
+    "artisan_id": "c68d5784-776b-43ed-a400-1f956a7a1cea",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "7ce93cbf-eaf0-4952-9d91-6d26389f367c",
+    "award_id": "6e2017e2-643f-45a9-9976-4eb511c45e94",
+    "artisan_id": "1ed6174c-9241-4b47-bcd7-77dfdfb09959",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "aa375e55-dc31-44da-a60c-e0c7c7ab8be1",
+    "award_id": "d00cb15b-81fe-4b08-be9d-eb7d31792b5f",
+    "artisan_id": "083a5a75-93d9-428b-b5d6-ffdb2147c063",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "528d76fc-ac86-4d0a-863e-c5e74993667f",
+    "award_id": "563c32ac-a4f6-459f-8016-94357c1b1c9c",
+    "artisan_id": "eac65a55-fad0-4eab-a7a9-ae9bab15c215",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "2df4aa3b-4089-4111-bfe9-ba59db8479d3",
+    "award_id": "c9aafd23-04aa-469f-af51-3cffb5ec64b2",
+    "artisan_id": "497ca278-efb8-4177-81fe-8cfab778c3f2",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "40fa9803-8742-4d91-abd0-82839e12e9f1",
+    "award_id": "b6b44bd3-3e66-4283-8e07-c4a9c2777334",
+    "artisan_id": "f9e89337-1ee2-432c-bc7a-b3a4f6861665",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "a57a199a-8289-4afd-b1ab-55c97af3b203",
+    "award_id": "d2e79ea0-f552-4245-8cf1-09c5ba709d06",
+    "artisan_id": "391c58f4-5a28-4f75-bdf4-feab4cb686c2",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "5c8c3f41-40e0-4245-a52b-fde99fd2683e",
+    "award_id": "4e541f68-2307-4cbb-b039-8298656f3bc9",
+    "artisan_id": "6f9179ce-e4cf-42f2-8b02-286badd72700",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "29474a24-530a-4b04-88c4-17e145a93645",
+    "award_id": "86fe1c42-dcf5-4c34-91df-a7a168ce4dd9",
+    "artisan_id": "01eab8ef-0069-4893-8199-82d56579e8f7",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "392f5c1e-4a2c-4af1-bd89-b06d73d8f6e2",
+    "award_id": "10bea735-4daa-4002-aa4f-11c04ba20f86",
+    "artisan_id": "7ef72e86-3c5b-45e9-b048-fb0895faeba3",
+    "recipient_role": "Master Artisan",
+    "source_name_spelling": null
+  },
+  {
+    "id": "c2139f0b-01b0-43c6-b315-33d8ca233a64",
+    "award_id": "3259e586-844d-419d-ad0f-fbd07ef5c993",
+    "artisan_id": "04f904d2-04ef-4ff0-b88e-fca0183de884",
+    "recipient_role": "PRIMARY",
+    "source_name_spelling": null
+  },
+  {
+    "id": "87e44fad-a55b-4024-bd0c-e7268857d9fa",
+    "award_id": "ea6d6df4-8685-4286-9da8-9081b7784a32",
+    "artisan_id": "d6e4c36d-2545-4b88-bf9b-ecf2351aad19",
+    "recipient_role": "PRIMARY",
+    "source_name_spelling": null
+  },
+  {
+    "id": "e70f098e-aed0-48ff-80e7-9ea2f4f968c1",
+    "award_id": "27eeb9f5-827f-48c5-b8e7-64e4f9b1f050",
+    "artisan_id": "cmu1sq37f0027tobo97myk4cm",
+    "recipient_role": "PRIMARY",
+    "source_name_spelling": null
+  },
+  {
+    "id": "db95385a-45bf-443c-99da-10ff72ee1486",
+    "award_id": "7e6ac2f6-cc70-4782-ab83-12a93917041c",
+    "artisan_id": "fb88de96-c84d-4bf1-a1c2-e4f0f4238bd7",
+    "recipient_role": "PRIMARY",
+    "source_name_spelling": null
+  },
+  {
+    "id": "78326104-6e96-4e32-8b1c-88c9a3b74ec9",
+    "award_id": "af3da30e-cee1-4490-82fa-cbe01f8a0cdc",
+    "artisan_id": "c497febf-eae8-496a-9c34-046c8db8982c",
+    "recipient_role": "PRIMARY",
+    "source_name_spelling": null
+  },
+  {
+    "id": "d2300edd-41c9-47a6-a198-3bf5dfa8ffa7",
+    "award_id": "fdb1f51b-5bc0-406b-939c-a9e3ac350c68",
+    "artisan_id": "0c04c882-50fd-4b51-95f4-51580e8de1bd",
+    "recipient_role": "PRIMARY",
+    "source_name_spelling": null
+  }
+]

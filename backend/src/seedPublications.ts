@@ -1,0 +1,1195 @@
+import { prisma } from "./config/db.js";
+
+const PUBLICATIONS = [
+  // --- BEST PRACTICES ---
+  {
+    id: "seed-bp-001",
+    title: "Best Practices for Pashmina Authentication",
+    subtitle: "A technical and practical guide for protecting genuine Kashmir Pashmina.",
+    author: "KHCRF Authentication Committee",
+    published: "2026",
+    category: "Best Practices",
+    price: 0,
+    pages: 120,
+    description: "This technical manual provides a comprehensive operational guideline for verifying and certifying authentic cashmere hand-spun and hand-woven products under Geographical Indication (GI) frameworks.",
+    imagePath: "1.png",
+    slug: "best-practices-pashmina-authentication",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "BEST_PRACTICE",
+    isPublic: true,
+    isMemberOnly: false,
+    previewContent: "This guide outlines the laboratory procedures (optical microscopy, DNA analysis, scanning electron microscopy) and field control checks to distinguish hand-spun Kashmir Pashmina from machine-made alternatives.",
+    fullContent: "Full text of Pashmina Authentication Standards. Detailed protocol for GI tag testing: 1. Optical microscopy checks for fiber diameter (under 15 microns). 2. Evaluation of spinning technique to verify hand-spinning vs machine-spinning. 3. Checking for mechanical edge weaving vs hand-weaving.",
+    features: {
+      craftSector: "Pashmina",
+      knowledgeDomain: "Authentication, GI Protection",
+      audience: "Consumers, Artisans, Exporters, Researchers",
+      region: "Global",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Best Practices Series",
+      docType: "Operational Standards Note",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-bp-002",
+    title: "Best Practices for Kashmir Carpet Quality Verification",
+    subtitle: "Preserving weaving integrity and establishing pile-knot density standards.",
+    author: "Dr. Farooq Ahmad",
+    published: "2025",
+    category: "Best Practices",
+    price: 0,
+    pages: 95,
+    description: "Operational guidelines for mapping Pile-Knot density (KPSI) and checking genuine silk-on-silk compositions.",
+    imagePath: "2.png",
+    slug: "best-practices-carpet-quality-verification",
+    language: "English",
+    accessType: "REGISTERED",
+    publicationType: "BEST_PRACTICE",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Carpet",
+      knowledgeDomain: "Quality Assurance",
+      audience: "Exporters, Retailers",
+      region: "Kashmir",
+      language: "English",
+      accessType: "REGISTERED"
+    },
+      publicationSeries: "Best Practices Series",
+      docType: "Operational Standards Note",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-bp-003",
+    title: "Best Practices for GI Protection in Kashmir Handicrafts",
+    subtitle: "Legal frameworks and operational controls for collective trademarks.",
+    author: "Advocate N. R. Koul",
+    published: "2025",
+    category: "Best Practices",
+    price: 0,
+    pages: 140,
+    description: "An administrative reference on legal options, international IP registration, and border patrol guidelines for protecting Kashmir handicrafts' heritage.",
+    imagePath: "3.png",
+    slug: "best-practices-gi-protection",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "BEST_PRACTICE",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "GI Protection",
+      audience: "Government, Researchers",
+      region: "India",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "Best Practices Series",
+      docType: "Operational Standards Note",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-bp-004",
+    title: "Best Practices for International Shipping of Handmade Crafts",
+    subtitle: "Logistics, customs clearance, and protective packaging guidelines.",
+    author: "Global Logistics Advisory Group",
+    published: "2026",
+    category: "Best Practices",
+    price: 0,
+    pages: 85,
+    description: "Protecting luxury items from humidity and handling damage during maritime and air transit.",
+    imagePath: "4.png",
+    slug: "best-practices-international-shipping",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "BEST_PRACTICE",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Export Sector",
+      knowledgeDomain: "Logistics",
+      audience: "Exporters",
+      region: "Global",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Best Practices Series",
+      docType: "Operational Standards Note",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-bp-005",
+    title: "Best Practices for Artisan Documentation",
+    subtitle: "A standardized workbook for mapping artisan skills and genealogies.",
+    author: "Prof. Yasmeen Khan",
+    published: "2025",
+    category: "Best Practices",
+    price: 0,
+    pages: 110,
+    description: "Guidelines for registering master craftsmen and weaving genealogies to preserve oral tradition and prevent skill theft.",
+    imagePath: "5.png",
+    slug: "best-practices-artisan-documentation",
+    language: "English",
+    accessType: "REGISTERED",
+    publicationType: "BEST_PRACTICE",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Traceability",
+      audience: "Researchers, Government",
+      region: "Kashmir",
+      language: "English",
+      accessType: "REGISTERED"
+    },
+      publicationSeries: "Best Practices Series",
+      docType: "Operational Standards Note",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-bp-006",
+    title: "Best Practices for Craft Cluster Development",
+    subtitle: "Standard operating procedures for managing artisan cooperatives.",
+    author: "Srinagar Rural Development Office",
+    published: "2025",
+    category: "Best Practices",
+    price: 0,
+    pages: 130,
+    description: "SOPs for supply chain grouping, raw material banking, and collective bargaining strategies in rural Kashmir craft clusters.",
+    imagePath: "6.png",
+    slug: "best-practices-craft-cluster-development",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "BEST_PRACTICE",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Artisan Development",
+      audience: "Artisans, Government",
+      region: "Kashmir",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "Best Practices Series",
+      docType: "Operational Standards Note",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+
+  // --- CASE STUDIES ---
+  {
+    id: "seed-cs-001",
+    title: "Reviving Pashmina Through Authentication Systems",
+    subtitle: "Impact assessment of molecular testing and micro-chip tagging in Srinagar clusters.",
+    author: "KHCRF Field Studies Unit",
+    published: "2025",
+    category: "Case Studies",
+    price: 0,
+    pages: 150,
+    description: "A detailed operational study measuring changes in spinner incomes and exporter margins after introducing secure QR tags on Pashmina.",
+    imagePath: "7.png",
+    slug: "reviving-pashmina-authentication-systems",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "CASE_STUDY",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Pashmina",
+      knowledgeDomain: "Authentication",
+      audience: "Researchers, Exporters",
+      region: "Kashmir",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Case Study Archive",
+      docType: "Field Research Evidence",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-cs-002",
+    title: "How GI Protection Increased Consumer Trust",
+    subtitle: "A comparative consumer sentiment analysis before and after GI labeling.",
+    author: "India Craft Policy Review",
+    published: "2024",
+    category: "Case Studies",
+    price: 0,
+    pages: 115,
+    description: "Tracking trust metrics, willingness-to-pay, and verification activities among retail buyers.",
+    imagePath: "8.png",
+    slug: "how-gi-protection-increased-trust",
+    language: "English",
+    accessType: "REGISTERED",
+    publicationType: "CASE_STUDY",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Kani",
+      knowledgeDomain: "GI Protection",
+      audience: "Consumers, Retailers",
+      region: "India",
+      language: "English",
+      accessType: "REGISTERED"
+    },
+      publicationSeries: "Case Study Archive",
+      docType: "Field Research Evidence",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2024",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-cs-003",
+    title: "The Economic Impact of Counterfeit Crafts",
+    subtitle: "Analyzing market cannibalization of Kashmiri handcrafts by industrial imitations.",
+    author: "Global Trade Observatory",
+    published: "2025",
+    category: "Case Studies",
+    price: 0,
+    pages: 210,
+    description: "Estimating revenue loss and job depreciation across Kashmir valley craft communities due to machine-printed duplicates.",
+    imagePath: "9.png",
+    slug: "economic-impact-counterfeit-crafts",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "CASE_STUDY",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Market Intelligence",
+      audience: "Government, Researchers",
+      region: "Global",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "Case Study Archive",
+      docType: "Field Research Evidence",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-cs-004",
+    title: "Women-Led Craft Enterprises in Kashmir",
+    subtitle: "Empowerment and financial independence through local spinning cooperatives.",
+    author: "Kashmir Women Development Forum",
+    published: "2024",
+    category: "Case Studies",
+    price: 0,
+    pages: 165,
+    description: "Documenting how cooperative structures and wage standardizations have improved lives for over 400 spinners.",
+    imagePath: "10.png",
+    slug: "women-led-craft-enterprises",
+    language: "Urdu",
+    accessType: "PUBLIC",
+    publicationType: "CASE_STUDY",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Pashmina",
+      knowledgeDomain: "Artisan Development",
+      audience: "Artisans, Collectors",
+      region: "Kashmir",
+      language: "Urdu",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Case Study Archive",
+      docType: "Field Research Evidence",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2024",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-cs-005",
+    title: "Digital Commerce and Artisan Market Access",
+    subtitle: "How direct-to-consumer digital channels bypassed middlemen in Srinagar.",
+    author: "International Trade Advisory",
+    published: "2025",
+    category: "Case Studies",
+    price: 0,
+    pages: 135,
+    description: "Analyzing the transition to direct shipping models and its positive effect on local artisans' profit splits.",
+    imagePath: "11.png",
+    slug: "digital-commerce-artisan-market-access",
+    language: "English",
+    accessType: "REGISTERED",
+    publicationType: "CASE_STUDY",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Export",
+      audience: "Artisans, Exporters",
+      region: "Global",
+      language: "English",
+      accessType: "REGISTERED"
+    },
+      publicationSeries: "Case Study Archive",
+      docType: "Field Research Evidence",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+
+  // --- RESEARCH PAPERS ---
+  {
+    id: "seed-rp-001",
+    title: "Economic Contribution of Kashmir Handicrafts to Regional Livelihoods",
+    subtitle: "A socio-economic survey of artisan households in the Kashmir valley.",
+    author: "Dr. Tariq Ahmad Mir",
+    published: "2025",
+    category: "Research Papers",
+    price: 0,
+    pages: 190,
+    description: "Comprehensive quantitative data measuring craft income ratios, microfinance access, and socio-economic vulnerability indicators.",
+    imagePath: "12.png",
+    slug: "economic-contribution-kashmir-handicrafts",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Research",
+      audience: "Researchers, Government",
+      region: "Kashmir",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Research Paper Series",
+      docType: "Academic & Scientific Inquiry",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-rp-002",
+    title: "Global Counterfeit Trade and Its Impact on Heritage Crafts",
+    subtitle: "Investigating the scale of counterfeit Kashmiri shawls in European and Gulf markets.",
+    author: "Intellectual Property Council",
+    published: "2025",
+    category: "Research Papers",
+    price: 0,
+    pages: 225,
+    description: "A legal and statistical investigation tracking supply origins of counterfeit Kashmiri goods sold in major cities.",
+    imagePath: "13.png",
+    slug: "global-counterfeit-trade-impact",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Pashmina",
+      knowledgeDomain: "Research",
+      audience: "Researchers, Government",
+      region: "Global",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "Research Paper Series",
+      docType: "Academic & Scientific Inquiry",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-rp-003",
+    title: "Climate Change and the Future of Pashmina Fiber",
+    subtitle: "The effects of warming winter climates in Changthang on pashm quality.",
+    author: "Dr. Rigzin Namgyal",
+    published: "2026",
+    category: "Research Papers",
+    price: 0,
+    pages: 145,
+    description: "Analyzing temperature fluctuations, change in pasture yields, and their impact on goats' fine undercoat growth.",
+    imagePath: "14.png",
+    slug: "climate-change-pashmina-fiber",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Pashmina",
+      knowledgeDomain: "Sustainability",
+      audience: "Researchers, Government",
+      region: "Global",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Research Paper Series",
+      docType: "Academic & Scientific Inquiry",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-rp-004",
+    title: "Mapping Kashmir Craft Clusters Using GIS Technologies",
+    subtitle: "Spatial distribution and density analysis of craft practitioners in 12 districts.",
+    author: "Geospatial Research Group",
+    published: "2025",
+    category: "Research Papers",
+    price: 0,
+    pages: 175,
+    description: "GIS mapping and visualization of where weavers, papier-mâché designers, and woodworkers are clustered in the state.",
+    imagePath: "15.png",
+    slug: "mapping-craft-clusters-gis",
+    language: "English",
+    accessType: "REGISTERED",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Research",
+      audience: "Researchers, Government",
+      region: "Kashmir",
+      language: "English",
+      accessType: "REGISTERED"
+    },
+      publicationSeries: "Research Paper Series",
+      docType: "Academic & Scientific Inquiry",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-rp-005",
+    title: "Consumer Perception of Authenticity in Luxury Handmade",
+    subtitle: "A psychometric study of high-net-worth buyers in North America.",
+    author: "Harvard Marketing Forum",
+    published: "2025",
+    category: "Research Papers",
+    price: 0,
+    pages: 200,
+    description: "Explores the link between certified craftsmanship, geographical traceability, and luxury premium values.",
+    imagePath: "16.png",
+    slug: "consumer-perception-authenticity",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Market Intelligence",
+      audience: "Collectors, Retailers",
+      region: "North America",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "Research Paper Series",
+      docType: "Academic & Scientific Inquiry",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+
+  // --- E-PUBLICATIONS ---
+  {
+    id: "seed-epub-001",
+    title: "The Encyclopedia of Kashmir Handicrafts",
+    subtitle: "The definitive reference work on traditional craft techniques, patterns, and history.",
+    author: "KHCRF Heritage Press",
+    published: "2026",
+    category: "E-Publications",
+    price: 0,
+    pages: 520,
+    description: "An exhaustive digital atlas detailing 40 key Kashmiri handicrafts, their terminology, tools, and technical histories.",
+    imagePath: "17.png",
+    slug: "encyclopedia-kashmir-handicrafts",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "EBOOK",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Research",
+      audience: "Museums, Collectors",
+      region: "Kashmir",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "E-Publications Series",
+      docType: "Foundational Reference Work",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-epub-002",
+    title: "Kashmir Pashmina: Science, Heritage and Authentication",
+    subtitle: "From Changthang to finished shawl: a deep scientific and cultural exploration.",
+    author: "Prof. Fayaz Ahmad",
+    published: "2026",
+    category: "E-Publications",
+    price: 0,
+    pages: 250,
+    description: "Detailed breakdown of the Pashmina supply chain, including microscopic profiles, weaving structures, and geographical indicators.",
+    imagePath: "18.png",
+    slug: "kashmir-pashmina-science-heritage-authentication",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "EBOOK",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Pashmina",
+      knowledgeDomain: "Authentication",
+      audience: "Researchers, Collectors",
+      region: "Global",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "E-Publications Series",
+      docType: "Foundational Reference Work",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-epub-003",
+    title: "The Global Guide to Authentic Kashmir Crafts",
+    subtitle: "Identification features and certification pathways for collectors.",
+    author: "International Art & Craft Board",
+    published: "2025",
+    category: "E-Publications",
+    price: 0,
+    pages: 300,
+    description: "An illustrated reference helping buyers confirm handloom, hand-carved, and certified products.",
+    imagePath: "1.png",
+    slug: "global-guide-authentic-kashmir-crafts",
+    language: "English",
+    accessType: "REGISTERED",
+    publicationType: "EBOOK",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Authentication",
+      audience: "Consumers, Collectors",
+      region: "Global",
+      language: "English",
+      accessType: "REGISTERED"
+    },
+      publicationSeries: "E-Publications Series",
+      docType: "Foundational Reference Work",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-epub-004",
+    title: "Kashmir Craft Export Handbook",
+    subtitle: "An operational toolkit for exporters navigating international standards and customs.",
+    author: "Kashmir Trade Promotion Council",
+    published: "2026",
+    category: "E-Publications",
+    price: 0,
+    pages: 200,
+    description: "Step-by-step procedures on GI declarations, export tax offsets, rules of origin, and custom tariffs in EU & US.",
+    imagePath: "2.png",
+    slug: "kashmir-craft-export-handbook",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "EBOOK",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Export",
+      audience: "Exporters",
+      region: "Global",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "E-Publications Series",
+      docType: "Foundational Reference Work",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-epub-005",
+    title: "Craft Clusters of Kashmir",
+    subtitle: "Atlas Edition: A geographical mapping of design traditions and regional master craftspeople.",
+    author: "GIS Heritage Studies Group",
+    published: "2025",
+    category: "E-Publications",
+    price: 0,
+    pages: 160,
+    description: "Atlas documenting 25 distinct clusters, their craft history, and contact details of active cooperatives.",
+    imagePath: "3.png",
+    slug: "craft-clusters-kashmir-atlas",
+    language: "English",
+    accessType: "REGISTERED",
+    publicationType: "EBOOK",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Research",
+      audience: "Museums, Government",
+      region: "Kashmir",
+      language: "English",
+      accessType: "REGISTERED"
+    },
+      publicationSeries: "E-Publications Series",
+      docType: "Foundational Reference Work",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+
+  // --- POLICY BRIEFS ---
+  {
+    id: "seed-pb-001",
+    title: "Strengthening GI Enforcement for Kashmir Handicrafts",
+    subtitle: "Regulatory frameworks and legal options for combating commercial fraud.",
+    author: "KHCRF Legal Division",
+    published: "2025",
+    category: "Policy Briefs",
+    price: 0,
+    pages: 78,
+    description: "Recommends administrative actions, enforcement strategies, and border control protocols to curb machine-made fakes.",
+    imagePath: "4.png",
+    slug: "strengthening-gi-enforcement",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Policy",
+      audience: "Government, Exporters",
+      region: "India",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Policy Brief Series",
+      docType: "Executive Policy Advisory",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-pb-002",
+    title: "Protecting Artisan Livelihoods in the Digital Economy",
+    subtitle: "Policy proposals for establishing minimum wages and direct royalty streams.",
+    author: "Artisan Welfare Think Tank",
+    published: "2025",
+    category: "Policy Briefs",
+    price: 0,
+    pages: 64,
+    description: "Proposes public policies to secure minimum wage guarantees, healthcare access, and copyright protection for artisan designers.",
+    imagePath: "5.png",
+    slug: "protecting-artisan-livelihoods-digital",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Policy",
+      audience: "Government, Artisans",
+      region: "Kashmir",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "Policy Brief Series",
+      docType: "Executive Policy Advisory",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-pb-003",
+    title: "Policy Options for Craft Cluster Development",
+    subtitle: "Recommendations for public-private funding of raw material banks.",
+    author: "National Craft Development Committee",
+    published: "2025",
+    category: "Policy Briefs",
+    price: 0,
+    pages: 88,
+    description: "Creating raw material hubs for wool and silk fibers, ensuring stable prices and quality consistency for spinners.",
+    imagePath: "6.png",
+    slug: "policy-options-craft-cluster-development",
+    language: "English",
+    accessType: "REGISTERED",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Policy",
+      audience: "Government",
+      region: "Kashmir",
+      language: "English",
+      accessType: "REGISTERED"
+    },
+      publicationSeries: "Policy Brief Series",
+      docType: "Executive Policy Advisory",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-pb-004",
+    title: "Luxury Craft Authentication Frameworks",
+    subtitle: "A blueprint for digital product passport adoption in high-end exports.",
+    author: "EU-India Trade Forum",
+    published: "2026",
+    category: "Policy Briefs",
+    price: 0,
+    pages: 92,
+    description: "Recommends technical specifications for implementing blockchain and chip tagging on luxury Kashmiri exports entering EU markets.",
+    imagePath: "7.png",
+    slug: "luxury-craft-authentication-frameworks",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Policy",
+      audience: "Exporters, Government",
+      region: "Global",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "Policy Brief Series",
+      docType: "Executive Policy Advisory",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-pb-005",
+    title: "Reducing Counterfeit Trade in Heritage Products",
+    subtitle: "Collaborative customs enforcement strategy between India and EU ports.",
+    author: "Heritage Trade Coalition",
+    published: "2026",
+    category: "Policy Briefs",
+    price: 0,
+    pages: 70,
+    description: "Proposing automated checking mechanisms and custom alerts at trade hubs to block imported mechanical imitations.",
+    imagePath: "8.png",
+    slug: "reducing-counterfeit-trade-heritage",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Policy",
+      audience: "Government, Exporters",
+      region: "Global",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Policy Brief Series",
+      docType: "Executive Policy Advisory",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+
+  // --- MARKET INTELLIGENCE ---
+  {
+    id: "seed-mi-001",
+    title: "Global Pashmina Market Outlook 2026",
+    subtitle: "Supply shortages, luxury demand surges, and price projection models.",
+    author: "Srinagar Analytics Group",
+    published: "2026",
+    category: "Market Intelligence",
+    price: 0,
+    pages: 124,
+    description: "Statistical projections tracking raw pashm supplies, spinning labor rates, and premium brand demands in EU and East Asia.",
+    imagePath: "9.png",
+    slug: "global-pashmina-market-outlook-2026",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Pashmina",
+      knowledgeDomain: "Market Intelligence",
+      audience: "Exporters, Retailers",
+      region: "Global",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Market Intelligence Series",
+      docType: "Executive Analysis Report",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-mi-002",
+    title: "North American Demand for Handmade Luxury Textiles",
+    subtitle: "Targeting high-net-worth consumers: demographics, habits, and preferences.",
+    author: "New York Research Consortium",
+    published: "2025",
+    category: "Market Intelligence",
+    price: 0,
+    pages: 108,
+    description: "Market demographics and preferences of US buyers regarding certified handloom, GI tagging, and eco-friendly dyes.",
+    imagePath: "10.png",
+    slug: "north-american-demand-luxury-textiles",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Pashmina",
+      knowledgeDomain: "Market Intelligence",
+      audience: "Exporters, Retailers",
+      region: "North America",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "Market Intelligence Series",
+      docType: "Executive Analysis Report",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-mi-003",
+    title: "European Consumer Trends in Heritage Crafts",
+    subtitle: "The shift toward sustainability, traceability, and ethical certifications.",
+    author: "Brussels Craft Observatory",
+    published: "2025",
+    category: "Market Intelligence",
+    price: 0,
+    pages: 116,
+    description: "Quantitative consumer research tracking standard demands for circular supply chains and carbon footprint labeling in crafts.",
+    imagePath: "11.png",
+    slug: "european-consumer-trends-heritage-crafts",
+    language: "English",
+    accessType: "REGISTERED",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Market Intelligence",
+      audience: "Exporters, Collectors",
+      region: "Europe",
+      language: "English",
+      accessType: "REGISTERED"
+    },
+      publicationSeries: "Market Intelligence Series",
+      docType: "Executive Analysis Report",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-mi-004",
+    title: "Online Marketplaces and Authenticity Risks",
+    subtitle: "Identifying platforms and sellers fueling counterfeit Kashmiri craft sales.",
+    author: "Digital Rights Council",
+    published: "2025",
+    category: "Market Intelligence",
+    price: 0,
+    pages: 130,
+    description: "A data-driven study of fake labels, deceptive keywords, and copyright infringements in global e-commerce portals.",
+    imagePath: "12.png",
+    slug: "online-marketplaces-authenticity-risks",
+    language: "English",
+    accessType: "MEMBER",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: true,
+    features: {
+      craftSector: "Multi-Craft",
+      knowledgeDomain: "Market Intelligence",
+      audience: "Exporters, Consumers",
+      region: "Global",
+      language: "English",
+      accessType: "MEMBER"
+    },
+      publicationSeries: "Market Intelligence Series",
+      docType: "Executive Analysis Report",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2025",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    },
+  {
+    id: "seed-mi-005",
+    title: "Premium Pricing Trends in Luxury Handmade Products",
+    subtitle: "How provenance documentation adds premium value to Kashmiri woolens.",
+    author: "Global Luxury Insights",
+    published: "2026",
+    category: "Market Intelligence",
+    price: 0,
+    pages: 96,
+    description: "Measures retail premiums for GI tags, weaver bios, and blockchain certification records on luxury scarves.",
+    imagePath: "13.png",
+    slug: "premium-pricing-trends-luxury",
+    language: "English",
+    accessType: "PUBLIC",
+    publicationType: "RESEARCH_PAPER",
+    isPublic: true,
+    isMemberOnly: false,
+    features: {
+      craftSector: "Pashmina",
+      knowledgeDomain: "Market Intelligence",
+      audience: "Exporters, Retailers",
+      region: "Global",
+      language: "English",
+      accessType: "PUBLIC"
+    },
+      publicationSeries: "Market Intelligence Series",
+      docType: "Executive Analysis Report",
+      isbnStatus: "Registered",
+      edition: "First Edition",
+      publishedYear: "2026",
+      publisher: "KHCRF Heritage Press",
+      isbn: "4651 | ISBN | 2025 | P"
+    }
+];
+
+async function main() {
+  console.log("Starting Content Seeding for KHCRF Knowledge Hub...");
+
+  try {
+    // 1. Clean out existing publications, chapters, pages, and related purchases
+    console.log("Cleaning existing database data...");
+    await prisma.userPurchase.deleteMany({});
+    await prisma.bookPage.deleteMany({});
+    await prisma.chapter.deleteMany({});
+    await prisma.publicationEdition.deleteMany({});
+    await prisma.publication.deleteMany({});
+    console.log("Database cleaned successfully.");
+
+    // 2. Clear and check dynamic categories
+    const categoriesInDb = await prisma.publicationCategory.findMany({});
+    const categoryNames = Array.from(new Set(PUBLICATIONS.map(p => p.category)));
+    
+    console.log("Verifying categories in DB:", categoryNames);
+    for (const catName of categoryNames) {
+      const slug = catName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+      const existing = categoriesInDb.find(c => c.name === catName);
+      if (!existing) {
+        await prisma.publicationCategory.create({
+          data: {
+            name: catName,
+            slug,
+            description: `Academic Category for ${catName}`
+          }
+        });
+        console.log(`Created Category: ${catName}`);
+      }
+    }
+
+    // Refresh categories
+    const allCategories = await prisma.publicationCategory.findMany({});
+
+    // 3. Seed Publications
+    let createdCount = 0;
+    for (const pub of PUBLICATIONS) {
+      const categoryObj = allCategories.find(c => c.name === pub.category);
+      
+      await prisma.publication.create({
+        data: {
+          id: pub.id,
+          title: pub.title,
+          subtitle: pub.subtitle,
+          author: pub.author,
+          published: pub.published,
+          category: pub.category,
+          price: pub.price,
+          pages: pub.pages,
+          description: pub.description,
+          imagePath: pub.imagePath ? (pub.imagePath.startsWith('/') || pub.imagePath.startsWith('http') ? pub.imagePath : `/assets/images/${pub.imagePath}`) : "/assets/images/default.png",
+          slug: pub.slug,
+          language: pub.language,
+          accessType: pub.accessType,
+          publicationType: pub.publicationType,
+          isPublic: pub.isPublic,
+          isMemberOnly: pub.isMemberOnly,
+          previewContent: pub.previewContent || null,
+          fullContent: pub.fullContent || null,
+          categoryId: categoryObj?.id || null,
+          features: pub.features, // JSON Object directly
+          publishedStatus: "PUBLISHED"
+        }
+      });
+
+      // Also create a published edition to satisfy canonical visibility policies
+      await prisma.publicationEdition.create({
+        data: {
+          publicationId: pub.id,
+          version: "1.0",
+          edition: (pub.features as any)?.edition || "First Edition",
+          status: "PUBLISHED",
+          publicationDate: new Date()
+        }
+      });
+
+      createdCount++;
+    }
+
+    console.log(`Successfully seeded ${createdCount} Publications into the Database!`);
+
+    // 4. Seed Reviews (Scholarly & Field Reception)
+    await prisma.publicationReview.deleteMany({});
+    
+    // Attach reviews to "seed-bp-001" (Pashmina Authentication)
+    await prisma.publicationReview.create({
+      data: {
+        publicationId: "seed-bp-001",
+        reviewType: "Researcher",
+        rating: 5,
+        title: "Rigorous & Standardized",
+        review: "This publication provides one of the most structured analyses of luxury handmade pricing and authentication science I have seen in the craft sector. Highly recommended for researchers.",
+        verifiedReader: true,
+        helpfulCount: 24,
+        isExpert: false
+      }
+    });
+
+    await prisma.publicationReview.create({
+      data: {
+        publicationId: "seed-bp-001",
+        reviewType: "Exporter",
+        rating: 4,
+        title: "Highly practical for trade hubs",
+        review: "Gives clear guidelines on distinguishing handmade Pashmina from machine-made fibers. Very useful for quality assurance during customs and international shipping.",
+        verifiedReader: true,
+        helpfulCount: 15,
+        isExpert: false
+      }
+    });
+
+    // Seed Expert Endorsements/Reviews
+    await prisma.publicationReview.create({
+      data: {
+        publicationId: "seed-bp-001",
+        reviewType: "Institution",
+        rating: 5,
+        title: "Official Academic Review",
+        review: "An important contribution to the understanding of provenance-based luxury pricing and Geographic Indication authentication protocols.",
+        verifiedReader: false,
+        isExpert: true,
+        expertType: "Academic Review",
+        expertName: "Dr. Michael Harrington",
+        expertDesignation: "Luxury Goods Research Institute"
+      }
+    });
+
+    await prisma.publicationReview.create({
+      data: {
+        publicationId: "seed-bp-001",
+        reviewType: "Policy",
+        rating: 5,
+        title: "Standard Setter",
+        review: "A masterpiece in policy intelligence and technical standards. Necessary reading for anyone involved in regional trademark protection.",
+        verifiedReader: false,
+        isExpert: true,
+        expertType: "Certification Review",
+        expertName: "Director Amit Sharma",
+        expertDesignation: "Kashmir Craft Standards Board"
+      }
+    });
+
+    console.log("Successfully seeded Reviews and Expert Endorsements!");
+  } catch (error) {
+    console.error("Content Seeding Error:", error);
+    process.exit(1);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+main();

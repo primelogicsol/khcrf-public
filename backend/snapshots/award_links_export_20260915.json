@@ -1,0 +1,843 @@
+{
+  "exported_at": "2026-09-15T03:42:54.539Z",
+  "count": 93,
+  "records": [
+    {
+      "artisan_id": "e0cdf04e-1ced-49b8-a282-8a570421b06f",
+      "craftlore_id": "CL-ART-000054",
+      "artisan_name": "Ghulam Nabi Dar",
+      "award_name": "J&K State Award",
+      "award_year": 1984,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "e0cdf04e-1ced-49b8-a282-8a570421b06f",
+      "craftlore_id": "CL-ART-000054",
+      "artisan_name": "Ghulam Nabi Dar",
+      "award_name": "National Award",
+      "award_year": 1995,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "9150c3f8-1b22-4270-b7e6-c361ee5e93b0",
+      "craftlore_id": "CL-ART-000055",
+      "artisan_name": "Ali Mohammad Beigh",
+      "award_name": "State Award",
+      "award_year": 1984,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "9150c3f8-1b22-4270-b7e6-c361ee5e93b0",
+      "craftlore_id": "CL-ART-000055",
+      "artisan_name": "Ali Mohammad Beigh",
+      "award_name": "National Award",
+      "award_year": 1992,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "9150c3f8-1b22-4270-b7e6-c361ee5e93b0",
+      "craftlore_id": "CL-ART-000055",
+      "artisan_name": "Ali Mohammad Beigh",
+      "award_name": "Shilp Guru",
+      "award_year": 2004,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+      "craftlore_id": "CL-ART-000056",
+      "artisan_name": "Mehboob Ali Beigh",
+      "award_name": "State Award",
+      "award_year": 1987,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+      "craftlore_id": "CL-ART-000056",
+      "artisan_name": "Mehboob Ali Beigh",
+      "award_name": "State Award",
+      "award_year": 1988,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+      "craftlore_id": "CL-ART-000056",
+      "artisan_name": "Mehboob Ali Beigh",
+      "award_name": "State Award",
+      "award_year": 1989,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+      "craftlore_id": "CL-ART-000056",
+      "artisan_name": "Mehboob Ali Beigh",
+      "award_name": "National Award",
+      "award_year": 1996,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "68fb2400-aaae-46f0-bcea-b04ff2331e65",
+      "craftlore_id": "CL-ART-000056",
+      "artisan_name": "Mehboob Ali Beigh",
+      "award_name": "National Award",
+      "award_year": 1997,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "1101c179-f497-4cc6-a53a-0ff4abcea82f",
+      "craftlore_id": "CL-ART-000057",
+      "artisan_name": "Gulam Jaan",
+      "award_name": "National Handloom Award",
+      "award_year": 1996,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "fc83956a-fb6f-43bd-a43b-a16c9f590dae",
+      "craftlore_id": "CL-ART-000058",
+      "artisan_name": "Mohd. Abdullah Ali",
+      "award_name": "J&K State Award",
+      "award_year": 1984,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "f450b2a8-06c2-4850-8c9c-e6d17bbf67ad",
+      "craftlore_id": "CL-ART-000059",
+      "artisan_name": "Niyaz Ahmad Bhat",
+      "award_name": "National Award",
+      "award_year": 1993,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "8b5282a2-a7d3-4cd8-b095-c35e4a204170",
+      "craftlore_id": "CL-ART-000060",
+      "artisan_name": "Ghulam Mustafa Dar",
+      "award_name": "J&K State Award",
+      "award_year": 1986,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "9c1afac8-da30-407e-9ca4-40306e079bb2",
+      "craftlore_id": "CL-ART-000061",
+      "artisan_name": "Muzaffar Ali Khawaja",
+      "award_name": "National Award",
+      "award_year": 1998,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "7d72fe53-a525-47b0-8a9e-3c630a2246fe",
+      "craftlore_id": "CL-ART-000062",
+      "artisan_name": "Ghulam Mohi Uddin Mir",
+      "award_name": "J&K State Award",
+      "award_year": 1988,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "4b73f8b2-ff5c-42fe-aa28-eabf7d1eff20",
+      "craftlore_id": "CL-ART-000063",
+      "artisan_name": "Abdul Gani Gagroo",
+      "award_name": "J&K State Award",
+      "award_year": 1984,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "0d743aad-30d1-4ef5-a776-a1a48d979579",
+      "craftlore_id": "CL-ART-000064",
+      "artisan_name": "Gh. Mohd. Wani",
+      "award_name": "National Merit Certificate",
+      "award_year": 1993,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "f2a86ba9-ee2b-46f3-822a-81fb2000db53",
+      "craftlore_id": "CL-ART-000065",
+      "artisan_name": "Fayaz Ahmad Jan",
+      "award_name": "National Merit Certificate",
+      "award_year": 1985,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "f2a86ba9-ee2b-46f3-822a-81fb2000db53",
+      "craftlore_id": "CL-ART-000065",
+      "artisan_name": "Fayaz Ahmad Jan",
+      "award_name": "National Award",
+      "award_year": 1988,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "f2a86ba9-ee2b-46f3-822a-81fb2000db53",
+      "craftlore_id": "CL-ART-000065",
+      "artisan_name": "Fayaz Ahmad Jan",
+      "award_name": "National Award",
+      "award_year": 2004,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "471f440d-d55e-4e54-aa7c-b9b0402535ae",
+      "craftlore_id": "CL-ART-000066",
+      "artisan_name": "Ghulam Muhammad Beigh",
+      "award_name": "State Award",
+      "award_year": 1987,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "471f440d-d55e-4e54-aa7c-b9b0402535ae",
+      "craftlore_id": "CL-ART-000066",
+      "artisan_name": "Ghulam Muhammad Beigh",
+      "award_name": "National Award",
+      "award_year": 1995,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "0c04c882-50fd-4b51-95f4-51580e8de1bd",
+      "craftlore_id": "CL-ART-000067",
+      "artisan_name": "Khalil Mohammad Kalwal",
+      "award_name": "National Award",
+      "award_year": null,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "d8787371-fb8b-4053-aae5-8da93e20f718",
+      "craftlore_id": "CL-ART-000068",
+      "artisan_name": "Ghulam Mohammad Qazi",
+      "award_name": "National Merit Certificate",
+      "award_year": 2000,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "c497febf-eae8-496a-9c34-046c8db8982c",
+      "craftlore_id": "CL-ART-000069",
+      "artisan_name": "Ghulam Hyder Mirza",
+      "award_name": "National Merit Certificate",
+      "award_year": 2001,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "c497febf-eae8-496a-9c34-046c8db8982c",
+      "craftlore_id": "CL-ART-000069",
+      "artisan_name": "Ghulam Hyder Mirza",
+      "award_name": "Shilp Guru",
+      "award_year": 2016,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "fb88de96-c84d-4bf1-a1c2-e4f0f4238bd7",
+      "craftlore_id": "CL-ART-000070",
+      "artisan_name": "Akhtar Hussain Rather",
+      "award_name": "National Merit Certificate",
+      "award_year": 2001,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "fb88de96-c84d-4bf1-a1c2-e4f0f4238bd7",
+      "craftlore_id": "CL-ART-000070",
+      "artisan_name": "Akhtar Hussain Rather",
+      "award_name": "National Award",
+      "award_year": 2017,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "d56ca55a-8e35-45fb-b12e-3a1d9b14d82a",
+      "craftlore_id": "CL-ART-000071",
+      "artisan_name": "Fayaz Ahmad Kalwal",
+      "award_name": "National Merit Certificate",
+      "award_year": 2001,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "d56ca55a-8e35-45fb-b12e-3a1d9b14d82a",
+      "craftlore_id": "CL-ART-000071",
+      "artisan_name": "Fayaz Ahmad Kalwal",
+      "award_name": "National Award",
+      "award_year": 2008,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "7622c486-26de-4e72-a5e0-31359b6251bb",
+      "craftlore_id": "CL-ART-000072",
+      "artisan_name": "Syed Hassan Shah",
+      "award_name": "National Merit Certificate",
+      "award_year": 2002,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "621f31a3-ac01-4a22-8780-4284d59f8a2e",
+      "craftlore_id": "CL-ART-000073",
+      "artisan_name": "Gulam Rasool Ahanger",
+      "award_name": "National Award",
+      "award_year": 2003,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "547c80d4-937d-4242-a75c-778fba60bce5",
+      "craftlore_id": "CL-ART-000074",
+      "artisan_name": "Mohd. Safi Nagoo",
+      "award_name": "National Award",
+      "award_year": 2003,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "60cd9850-08a8-462b-82ec-5bf3d945dde1",
+      "craftlore_id": "CL-ART-000075",
+      "artisan_name": "Aijaz Hussain",
+      "award_name": "National Award",
+      "award_year": 2003,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "31e96623-9e45-44ee-b91f-be6924e89c7f",
+      "craftlore_id": "CL-ART-000076",
+      "artisan_name": "Ghulam Rasool Khan",
+      "award_name": "National Award",
+      "award_year": 2003,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "31e96623-9e45-44ee-b91f-be6924e89c7f",
+      "craftlore_id": "CL-ART-000076",
+      "artisan_name": "Ghulam Rasool Khan",
+      "award_name": "Shilp Guru",
+      "award_year": 2010,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "f9e89337-1ee2-432c-bc7a-b3a4f6861665",
+      "craftlore_id": "CL-ART-000077",
+      "artisan_name": "Iqbal Hussain Khan",
+      "award_name": "National Merit Certificate",
+      "award_year": 2003,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "f9e89337-1ee2-432c-bc7a-b3a4f6861665",
+      "craftlore_id": "CL-ART-000077",
+      "artisan_name": "Iqbal Hussain Khan",
+      "award_name": "Shilp Guru",
+      "award_year": 2019,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "fe5e55d9-57b6-474f-94a5-4c775b7ab09d",
+      "craftlore_id": "CL-ART-000078",
+      "artisan_name": "Noor Mohd. Bhat",
+      "award_name": "National Merit Certificate",
+      "award_year": 2005,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "176effd3-c1af-4ece-97f7-c631d3c69ad7",
+      "craftlore_id": "CL-ART-000079",
+      "artisan_name": "Bashir Ahmed Bhatt",
+      "award_name": "National Merit Certificate",
+      "award_year": 2005,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "176effd3-c1af-4ece-97f7-c631d3c69ad7",
+      "craftlore_id": "CL-ART-000079",
+      "artisan_name": "Bashir Ahmed Bhatt",
+      "award_name": "Shilp Guru",
+      "award_year": 2018,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "85edab2e-50a2-4281-89d1-3dfd6e69b599",
+      "craftlore_id": "CL-ART-000080",
+      "artisan_name": "Naseer Ahmad Mir",
+      "award_name": "National Award",
+      "award_year": 2006,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "98e130cc-ca6f-4fa3-9f79-b5c47bdba0a9",
+      "craftlore_id": "CL-ART-000081",
+      "artisan_name": "Showkat Ahmad Khan",
+      "award_name": "National Award",
+      "award_year": 2006,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "d9aaf25f-799b-4407-bcc9-58448d674778",
+      "craftlore_id": "CL-ART-000082",
+      "artisan_name": "Haji Abdul Aziz Bazaz",
+      "award_name": "National Award",
+      "award_year": 2006,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "d9aaf25f-799b-4407-bcc9-58448d674778",
+      "craftlore_id": "CL-ART-000082",
+      "artisan_name": "Haji Abdul Aziz Bazaz",
+      "award_name": "Shilp Guru",
+      "award_year": 2013,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "8a353001-9818-4762-8a02-1a93c2be0b81",
+      "craftlore_id": "CL-ART-000083",
+      "artisan_name": "Syed Ajaz Shah",
+      "award_name": "National Award",
+      "award_year": 2006,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "1ceaaccd-9ac2-4200-89ae-3e181bbfe649",
+      "craftlore_id": "CL-ART-000084",
+      "artisan_name": "Nissar Ahmed Khan",
+      "award_name": "National Merit Certificate",
+      "award_year": 2007,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "1ceaaccd-9ac2-4200-89ae-3e181bbfe649",
+      "craftlore_id": "CL-ART-000084",
+      "artisan_name": "Nissar Ahmed Khan",
+      "award_name": "National Award (Joint)",
+      "award_year": 2012,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "b6d21d7b-e4ad-4b28-93ae-e9fa3e75fa09",
+      "craftlore_id": "CL-ART-000085",
+      "artisan_name": "Mustaq Ahmed Khan",
+      "award_name": "National Merit Certificate",
+      "award_year": 2007,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "b6d21d7b-e4ad-4b28-93ae-e9fa3e75fa09",
+      "craftlore_id": "CL-ART-000085",
+      "artisan_name": "Mustaq Ahmed Khan",
+      "award_name": "National Award (Joint)",
+      "award_year": 2012,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "ba0ec6ce-cde9-44d3-8e4c-d36425f03d0b",
+      "craftlore_id": "CL-ART-000086",
+      "artisan_name": "Mohammad Yousuf Bhat",
+      "award_name": "Shilp Guru",
+      "award_year": 2008,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "4d5eb5ec-6ee8-489c-a2a5-fae6f2efb77b",
+      "craftlore_id": "CL-ART-000087",
+      "artisan_name": "Mohmad Ashraf Budoo",
+      "award_name": "National Award",
+      "award_year": 2008,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "29b69966-9ebf-4641-a50a-fd63ebf37a87",
+      "craftlore_id": "CL-ART-000088",
+      "artisan_name": "Mohd. Rafiq Bhat",
+      "award_name": "National Award",
+      "award_year": 2008,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "f1bb3349-ae8c-4fe8-a08c-939afe345050",
+      "craftlore_id": "CL-ART-000089",
+      "artisan_name": "Tariq Ahmad Mir",
+      "award_name": "National Award",
+      "award_year": 2008,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "62281ab0-0b40-4a5d-9b97-cd760e702c7b",
+      "craftlore_id": "CL-ART-000090",
+      "artisan_name": "Nazir Ahmad Bhat",
+      "award_name": "National Merit Certificate",
+      "award_year": 2008,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "62281ab0-0b40-4a5d-9b97-cd760e702c7b",
+      "craftlore_id": "CL-ART-000090",
+      "artisan_name": "Nazir Ahmad Bhat",
+      "award_name": "National Merit Certificate",
+      "award_year": 2010,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "71e5324f-6bac-4988-bc83-f879bfa3fed3",
+      "craftlore_id": "CL-ART-000091",
+      "artisan_name": "Ali Mohhad Malik",
+      "award_name": "National Merit Certificate",
+      "award_year": 2010,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "de70e866-c03f-4938-9529-5fbff2bc669d",
+      "craftlore_id": "CL-ART-000092",
+      "artisan_name": "Ghulam Hassan Parray",
+      "award_name": "National Merit Certificate",
+      "award_year": 2010,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "cd3cd55d-2186-4158-af9e-b1627395a849",
+      "craftlore_id": "CL-ART-000093",
+      "artisan_name": "Bashir Ahmad Ganie",
+      "award_name": "National Award (Joint)",
+      "award_year": 2010,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "a365a69b-7789-48dd-b8f4-cccadd1fe46f",
+      "craftlore_id": "CL-ART-000094",
+      "artisan_name": "Fayaz Ahmad Ganie",
+      "award_name": "National Award (Joint)",
+      "award_year": 2010,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "8146f1a2-d41c-48dd-ae01-edd06c7a935a",
+      "craftlore_id": "CL-ART-000095",
+      "artisan_name": "Majid Ahmad Mir",
+      "award_name": "National Award (Joint)",
+      "award_year": 2010,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "c3a0c30e-1414-4993-9737-dce5236d6f1e",
+      "craftlore_id": "CL-ART-000096",
+      "artisan_name": "Altaf Hussain Mir",
+      "award_name": "National Award (Joint)",
+      "award_year": 2010,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "3550afb1-1246-4156-aa48-ca9d418280b6",
+      "craftlore_id": "CL-ART-000097",
+      "artisan_name": "Sajad Ahmad Sofi",
+      "award_name": "National Award (Joint)",
+      "award_year": 2011,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "497ca278-efb8-4177-81fe-8cfab778c3f2",
+      "craftlore_id": "CL-ART-000098",
+      "artisan_name": "Zahoor Ahmad Mir",
+      "award_name": "National Award (Joint)",
+      "award_year": 2011,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "497ca278-efb8-4177-81fe-8cfab778c3f2",
+      "craftlore_id": "CL-ART-000098",
+      "artisan_name": "Zahoor Ahmad Mir",
+      "award_name": "National Handloom Award",
+      "award_year": 2018,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "389fa727-e2c9-44b4-8064-76db496e577a",
+      "craftlore_id": "CL-ART-000099",
+      "artisan_name": "Fayaz Ahmad Mir",
+      "award_name": "National Award",
+      "award_year": 2011,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "1945bbb7-4159-4ee0-94ee-24208942f8c6",
+      "craftlore_id": "CL-ART-000100",
+      "artisan_name": "Zubaida Akhter",
+      "award_name": "National Merit Certificate",
+      "award_year": 2012,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "51e15830-14a8-447c-97bf-6408a6e94e2d",
+      "craftlore_id": "CL-ART-000101",
+      "artisan_name": "Mukhtar Ahmad Bhat",
+      "award_name": "National Merit Certificate",
+      "award_year": 2012,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "e8417e4f-b7f1-480e-9272-a257e22b9f7d",
+      "craftlore_id": "CL-ART-000102",
+      "artisan_name": "Gh. Mustafa Mir",
+      "award_name": "National Award",
+      "award_year": 2013,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "eec1b32b-8a49-49b3-bd6d-ac443be77fe1",
+      "craftlore_id": "CL-ART-000103",
+      "artisan_name": "Syed Maqbool Hussain",
+      "award_name": "National Award",
+      "award_year": 2014,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "edc18161-1702-48e6-a685-44f9762597b8",
+      "craftlore_id": "CL-ART-000104",
+      "artisan_name": "Aijaz Ahmad Sheikh",
+      "award_name": "National Award",
+      "award_year": 2014,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "d6e4c36d-2545-4b88-bf9b-ecf2351aad19",
+      "craftlore_id": "CL-ART-000105",
+      "artisan_name": "Farooq Ahmad Mir",
+      "award_name": "Sant Kabir Award",
+      "award_year": 2014,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "4e49ce37-7806-4733-98d9-d8c85e658df1",
+      "craftlore_id": "CL-ART-000106",
+      "artisan_name": "Zahid Hussain Beig",
+      "award_name": "National Award",
+      "award_year": 2015,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "de9ab7ba-18a7-47c9-9877-a0ed9185f4c5",
+      "craftlore_id": "CL-ART-000107",
+      "artisan_name": "Mudasir Ahmad Dar",
+      "award_name": "National Merit Certificate",
+      "award_year": 2015,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "fb45fea7-b0f3-49a1-a7f7-227b5b7e50a1",
+      "craftlore_id": "CL-ART-000108",
+      "artisan_name": "Sajad Ahmad Mattoo",
+      "award_name": "National Merit Certificate",
+      "award_year": 2016,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "321d3354-0a6d-43be-84f9-7fd36af32cf8",
+      "craftlore_id": "CL-ART-000109",
+      "artisan_name": "Shabir Ahmad Dar",
+      "award_name": "National Award",
+      "award_year": 2016,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "b46af5e1-f4ed-4fef-a5b0-839a3286389a",
+      "craftlore_id": "CL-ART-000110",
+      "artisan_name": "Tariq Ahmad Sofi",
+      "award_name": "National Award",
+      "award_year": 2017,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "1680c677-c534-43aa-8f9b-ba8a4bc2518a",
+      "craftlore_id": "CL-ART-000111",
+      "artisan_name": "Shahnaz",
+      "award_name": "National Merit Certificate",
+      "award_year": 2017,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "f159e2aa-1826-4d21-a19a-e0d77ffdbbc0",
+      "craftlore_id": "CL-ART-000112",
+      "artisan_name": "Ghulam Ali Sheikh",
+      "award_name": "National Award",
+      "award_year": 2017,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "9a8cd8dd-6b54-4f32-bbe5-0e492cd98344",
+      "craftlore_id": "CL-ART-000113",
+      "artisan_name": "Safder Ali Mir",
+      "award_name": "National Award",
+      "award_year": 2018,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "c68d5784-776b-43ed-a400-1f956a7a1cea",
+      "craftlore_id": "CL-ART-000114",
+      "artisan_name": "Parveza Bano",
+      "award_name": "National Award",
+      "award_year": 2018,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "1ed6174c-9241-4b47-bcd7-77dfdfb09959",
+      "craftlore_id": "CL-ART-000115",
+      "artisan_name": "Manzoor Ahmad Ganie",
+      "award_name": "National Handloom Award",
+      "award_year": 2018,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "083a5a75-93d9-428b-b5d6-ffdb2147c063",
+      "craftlore_id": "CL-ART-000116",
+      "artisan_name": "Jabeena Banu",
+      "award_name": "National Handloom Award",
+      "award_year": 2018,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "eac65a55-fad0-4eab-a7a9-ae9bab15c215",
+      "craftlore_id": "CL-ART-000117",
+      "artisan_name": "Umar Amin Malik",
+      "award_name": "National Handloom Award",
+      "award_year": 2018,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "391c58f4-5a28-4f75-bdf4-feab4cb686c2",
+      "craftlore_id": "CL-ART-000118",
+      "artisan_name": "Muzaffar Hussain Kashoo",
+      "award_name": "National Award",
+      "award_year": 2019,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "6f9179ce-e4cf-42f2-8b02-286badd72700",
+      "craftlore_id": "CL-ART-000119",
+      "artisan_name": "Zahoor Ahmad Bhat",
+      "award_name": "National Award",
+      "award_year": 2019,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "1f4f6656-1111-48f1-863a-eb02cc5ca21b",
+      "craftlore_id": "CL-ART-000121",
+      "artisan_name": "Altaf Jaan",
+      "award_name": "National Award",
+      "award_year": 1992,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "7ced33ed-a2e7-4e24-93e0-5c703147f244",
+      "craftlore_id": "CL-ART-000122",
+      "artisan_name": "Abdul Rahman",
+      "award_name": "National Award",
+      "award_year": 1975,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "01eab8ef-0069-4893-8199-82d56579e8f7",
+      "craftlore_id": "CL-ART-000123",
+      "artisan_name": "Tsering Wangdus",
+      "award_name": "National Award",
+      "award_year": 1977,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "01eab8ef-0069-4893-8199-82d56579e8f7",
+      "craftlore_id": "CL-ART-000123",
+      "artisan_name": "Tsering Wangdus",
+      "award_name": "Padma Shri",
+      "award_year": 1999,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "7ef72e86-3c5b-45e9-b048-fb0895faeba3",
+      "craftlore_id": "CL-ART-000124",
+      "artisan_name": "Ghulam Rasool Dar (G.R. Santosh)",
+      "award_name": "Lalit Kala Akademi National Award",
+      "award_year": 1973,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    },
+    {
+      "artisan_id": "7ef72e86-3c5b-45e9-b048-fb0895faeba3",
+      "craftlore_id": "CL-ART-000124",
+      "artisan_name": "Ghulam Rasool Dar (G.R. Santosh)",
+      "award_name": "Padma Shri",
+      "award_year": 1977,
+      "award_craft_original": null,
+      "normalized_craft_id": null
+    }
+  ]
+}

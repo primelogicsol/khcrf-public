@@ -1,0 +1,102 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - hcrf_net
+    mem_limit: 128m
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    networks:
+      - hcrf_net
+    mem_limit: 64m
+
+  db:
+    image: pgvector/pgvector:pg15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: govtech
+      POSTGRES_PASSWORD: govtech@123
+      POSTGRES_DB: hcrf_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - hcrf_net
+    mem_limit: 512m
+    shm_size: 128m
+
+  frontend:
+    image: ${DOCKER_USERNAME:-faiz443}/hcrf-frontend:${FRONTEND_SHA:-latest}
+    container_name: frontend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=/api/backend
+      - INTERNAL_API_URL=http://backend:4000/api
+      - BACKEND_INTERNAL_URL=http://backend:4000/api
+      - NEXT_PUBLIC_RAZORPAY_KEY_ID=${NEXT_PUBLIC_RAZORPAY_KEY_ID}
+      - NEXT_PUBLIC_GOOGLE_CLIENT_ID=${NEXT_PUBLIC_GOOGLE_CLIENT_ID}
+    depends_on:
+      - backend
+    networks:
+      - hcrf_net
+    mem_limit: 512m
+
+  backend:
+    image: ${DOCKER_USERNAME:-faiz443}/hcrf-backend:${BACKEND_SHA:-latest}
+    container_name: backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=production
+      - PORT=4000
+      - WEB_CONCURRENCY=1
+      - BACKEND_SHA=${BACKEND_SHA:-latest}
+      # CRITICAL: Use Docker service name 'postgres_db', NOT 'localhost'.
+      # Inside Docker, containers talk via service names, not host ports.
+      - DATABASE_URL=postgresql://govtech:govtech%40123@postgres_db:5432/hcrf_db
+      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
+      - RAZORPAY_KEY_ID=${RAZORPAY_KEY_ID}
+      - RAZORPAY_KEY_SECRET=${RAZORPAY_KEY_SECRET}
+      - FRONTEND_URL=${FRONTEND_URL}
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - RAZORPAY_WEBHOOK_SECRET=${RAZORPAY_WEBHOOK_SECRET}
+    depends_on:
+      - db
+    networks:
+      - hcrf_net
+    mem_limit: 512m
+
+networks:
+  hcrf_net:
+    driver: bridge
+
+volumes:
+  postgres_data:

@@ -1,0 +1,15 @@
+1: "use client";
+2: 
+3: import React, { useState } from "react";
+4: import Link from "next/link";
+5: import { FaCheckCircle, FaFileSignature, FaChartLine, FaShieldAlt, FaLock, FaChevronDown, FaChevronUp, FaAward } from "react-icons/fa";
+6: import ScrollReveal from "../ScrollReveal";
+7: 
+8: export default function EvaluateFarmLink({ buttonLink = "/business-support/evaluation" }: { buttonLink?: string }) {
+9:   const [openTier, setOpenTier] = useState<string>('GOLD');
+10:   return (
+11:     <section className="py-32 bg-[#fafafa] relative overflow-hidden">
+12:       {/* Premium Background Elements */}
+13:       <div className="absolute top-0 right-0 w-1/2 h-full bg-white rounded-bl-[120px] shadow-[0_0_100px_rgba(0,0,0,0.02)] -z-0"></div>
+14:       <div className="absolute -left-40 bottom-20 w-96 h-96 bg-[#6B2B08]/10 rounded-full blur-[100px] pointer-events-none"></div>
+15: 

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" lang="en">
+  <head>
+    <meta content="width=device-width" name="viewport" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <title>New Login Alert</title>
+  </head>
+  <body style="margin:0;padding:0;background-color:#f4f4f4;font-family:sans-serif;">
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
+      <tbody>
+        <tr>
+          <td align="center" style="padding:40px 16px">
+            <table width="600" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #e0e0e0">
+              <tbody>
+                <tr>
+                  <td style="padding:32px;background:#ffffff;border-bottom:1px solid #f0f0f0">
+                    <h1 style="margin:0;color:#333333;font-size:24px;font-weight:700">New Login Detected</h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:32px">
+                    <p style="margin:0 0 20px 0;font-size:16px;line-height:1.6;color:#333333">
+                      Hi <strong>{{name}}</strong>,
+                    </p>
+                    <p style="margin:0 0 24px 0;font-size:16px;line-height:1.6;color:#555555">
+                      We noticed a new login to your HCRF account. If this was you, no further action is needed.
+                    </p>
+
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#f9f9f9;border-radius:6px;margin-bottom:24px">
+                      <tbody>
+                        <tr>
+                          <td style="padding:16px">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                              <tr>
+                                <td style="padding:4px 0;color:#888888;font-size:14px;width:100px">Device:</td>
+                                <td style="padding:4px 0;color:#333333;font-size:14px;font-weight:600">{{device}}</td>
+                              </tr>
+                              <tr>
+                                <td style="padding:4px 0;color:#888888;font-size:14px">Location:</td>
+                                <td style="padding:4px 0;color:#333333;font-size:14px;font-weight:600">{{location}}</td>
+                              </tr>
+                              <tr>
+                                <td style="padding:4px 0;color:#888888;font-size:14px">Time:</td>
+                                <td style="padding:4px 0;color:#333333;font-size:14px;font-weight:600">{{time}}</td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                     <p style="margin:0 0 24px 0;font-size:15px;line-height:1.6;color:#555555">
+                      If you don't recognize this activity, please reset your password immediately to secure your account.
+                    </p>
+                    
+                    <div align="center">
+                        <a href="{{{RESET_PASSWORD_LINK}}}" style="display:inline-block;padding:12px 24px;background-color:#d73a49;color:#ffffff;text-decoration:none;border-radius:4px;font-weight:bold;font-size:14px">Secure My Account</a>
+                    </div>
+                  </td>
+                </tr>
+                 <tr>
+                  <td style="padding:20px;background:#f9f9f9;border-top:1px solid #e0e0e0;text-align:center">
+                     <p style="margin:0;font-size:12px;color:#999999">
+                      Handicraft Care & Research Foundation<br/>
+                      Protecting Kashmir's Artisan Legacy
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+@layer hcrf-themes {
+  .theme-public {
+    /* Public Surfaces (Mapped to legacy compatibility values) */
+    --surface-page: var(--legacy-public-page);
+    --surface-reading: var(--legacy-public-page);
+    --surface-card: var(--legacy-public-page);
+    --surface-elevated: var(--legacy-public-page);
+    --surface-inverse: #071127; /* Legacy hcrf-navy-900 */
+    --surface-muted: var(--legacy-public-surface-muted);
+
+    /* Public Typography */
+    --text-primary: var(--legacy-public-text-primary);
+    --text-secondary: var(--legacy-public-text-secondary);
+    --text-muted: #6b7280; /* Approximates various Tailwind gray-500 classes */
+    --text-inverse: #ffffff;
+    --text-disabled: #9ca3af;
+
+    /* Public Borders */
+    --border-subtle: #f3f4f6;
+    --border-default: var(--legacy-public-border);
+    --border-strong: #d1d5db;
+    --border-inverse: rgba(255, 255, 255, 0.2);
+
+    /* Public Icons */
+    --icon-primary: var(--legacy-public-text-primary);
+    --icon-muted: #6b7280;
+    --icon-inverse: #ffffff;
+  }
+}

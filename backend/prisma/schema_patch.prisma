@@ -1,0 +1,184 @@
+// ==========================================
+// STATE OF KASHMIR CRAFTS - OFFICIAL MESSAGES
+// ==========================================
+
+model SkcOfficialMessageCategory {
+  id            String   @id @default(cuid())
+  title         String
+  slug          String   @unique
+  description   String?
+  icon          String?
+  displayOrder  Int      @default(0)
+  visibility    Boolean  @default(true)
+  disclaimer    String?
+  isActive      Boolean  @default(true)
+  messages      SkcOfficialMessage[]
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model SkcOfficialMessageSettings {
+  id                        String   @id @default("global")
+  consultationOpeningDate   DateTime?
+  consultationClosingDate   DateTime?
+  invitedSubmissionsEnabled Boolean  @default(true)
+  invitationRequestsEnabled Boolean  @default(true)
+  publicRegisterEnabled     Boolean  @default(true)
+  featuredMessagesEnabled   Boolean  @default(true)
+  emptyCategoryVisibility   Boolean  @default(true)
+  defaultSort               String   @default("publishedAt_desc")
+  recordsPerPage            Int      @default(20)
+  downloadCenterVisibility  Boolean  @default(true)
+  invitationValidityDays    Int      @default(30)
+  messageLengthLimit        Int      @default(2000)
+  requirePhotograph         Boolean  @default(true)
+  requireSignedLetter       Boolean  @default(true)
+  requireInstitutionLogo    Boolean  @default(false)
+  requireContributorApproval Boolean @default(true)
+  referenceNumberPrefix     String   @default("SKC2026")
+  referenceNumberType       String   @default("OM")
+  nextSequenceNumber        Int      @default(1)
+  updatedAt                 DateTime @updatedAt
+}
+
+model SkcOfficialMessageInvitation {
+  id                   String   @id @default(cuid())
+  token                String   @unique
+  fullName             String
+  publicDisplayName    String?
+  honorific            String?
+  designation          String
+  institution          String
+  department           String?
+  contributorCategory  String
+  institutionType      String?
+  officialEmail        String
+  phone                String?
+  country              String
+  region               String?
+  district             String?
+  preferredLanguage    String   @default("English")
+  expiryDate           DateTime
+  assignedReviewerId   String?
+  internalPriority     String   @default("NORMAL")
+  invitationNote       String?  @db.Text
+  targetPublicationDate DateTime?
+  categoryId           String?
+  
+  status               String   @default("DRAFT") // DRAFT, READY_TO_SEND, SENT, DELIVERED, OPENED, DRAFT_STARTED, SUBMITTED, EXPIRED, REVOKED, DECLINED
+  
+  sentAt               DateTime?
+  openedAt             DateTime?
+  draftStartedAt       DateTime?
+  submittedAt          DateTime?
+  
+  message              SkcOfficialMessage? @relation("InvitationMessage")
+  
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+}
+
+model SkcOfficialMessage {
+  id                     String   @id @default(cuid())
+  referenceNumber        String   @unique
+  slug                   String   @unique
+  
+  // Contributor details (synced from invitation or updated on submission)
+  fullName               String
+  publicDisplayName      String?
+  honorific              String?
+  designation            String
+  institution            String
+  department             String?
+  contributorCategory    String
+  institutionType        String?
+  officialEmail          String
+  phone                  String?
+  country                String
+  region                 String?
+  district               String?
+  
+  // Content
+  title                  String?
+  fullBody               String?  @db.Text
+  excerpt                String?  @db.Text
+  themes                 String[]
+  language               String   @default("English")
+  translation            String?  @db.Text
+  
+  // Media & Documents
+  photographUrl          String?
+  photographStatus       String   @default("PENDING") // UPLOADED, PROCESSING, NEEDS_REPLACEMENT, APPROVED, REJECTED, PUBLISHED
+  photographAltText      String?
+  photographSettings     Json?    // crop, focal point, public/private
+  
+  institutionLogoUrl     String?
+  signedLetterUrl        String?
+  signedLetterStatus     String   @default("PENDING")
+  supportingFiles        Json?
+  
+  // Verification & Review
+  identityStatus         String   @default("PENDING") // PENDING, APPROVED, REJECTED
+  authorityStatus        String   @default("PENDING") // PENDING, VERIFIED, REJECTED
+  editorialStatus        String   @default("PENDING") // PENDING, REVIEWED, REVISION_REQUESTED
+  consentStatus          String   @default("PENDING")
+  contributorApproval    String   @default("PENDING")
+  
+  workflowStatus         String   @default("SUBMITTED") // SUBMITTED, IDENTITY_REVIEW, AUTHORITY_VERIFICATION, EDITORIAL_REVIEW, REVISION_REQUESTED, AWAITING_CONTRIBUTOR_APPROVAL, APPROVED, SCHEDULED, PUBLISHED, WITHDRAWN, DECLINED, ARCHIVED
+  editorialNotes         String?  @db.Text
+  internalNotes          String?  @db.Text
+  
+  assignedReviewerId     String?
+  
+  // Publication
+  categoryId             String
+  category               SkcOfficialMessageCategory @relation(fields: [categoryId], references: [id])
+  isFeatured             Boolean  @default(false)
+  displayPriority        Int      @default(0)
+  
+  scheduledFor           DateTime?
+  publishedAt            DateTime?
+  unpublishedAt          DateTime?
+  archivedAt             DateTime?
+  
+  // Stats
+  pageViews              Int      @default(0)
+  pdfDownloads           Int      @default(0)
+  
+  // Relations
+  invitationId           String?  @unique
+  invitation             SkcOfficialMessageInvitation? @relation("InvitationMessage", fields: [invitationId], references: [id])
+  
+  revisions              SkcOfficialMessageRevision[]
+  auditLogs              SkcOfficialMessageAuditLog[]
+  
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}
+
+model SkcOfficialMessageRevision {
+  id                  String   @id @default(cuid())
+  messageId           String
+  message             SkcOfficialMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  content             String   @db.Text
+  excerpt             String?  @db.Text
+  title               String?
+  changedBy           String
+  changeReason        String?
+  createdAt           DateTime @default(now())
+}
+
+model SkcOfficialMessageAuditLog {
+  id                  String   @id @default(cuid())
+  messageId           String?
+  message             SkcOfficialMessage? @relation(fields: [messageId], references: [id], onDelete: SetNull)
+  invitationId        String?
+  actorId             String
+  actorName           String
+  action              String   // e.g., IDENTITY_APPROVED, PUBLISHED, REVISION_REQUESTED
+  previousValue       Json?
+  newValue            Json?
+  reason              String?
+  ipAddress           String?
+  createdAt           DateTime @default(now())
+}

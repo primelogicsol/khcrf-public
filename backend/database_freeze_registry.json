@@ -1,0 +1,1956 @@
+[
+  {
+    "id": "KHCRF-PTR-000000",
+    "orgName": "De Koshur Crafts",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Commerce",
+      "Ecosystem"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "De Koshur Crafts is the core commercial ecosystem for authentic Kashmir crafts.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000000",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "cfb86627211002094a2b068",
+    "orgName": "De Koshur Crafts India",
+    "country": "India",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Cultural Preservation",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Commerce",
+      "Ecosystem"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "De Koshur Crafts India manages local Kashmir operations, artisan and supplier relationships, India-side compliance, sourcing coordination, and cultural-heritage production aligned with the KHCRF craft ecosystem.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000000-IN",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "c70c8ae37a7f59a3d4bf60a",
+    "orgName": "Kashmir ArtStay Global USA",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Artisan Welfare",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Tourism",
+      "Ecosystem"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Kashmir ArtStay Global USA leads international hospitality, cultural tourism, artisan-stay and experiential travel programming connecting global visitors with authentic Kashmir craftsmanship, heritage and community through curated stays, tours and immersive experiences.",
+    "website": null,
+    "registryId": "KHCRF-PTR-ATS-USA",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000001",
+    "orgName": "Craftlore",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Academic Research",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Research",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Craftlore provides independent craft intelligence, documentation, authenticity verification, provenance, appraisal, sustainability intelligence and public-interest knowledge infrastructure supporting Kashmir's craft ecosystem.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000001",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000002",
+    "orgName": "Craftlore CKTRE",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Policy and Advocacy",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Verification",
+      "Compliance"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craftlore Kashmir Trade Registry Engine provides structured trade and entity intelligence for the craft ecosystem through verification, accountability, compliance monitoring and trusted registry infrastructure.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000002",
+    "entityType": "enterprise",
+    "parentName": "Craftlore"
+  },
+  {
+    "id": "KHCRF-PTR-000003",
+    "orgName": "Craftlore CLIE",
+    "country": "India",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Academic Research",
+      "Cultural Preservation"
+    ],
+    "collaborationType": [
+      "Learning",
+      "Certification"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craft Learning and Incentives Engine provides structured craft education, knowledge development, certification, incentives and ambassador pathways for artisans and other participants across the craft ecosystem.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000003",
+    "entityType": "enterprise",
+    "parentName": "Craftlore"
+  },
+  {
+    "id": "KHCRF-PTR-000004",
+    "orgName": "Craftlore CGIS",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Policy and Advocacy",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "GI Protection",
+      "Verification"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craftlore Geographical Indications System provides intelligence and verification infrastructure for GI-protected crafts, supporting provenance, authorized-user awareness, product verification and protection of geographically rooted craft identity.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000004",
+    "entityType": "enterprise",
+    "parentName": "Craftlore"
+  },
+  {
+    "id": "KHCRF-PTR-000005",
+    "orgName": "Craftlore CLEE",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Academic Research",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Sustainability",
+      "Research"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craftlore Lifecycle Emission Engine provides environmental intelligence across the craft lifecycle, supporting emissions assessment, sustainability analysis, responsible production and evidence-based environmental decision-making.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000005",
+    "entityType": "enterprise",
+    "parentName": "Craftlore"
+  },
+  {
+    "id": "KHCRF-PTR-000006",
+    "orgName": "Craftlore CAIS",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Appraisal",
+      "Market Intelligence"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craft Appraisal and Intelligence System provides structured craft appraisal, fair-value assessment and market intelligence using material, technique, provenance, quality and relevant market evidence.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000006",
+    "entityType": "enterprise",
+    "parentName": "Craftlore"
+  },
+  {
+    "id": "KHCRF-PTR-000007",
+    "orgName": "Craftlore CSEME",
+    "country": "India",
+    "collaborationAreas": [
+      "Academic Research",
+      "Artisan Welfare",
+      "Policy and Advocacy"
+    ],
+    "collaborationType": [
+      "Research",
+      "Analytics"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craft Socio-Economic Monitoring Engine provides structured intelligence on production, employment, artisan participation, market activity and socio-economic conditions affecting craft communities and the wider craft economy.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000007",
+    "entityType": "enterprise",
+    "parentName": "Craftlore"
+  },
+  {
+    "id": "KHCRF-PTR-000008",
+    "orgName": "Craftlore CRVAS",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Policy and Advocacy",
+      "Academic Research"
+    ],
+    "collaborationType": [
+      "Risk Assessment",
+      "Research"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craft Risk and Vulnerability Assessment System provides structured assessment of climate, economic, social, political, supply-chain and market-access risks affecting artisans, crafts and associated economic systems.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000008",
+    "entityType": "enterprise",
+    "parentName": "Craftlore"
+  },
+  {
+    "id": "KHCRF-PTR-000010",
+    "orgName": "Purple Soul USA",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Commerce",
+      "Cultural Outreach"
+    ],
+    "status": "ACTIVE",
+    "collection": "institutional-alliance",
+    "projectDescription": "Purple Soul USA connects heritage craftsmanship with faith-inspired and culturally meaningful products for North American and global consumers through ethical commerce and curated collections.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000010",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000011",
+    "orgName": "Team Collab",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Technology",
+      "Implementation"
+    ],
+    "status": "ACTIVE",
+    "collection": "institutional-alliance",
+    "projectDescription": "Team Collab provides internal collaboration, action management, research coordination, documentation, meetings, workflows and institutional project-management infrastructure across the ecosystem.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000011",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000012",
+    "orgName": "Prime Logic Solutions USA",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research"
+    ],
+    "collaborationType": [
+      "Technology",
+      "Research",
+      "Implementation"
+    ],
+    "status": "ACTIVE",
+    "collection": "institutional-alliance",
+    "projectDescription": "Prime Logic Solutions USA provides software development, environmental intelligence, GIS and spatial systems, AI and data infrastructure, cloud systems and managed digital delivery supporting ecosystem platforms and institutional technology requirements.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000012",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000013",
+    "orgName": "DKC Blockchain",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Blockchain",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKC Blockchain develops and implements distributed ledger technologies for provenance tracking, authenticating Kashmir-origin crafts, and ensuring transparent supply-chain traceability.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000013",
+    "entityType": "enterprise",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000014",
+    "orgName": "De Koshur Crafts E-Commerce",
+    "country": "United States",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Commerce",
+      "Market Access"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "De Koshur Crafts E-Commerce provides consumer-facing digital commerce and international market access for Kashmir-origin craft products through structured online retail infrastructure.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000014",
+    "entityType": "enterprise",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000015",
+    "orgName": "De Koshur Crafts B2B Connect",
+    "country": "United States",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Trade",
+      "Partnership Infrastructure"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "De Koshur Crafts B2B Connect provides a structured gateway connecting Kashmir-origin craft vendors with qualified buyers, retailers, institutions and commercial partners through verified partnership pathways, controlled onboarding and market-access infrastructure.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000015",
+    "entityType": "enterprise",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000016",
+    "orgName": "DKC Dropshipping",
+    "country": "United States",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Dropshipping",
+      "E-Commerce"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKC Dropshipping provides a low-inventory market-entry pathway that enables Kashmir-origin craft products to be supplied directly to customers through qualified retail and e-commerce partners without requiring conventional buyer-side inventory holding.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000016",
+    "entityType": "enterprise",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000017",
+    "orgName": "DKC Consignment",
+    "country": "United States",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Consignment",
+      "Retail"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKC Consignment enables qualified craft products to be placed with buyer-side partners under structured consignment arrangements, allowing vendors to retain ownership until sale while building market presence and commercial trust.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000017",
+    "entityType": "enterprise",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000018",
+    "orgName": "DKC Wholesale",
+    "country": "United States",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Wholesale",
+      "Distribution"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKC Wholesale connects qualified Kashmir-origin craft suppliers with distributors, retailers and institutional buyers requiring larger-volume sourcing through structured commercial terms and verified supply relationships.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000018",
+    "entityType": "enterprise",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000019",
+    "orgName": "DKC Import / Export",
+    "country": "United States",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Policy and Advocacy"
+    ],
+    "collaborationType": [
+      "Import / Export",
+      "Trade Compliance"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKC Import / Export supports structured international craft trade through market-access pathways, documentation, compliance awareness and coordination between Kashmir-origin suppliers and international import partners.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000019",
+    "entityType": "enterprise",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000020",
+    "orgName": "DKC Exhibitions",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Exhibition",
+      "Market Access"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKC Exhibitions develops structured opportunities for Kashmir-origin crafts to participate in exhibitions, trade showcases, cultural presentations and curated market events that expand visibility and institutional engagement.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000020",
+    "entityType": "enterprise",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000021",
+    "orgName": "DKC Bidding",
+    "country": "United States",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Bidding",
+      "Procurement"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKC Bidding provides structured access to sourcing requests, competitive procurement opportunities and buyer-led bidding environments for qualified craft vendors and commercial participants.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000021",
+    "entityType": "enterprise",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000022",
+    "orgName": "DKC White Label",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Private Label",
+      "Product Development"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC White Label enables qualified partners to develop private-label and white-label craft collections while maintaining appropriate standards for Kashmir origin, provenance, production quality and craft integrity.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000022",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000023",
+    "orgName": "DKC Brick & Mortar",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Retail",
+      "Market Expansion"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC Brick & Mortar develops physical retail and placement pathways connecting Kashmir-origin crafts with boutiques, galleries, specialty stores and other suitable consumer-facing market environments.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000023",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000024",
+    "orgName": "DKC Packaging",
+    "country": "United States",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Packaging",
+      "Product Readiness"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC Packaging supports product presentation, protective packaging, labeling and market-readiness requirements that help Kashmir-origin crafts enter professional domestic and international distribution environments.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000024",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000025",
+    "orgName": "DKC Design Collaboration",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Design",
+      "Co-Creation"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC Design Collaboration connects craft producers with designers and creative partners to develop market-relevant products while protecting traditional techniques, cultural identity and Kashmir craft provenance.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000025",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000026",
+    "orgName": "DKC Storytelling & Media",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Storytelling",
+      "Media"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC Storytelling & Media develops documentation, narrative and communication pathways that strengthen artisan visibility, preserve craft knowledge and communicate the cultural context behind Kashmir-origin craftsmanship.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000026",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000027",
+    "orgName": "DKC Warehousing",
+    "country": "United States",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Warehousing",
+      "Fulfillment"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC Warehousing develops inventory storage and fulfillment pathways that support reliable product availability, order processing and distribution for Kashmir-origin craft in international markets.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000027",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000028",
+    "orgName": "DKC Logistics",
+    "country": "United States",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Logistics",
+      "Fulfillment"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC Logistics connects craft suppliers and commercial partners with structured transportation, fulfillment and supply-chain capabilities required for dependable domestic and international movement of Kashmir-origin products.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000028",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000029",
+    "orgName": "DKC Museum Partnerships",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Academic Research"
+    ],
+    "collaborationType": [
+      "Institutional",
+      "Cultural Collaboration"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC Museum Partnerships develops relationships with museums, galleries, cultural institutions and heritage organizations for exhibitions, collections, research, documentation and responsible presentation of Kashmir crafts.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000029",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000030",
+    "orgName": "DKC NGO Buyer Partnerships",
+    "country": "United States",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Policy and Advocacy",
+      "Cultural Preservation"
+    ],
+    "collaborationType": [
+      "Institutional",
+      "Public Interest"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC NGO Buyer Partnerships connects qualified craft enterprises and artisan initiatives with nonprofit, development and public-interest organizations seeking responsible sourcing, livelihood support and institutional craft engagement.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000030",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000031",
+    "orgName": "DKC Technology Partnerships",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research"
+    ],
+    "collaborationType": [
+      "Technology",
+      "Implementation"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "DKC Technology Partnerships develops relationships with technology providers and digital infrastructure partners supporting commerce, traceability, provenance, data systems, operational automation and modernization across the craft value chain.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000031",
+    "entityType": "program",
+    "parentName": "De Koshur Crafts USA"
+  },
+  {
+    "id": "KHCRF-PTR-000032",
+    "orgName": "Kashmir EcoWatch",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Academic Research",
+      "Policy and Advocacy"
+    ],
+    "collaborationType": [
+      "Environmental Research",
+      "Monitoring"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Kashmir EcoWatch provides environmental monitoring, research and public-interest intelligence focused on ecological change, climate pressures, natural resources, environmental risks and sustainability issues affecting Kashmir and its communities.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000032",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000033",
+    "orgName": "Dr. Kumar Foundation USA",
+    "country": "United States",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Cultural Preservation",
+      "Academic Research",
+      "Policy and Advocacy"
+    ],
+    "collaborationType": [
+      "Foundation",
+      "Philanthropy"
+    ],
+    "status": "ACTIVE",
+    "collection": "institutional-alliance",
+    "projectDescription": "Dr. Kumar Foundation USA supports public-interest, cultural, educational and humanitarian initiatives across the KHCRF ecosystem, providing institutional stewardship, program support and philanthropic engagement for projects serving communities, heritage, knowledge and social development.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000033",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000009",
+    "orgName": "Kashmir ArtStay",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Artisan Welfare",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Craft Tourism",
+      "Cultural Marketplace"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Kashmir ArtStay operates a Kashmir craft and tourism convergence marketplace connecting travelers with artisans, workshops, cultural experiences, heritage destinations, responsible travel services, verified craft commerce and locally rooted visitor infrastructure.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000009",
+    "entityType": "organization",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000034",
+    "orgName": "ArtStay AVA",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Artisan Welfare",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Artisan Experience",
+      "Cultural Tourism"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Vacation With Kashmiri Craft Artisans creates structured travel experiences that bring visitors into meaningful contact with Kashmiri artisans, workshops, craft families and living production environments while supporting cultural understanding and artisan livelihoods.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000034",
+    "entityType": "platform",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000035",
+    "orgName": "ArtStay HCS",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Artisan Welfare",
+      "Academic Research"
+    ],
+    "collaborationType": [
+      "Heritage Tourism",
+      "Craft Discovery"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Kashmir Heritage Craft Safari Discovery provides guided access to craft villages, workshops, artisan communities, production traditions and heritage environments, helping visitors understand Kashmir crafts within their cultural, geographic and historical context.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000035",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000036",
+    "orgName": "ArtStay CFE",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Artisan Welfare",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Exhibition",
+      "Cultural Marketplace"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Kashmir Craft Fairs & Exhibitions develops curated opportunities for artisans, craft enterprises and cultural organizations to present verified Kashmir crafts through fairs, showcases, exhibitions and public-facing cultural market events.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000036",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000037",
+    "orgName": "ArtStay CPS",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Artisan Welfare",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Verified Retail",
+      "Pickup Fulfillment"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "ArtStay Craft Pickup Stores provides a trusted retail and fulfillment network for verified Kashmiri crafts, enabling travelers and buyers to reserve products online, collect through approved boutiques and pickup locations, or arrange destination delivery.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000037",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000038",
+    "orgName": "ArtStay CVF",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Verified Retail",
+      "Premium Fulfillment"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Craftlore Verified Flagships represents ArtStays elite destination-store and fulfillment tier, providing verified sourcing oversight, controlled product handling, premium collection access and archive-grade presentation of authenticated Kashmir craft products.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000038",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000039",
+    "orgName": "ArtStay CDM",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Academic Research",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Documentation",
+      "Cultural Media"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "ArtStay Craft Documentation provides a verified marketplace for documenting Kashmirs artisans, workshops, techniques, cultural journeys, academic field research, documentary productions and craft collections through qualified media and documentation professionals.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000039",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000040",
+    "orgName": "ArtStay CSH",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Logistics",
+      "International Delivery"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "ArtStay Craft Shipping provides marketplace-controlled international export and delivery pathways for verified Kashmiri crafts through structured logistics coordination, tracked shipments, insurance-supported handling and buyer-protection processes.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000040",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000041",
+    "orgName": "ArtStay KTR",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Sustainability and Ethical Trade",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Tourism",
+      "Destination Experience"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Kashmir Tour develops structured travel experiences connecting visitors with Kashmirs landscapes, heritage, culture, communities and responsible local tourism opportunities while integrating craft discovery into the wider destination experience.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000041",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000042",
+    "orgName": "ArtStay ECR",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Cultural Preservation",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Eco Tourism",
+      "Responsible Travel"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Eco Retreats connects travelers with environmentally responsible stays and nature-based experiences designed around local landscapes, community participation, cultural sensitivity and lower-impact tourism practices.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000042",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000043",
+    "orgName": "ArtStay DVG",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Sustainability and Ethical Trade",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Culinary Tourism",
+      "Cultural Experience"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Dining Voyage connects travelers with curated Kashmiri culinary experiences, local food traditions, regional dining environments and culturally rooted hospitality that complement the wider heritage-tourism journey.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000043",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000044",
+    "orgName": "ArtStay WEX",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Cultural Preservation",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Wellness Tourism",
+      "Cultural Experience"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Wellness Experiences connects visitors with curated wellness, restorative and culturally rooted experiences designed to complement responsible travel across Kashmir through qualified local providers and destination partners.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000044",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000045",
+    "orgName": "ArtStay ETR",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Mobility",
+      "Sustainable Transport"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Eco Transit coordinates lower-impact and destination-appropriate mobility options that help travelers move between craft, heritage, tourism and community locations through structured local transportation pathways.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000045",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000046",
+    "orgName": "ArtStay ATX",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Ticketing",
+      "Visitor Access"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Attraction Tickets provides structured discovery and access pathways for travelers seeking admission to participating cultural, heritage, tourism and visitor attractions through coordinated booking and destination-access services.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000046",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000047",
+    "orgName": "ArtStay EQR",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Rental Services",
+      "Travel Support"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Equipment Rentals connects travelers with suitable rental equipment and trip-support resources through participating providers, helping visitors access destination-specific equipment without unnecessary ownership or transportation burdens.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000047",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000048",
+    "orgName": "ArtStay TPL",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Cultural Preservation",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Travel Planning",
+      "Itinerary Services"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Travel Planner provides structured itinerary planning that connects transportation, accommodation, craft experiences, heritage visits, local services and visitor priorities into coordinated Kashmir travel journeys.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000048",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000049",
+    "orgName": "ArtStay TIN",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Policy and Advocacy",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Travel Protection",
+      "Insurance Facilitation"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Travel Insurance helps travelers identify and access appropriate travel-protection options through qualified insurance providers and structured referral pathways supporting trip-related risk management and visitor confidence.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000049",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000050",
+    "orgName": "ArtStay CEX",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Policy and Advocacy",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Financial Facilitation",
+      "Traveler Services"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Currency Exchange assists international travelers in locating and accessing authorized foreign-exchange services through qualified providers while supporting practical currency planning and responsible travel preparation.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000050",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000051",
+    "orgName": "ArtStay LNG",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Artisan Welfare",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Language Support",
+      "Cultural Access"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Language Services connects travelers with translation, interpretation and practical communication support that improves access to local communities, artisans, cultural experiences and essential visitor services across Kashmir.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000051",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000052",
+    "orgName": "ArtStay TSI",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade",
+      "Policy and Advocacy"
+    ],
+    "collaborationType": [
+      "Connectivity Facilitation",
+      "Traveler Services"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Tourist SIM & Internet helps eligible travelers understand and access available mobile-connectivity and internet options through authorized telecom providers and participating service channels.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000052",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000053",
+    "orgName": "ArtStay PAE",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Pre-Order Commerce",
+      "Traveler Essentials"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Pre-Arrival Essentials enables travelers to pre-order familiar and trusted everyday products before reaching Kashmir, including groceries, personal-care products, dietary essentials and other practical items, so they can arrive with needed supplies ready locally instead of carrying them in their luggage.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000053",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000054",
+    "orgName": "ArtStay TCS",
+    "country": "India",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology",
+      "Artisan Welfare"
+    ],
+    "collaborationType": [
+      "Traveler Support",
+      "Destination Assistance"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Travel Confidence Support provides travelers with practical orientation, destination guidance and coordinated assistance designed to improve preparedness, clarity and confidence throughout their Kashmir travel experience.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000054",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000055",
+    "orgName": "ArtStay IVR",
+    "country": "India",
+    "collaborationAreas": [
+      "Policy and Advocacy",
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Registration Assistance",
+      "Compliance Support"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Foreigners Registration Assistance helps international visitors understand applicable registration requirements, prepare relevant information and access appropriate authorized channels or qualified assistance where formal registration is required.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000055",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000056",
+    "orgName": "ArtStay ATA",
+    "country": "India",
+    "collaborationAreas": [
+      "Artisan Welfare",
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Accessible Tourism",
+      "Traveler Assistance"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Accessible Travel Assistance supports travelers with mobility, accessibility or additional assistance requirements by coordinating suitable travel information, service providers, transportation considerations and destination-access planning.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000056",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000057",
+    "orgName": "ArtStay WSS",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade",
+      "Cultural Preservation"
+    ],
+    "collaborationType": [
+      "Travel Intelligence",
+      "Seasonal Planning"
+    ],
+    "status": "ACTIVE",
+    "collection": "core-ecosystem",
+    "projectDescription": "Weather & Seasons provides destination-focused seasonal information and travel-planning intelligence to help visitors understand Kashmirs changing weather, seasonal conditions, craft calendars and activity suitability throughout the year.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000057",
+    "entityType": "program",
+    "parentName": "Kashmir ArtStay"
+  },
+  {
+    "id": "KHCRF-PTR-000058",
+    "orgName": "KEW EIP",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Research",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "KEW Environmental Intelligence Platform provides integrated environmental intelligence using ecological data, GIS, monitoring and spatial analysis across climate, biodiversity, water, land systems and environmentally sensitive landscapes.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000058",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000059",
+    "orgName": "KEW TECCM",
+    "country": "India",
+    "collaborationAreas": [
+      "Academic Research",
+      "Cultural Preservation",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Research",
+      "Sustainability"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "KEW Tourism Environmental Carrying Capacity Model assesses how much tourism activity destinations, heritage landscapes, trekking corridors and environmentally sensitive areas can sustain without unacceptable pressure on ecosystems, water resources, infrastructure or local communities.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000059",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000060",
+    "orgName": "KEW CRMSM",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Research",
+      "Sustainability"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "KEW Craft Raw Material Sustainability Model evaluates the ecological availability, sourcing pressure and long-term sustainability of natural materials used in Kashmir crafts, including wood, willow, wool, fibres, clay, botanical materials and natural dyes.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000060",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000061",
+    "orgName": "KEW CCERM",
+    "country": "India",
+    "collaborationAreas": [
+      "Academic Research",
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Research",
+      "Sustainability"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "KEW Craft Cluster Environmental Risk Model evaluates environmental pressures associated with craft-production clusters, including water consumption, wastewater, energy use, emissions, chemicals, production waste and localized ecological stress.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000061",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000062",
+    "orgName": "KEW TCLI",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Research",
+      "Market Intelligence"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "KEW Tourism–Craft Landscape Intelligence connects tourism destinations, artisan communities, craft clusters, heritage landscapes and ecological sensitivity to support environmentally responsible craft tourism and landscape-based economic development.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000062",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000063",
+    "orgName": "KEW NMDO",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Research",
+      "Sustainability"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "KEW Natural Materials & Dye Observatory monitors the ecological condition, geographic availability and sustainability of natural dyes, botanical materials, fibres, wood species and other natural resources associated with Kashmir’s traditional craft practices.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000063",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000064",
+    "orgName": "KEW CCRM",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Research",
+      "Sustainability"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "KEW Climate & Craft Resilience Model evaluates how climate variability, water stress, ecological change and extreme events may affect artisans, craft clusters, raw materials and traditional production landscapes.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000064",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000065",
+    "orgName": "KEW TVPO",
+    "country": "India",
+    "collaborationAreas": [
+      "Academic Research",
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Research",
+      "Sustainability"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "KEW Trails & Visitor Pressure Observatory monitors trekking routes, tourism corridors and mountain destinations for visitor pressure, erosion, waste accumulation, habitat disturbance and other indicators of tourism-related environmental stress.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000065",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000066",
+    "orgName": "KEW WWWI",
+    "country": "India",
+    "collaborationAreas": [
+      "Academic Research",
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Research",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "KEW Water, Wetland & Watershed Intelligence provides environmental and spatial intelligence for Kashmir’s rivers, lakes, wetlands, springs and watersheds, including their relationships with tourism activity, craft communities and natural-resource-dependent livelihoods.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000066",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000067",
+    "orgName": "Purple Soul FIS",
+    "country": "United States",
+    "collaborationAreas": [
+      "Market Access",
+      "Cultural Preservation",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Institutional Supply",
+      "Market Access"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Purple Soul Faith Institutional Supply connects faith institutions, cultural organizations and community networks with curated products, artisan-made goods and institutional purchasing opportunities through structured sourcing and supply channels.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000067",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000068",
+    "orgName": "Purple Soul GIE",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Market Access",
+      "Cultural Preservation"
+    ],
+    "collaborationType": [
+      "Technology",
+      "Market Intelligence"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Purple Soul Gift Intelligence Engine provides structured discovery and recommendation intelligence for culturally meaningful, faith-sensitive and occasion-based gifting using recipient context, traditions, occasions, product attributes and provenance.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000068",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000069",
+    "orgName": "Purple Soul LJ",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Knowledge Exchange",
+      "Market Access"
+    ],
+    "collaborationType": [
+      "Cultural Experience",
+      "Heritage"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Purple Soul Life Journeys organizes meaningful products, traditions and cultural knowledge around important stages of life, including birth, childhood, marriage, family, remembrance, pilgrimage and other significant personal and spiritual occasions.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000069",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000070",
+    "orgName": "Purple Soul PVH",
+    "country": "United States",
+    "collaborationAreas": [
+      "Market Access",
+      "Enterprise Development",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Enterprise",
+      "Market Access"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Purple Soul Partner & Vendor Hub provides structured onboarding, participation and commercial connectivity for artisans, producers, cultural enterprises, institutional suppliers and marketplace partners seeking access to Purple Soul’s commerce ecosystem.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000070",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000071",
+    "orgName": "Purple Soul RC",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Market Access",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Registry",
+      "Verification"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Purple Soul Registry Center maintains structured records for participating makers, vendors, institutions, traditions, cultural products and marketplace relationships, supporting transparency, verification and accountable participation across the Purple Soul ecosystem.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000071",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000072",
+    "orgName": "Purple Soul SOLA",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Academic Research",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Research",
+      "Cultural Intelligence"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Purple Soul Sacred Origins & Living Atlas documents the geographic, historical and cultural origins of sacred traditions, places, practices, communities and associated material culture through a structured living knowledge and mapping framework.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000072",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000073",
+    "orgName": "Purple Soul TCI",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Academic Research",
+      "Knowledge Exchange"
+    ],
+    "collaborationType": [
+      "Research",
+      "Cultural Intelligence"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Purple Soul Traditions & Cultural Intelligence develops structured knowledge around living traditions, cultural practices, symbols, ceremonial objects, gifting customs and community heritage to support informed cultural engagement and responsible commerce.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000073",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000074",
+    "orgName": "Prime Logic CIP",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Compliance",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Prime Logic Compliance Intelligence Platform provides structured compliance intelligence for environmental, infrastructure and institutional operations by organizing regulatory requirements, obligations, evidence, monitoring records and compliance status into a unified decision-support environment.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000074",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000075",
+    "orgName": "Prime Logic EIH",
+    "country": "United States",
+    "collaborationAreas": [
+      "Academic Research",
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Environmental Intelligence",
+      "Research"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Prime Logic Environmental Intelligence Hub serves as an integrated knowledge and analytical environment for environmental data, research, indicators, monitoring results and decision-support information across natural-resource and infrastructure systems.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000075",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000076",
+    "orgName": "Prime Logic EIP",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Technology",
+      "Environmental Intelligence"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Prime Logic Environmental Intelligence Platform integrates environmental data, spatial analysis, monitoring information and analytical models to support evidence-based assessment of environmental conditions, risks, trends and operational impacts.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000076",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000077",
+    "orgName": "Prime Logic ESGI",
+    "country": "United States",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Innovation and Technology",
+      "Academic Research"
+    ],
+    "collaborationType": [
+      "ESG",
+      "Sustainability"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Prime Logic ESG Intelligence Platform structures environmental, social and governance information into measurable indicators, evidence records and analytical intelligence to support sustainability assessment, institutional accountability and responsible enterprise decision-making.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000077",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000078",
+    "orgName": "Prime Logic EN",
+    "country": "United States",
+    "collaborationAreas": [
+      "Academic Research",
+      "Knowledge Exchange",
+      "Innovation and Technology"
+    ],
+    "collaborationType": [
+      "Expert Network",
+      "Research"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Prime Logic Expert Network connects domain specialists, researchers, technical professionals and institutional advisers to support expert review, technical assessment, research collaboration and evidence-based decision-making across environmental, infrastructure and technology programmes.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000078",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000079",
+    "orgName": "Prime Logic GSIP",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "GIS",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Prime Logic GIS & Spatial Intelligence Platform provides geospatial analysis, mapping and spatial decision-support for environmental systems, infrastructure, resources, communities and geographically distributed assets.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000079",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000080",
+    "orgName": "Prime Logic MCP",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Knowledge Exchange",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Monitoring",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Prime Logic Monitoring & Command Platform provides centralized operational awareness for distributed systems by integrating monitoring feeds, alerts, spatial information, operational conditions and response intelligence within a unified command environment.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000080",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000081",
+    "orgName": "Prime Logic TI",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Telemetry",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Prime Logic Telemetry Infrastructure provides the data-acquisition and communications layer required to collect, transmit and integrate field measurements from sensors, monitoring stations and distributed environmental or infrastructure assets.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000081",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000082",
+    "orgName": "Prime Logic WIP",
+    "country": "United States",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Water Intelligence",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Prime Logic Water Intelligence Platform provides integrated monitoring, spatial analysis and decision-support for water resources, water infrastructure, watersheds and related environmental systems, supporting assessment of availability, condition, risk and operational performance.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000082",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000083",
+    "orgName": "DKF TC",
+    "country": "United States",
+    "collaborationAreas": [
+      "Knowledge Exchange",
+      "Community Development",
+      "Cultural Preservation"
+    ],
+    "collaborationType": [
+      "Community",
+      "Knowledge Exchange"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKF The Circle provides a community-oriented platform for dialogue, reflection, mentorship and collaborative engagement around human development, ethical responsibility, cultural understanding and service to society.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000083",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000084",
+    "orgName": "DKF HSP",
+    "country": "United States",
+    "collaborationAreas": [
+      "Community Development",
+      "Knowledge Exchange",
+      "Social Impact"
+    ],
+    "collaborationType": [
+      "Humanitarian",
+      "Community Support"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKF Healing Support Platform supports compassionate community assistance, wellbeing awareness and non-clinical social support for individuals and families facing illness, hardship, isolation or other difficult life circumstances. The platform emphasizes dignity, human connection, community care and responsible referral to appropriate professional services where specialized assistance is required.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000084",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000085",
+    "orgName": "DKF ESP",
+    "country": "United States",
+    "collaborationAreas": [
+      "Sustainability and Ethical Trade",
+      "Community Development",
+      "Academic Research"
+    ],
+    "collaborationType": [
+      "Environment",
+      "Community Development"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKF Environmental Stewardship Platform promotes community responsibility toward the natural environment through environmental awareness, conservation-oriented participation, local stewardship and educational initiatives linking environmental protection with ethical and social responsibility.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000085",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000086",
+    "orgName": "DKF YDP",
+    "country": "United States",
+    "collaborationAreas": [
+      "Education and Skills",
+      "Knowledge Exchange",
+      "Community Development"
+    ],
+    "collaborationType": [
+      "Youth Development",
+      "Education"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKF Youth Development Platform supports young people through mentorship, learning opportunities, leadership development, civic responsibility, cultural awareness and community-oriented participation. The platform encourages youth to develop knowledge, confidence and a service-based understanding of their role within society.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000086",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000087",
+    "orgName": "DKF IDC",
+    "country": "United States",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Knowledge Exchange",
+      "Community Development"
+    ],
+    "collaborationType": [
+      "Interfaith",
+      "Cultural Dialogue"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "DKF Interfaith Dialogue Center provides a structured platform for respectful engagement among faith traditions, scholars, communities and cultural institutions. It promotes dialogue, mutual understanding, peaceful coexistence and collaborative service while respecting distinct religious identities and traditions.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000087",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000088",
+    "orgName": "Craft Guru",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Academic Research",
+      "Cultural Preservation"
+    ],
+    "collaborationType": [
+      "Learning",
+      "Knowledge Intelligence"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craft Guru serves as Craftlore’s specialist knowledge interface, drawing on deep craft intelligence to explain materials, techniques, provenance, authenticity, history, and market context while delivering guidance for stakeholders navigating Kashmir’s artisan economy.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000088",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000089",
+    "orgName": "Craftlore CKHG",
+    "country": "India",
+    "collaborationAreas": [
+      "Cultural Preservation",
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade"
+    ],
+    "collaborationType": [
+      "Authenticity",
+      "Consumer Protection"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craftlore Kashmir Handmade Guardian protects handmade authenticity by helping users identify traditional techniques, materials, provenance, and production evidence while distinguishing genuine artisan work from misleading, machine-made, or falsely represented craft claims online.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000089",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000090",
+    "orgName": "Craftlore CPB",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade",
+      "Cultural Preservation"
+    ],
+    "collaborationType": [
+      "Provenance",
+      "Blockchain"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craftlore Provenance Blockchain provides an immutable, decentralized ledger for the verification of Kashmir's geographical indications, artisan identities, and product lifecycle histories, ensuring cryptographically secure provenance for heritage assets.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000090",
+    "entityType": "program",
+    "parentName": null
+  },
+  {
+    "id": "KHCRF-PTR-000091",
+    "orgName": "Craftlore CDP",
+    "country": "India",
+    "collaborationAreas": [
+      "Innovation and Technology",
+      "Sustainability and Ethical Trade",
+      "Cultural Preservation"
+    ],
+    "collaborationType": [
+      "Provenance",
+      "Technology"
+    ],
+    "status": "ACTIVE",
+    "collection": "specialized-enterprise",
+    "projectDescription": "Craft Digital Passport provides a secure, traceable product-level provenance infrastructure, utilizing advanced QR and NFC technologies to embed verifiable authenticity, geographical indication data, and workshop histories directly into physical craft assets.",
+    "website": null,
+    "registryId": "KHCRF-PTR-000091",
+    "entityType": "program",
+    "parentName": null
+  }
+]

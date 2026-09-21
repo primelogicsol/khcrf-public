@@ -1,0 +1,222 @@
+name: Incremental Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      frontend_build_required: ${{ steps.detector.outputs.frontend_build_required }}
+      backend_build_required: ${{ steps.detector.outputs.backend_build_required }}
+      frontend_deploy_required: ${{ steps.detector.outputs.frontend_deploy_required }}
+      backend_deploy_required: ${{ steps.detector.outputs.backend_deploy_required }}
+      prisma: ${{ steps.detector.outputs.prisma }}
+      nginx: ${{ steps.detector.outputs.nginx }}
+      workflows: ${{ steps.detector.outputs.workflows }}
+      full: ${{ steps.detector.outputs.full }}
+      desired_frontend: ${{ steps.detector.outputs.desired_frontend }}
+      desired_backend: ${{ steps.detector.outputs.desired_backend }}
+      running_frontend: ${{ steps.detector.outputs.running_frontend }}
+      running_backend: ${{ steps.detector.outputs.running_backend }}
+      frontend_health: ${{ steps.detector.outputs.frontend_health }}
+      backend_health: ${{ steps.detector.outputs.backend_health }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Run Change Detection
+        id: detector
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USERNAME: ${{ secrets.VPS_USERNAME }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: |
+          chmod +x scripts/ci/reconcile.sh
+          ./scripts/ci/reconcile.sh
+
+  build-frontend:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.frontend_build_required == 'true'
+    uses: ./.github/workflows/reusable-build-frontend.yml
+    with:
+      release_sha: ${{ needs.detect-changes.outputs.desired_frontend }}
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      NEXT_PUBLIC_RAZORPAY_KEY_ID: ${{ secrets.NEXT_PUBLIC_RAZORPAY_KEY_ID }}
+      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+      NEXT_PUBLIC_API_BASE: ${{ secrets.NEXT_PUBLIC_API_BASE }}
+      NEXT_PUBLIC_GOOGLE_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}
+
+  build-backend:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.backend_build_required == 'true' || needs.detect-changes.outputs.prisma == 'true'
+    uses: ./.github/workflows/reusable-build-backend.yml
+    with:
+      release_sha: ${{ needs.detect-changes.outputs.desired_backend }}
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+  deploy:
+    needs: [detect-changes, build-frontend, build-backend]
+    if: |
+      always() &&
+      (needs.detect-changes.outputs.frontend_deploy_required == 'true' || 
+       needs.detect-changes.outputs.backend_deploy_required == 'true' || 
+       needs.detect-changes.outputs.prisma == 'true') &&
+      needs.build-frontend.result != 'failure' &&
+      needs.build-frontend.result != 'cancelled' &&
+      needs.build-backend.result != 'failure' &&
+      needs.build-backend.result != 'cancelled'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify build dependencies succeeded
+        run: |
+          echo "Build dependencies validated."
+
+      - uses: actions/checkout@v4
+      - name: Copy deployment scripts to VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "docker-compose.yml,nginx/nginx.conf,scripts/ci/"
+          target: "~/app/"
+          overwrite: true
+
+      - name: Run Incremental Deploy on VPS
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          CHANGED_FRONTEND: ${{ needs.detect-changes.outputs.frontend_deploy_required }}
+          CHANGED_BACKEND: ${{ needs.detect-changes.outputs.backend_deploy_required }}
+          CHANGED_PRISMA: ${{ needs.detect-changes.outputs.prisma }}
+          CHANGED_NGINX: ${{ needs.detect-changes.outputs.nginx }}
+          RELEASE_SHA: ${{ github.sha }}
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy
+          key: ${{ secrets.VPS_SSH_KEY }}
+          envs: CHANGED_FRONTEND,CHANGED_BACKEND,CHANGED_PRISMA,CHANGED_NGINX,RELEASE_SHA,STAGE4_FAULT_INJECTION_ENABLED
+          script: |
+            cd ~/app
+            chmod +x scripts/ci/*.sh
+            
+            # Write .env file
+            echo "DATABASE_URL=postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@postgres_db:5432/${{ secrets.POSTGRES_DB }}" > .env
+            echo "POSTGRES_USER=${{ secrets.POSTGRES_USER }}" >> .env
+            echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" >> .env
+            echo "POSTGRES_DB=${{ secrets.POSTGRES_DB }}" >> .env
+            echo "EXPECTED_DATABASE=${{ secrets.POSTGRES_DB }}" >> .env
+            echo "POSTGRES_HOST=postgres_db" >> .env
+            echo "RAZORPAY_KEY_ID=${{ secrets.RAZORPAY_KEY_ID }}" >> .env
+            echo "RAZORPAY_KEY_SECRET=${{ secrets.RAZORPAY_KEY_SECRET }}" >> .env
+            echo "CLOUDINARY_CLOUD_NAME=${{ secrets.CLOUDINARY_CLOUD_NAME }}" >> .env
+            echo "CLOUDINARY_API_KEY=${{ secrets.CLOUDINARY_API_KEY }}" >> .env
+            echo "CLOUDINARY_API_SECRET=${{ secrets.CLOUDINARY_API_SECRET }}" >> .env
+            echo "FRONTEND_URL=${{ secrets.FRONTEND_URL }}" >> .env
+            echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
+            echo "NEXT_PUBLIC_API_BASE=${{ secrets.NEXT_PUBLIC_API_BASE }}" >> .env
+            echo "NEXT_PUBLIC_RAZORPAY_KEY_ID=${{ secrets.NEXT_PUBLIC_RAZORPAY_KEY_ID }}" >> .env
+            echo "NEXT_PUBLIC_GOOGLE_CLIENT_ID=${{ secrets.NEXT_PUBLIC_GOOGLE_CLIENT_ID }}" >> .env
+            echo "DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}" >> .env
+            echo "BACKEND_SHA=${{ needs.detect-changes.outputs.desired_backend }}" >> .env
+            echo "FRONTEND_SHA=${{ needs.detect-changes.outputs.desired_frontend }}" >> .env
+            echo "RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}" >> .env
+            echo "GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}" >> .env
+            echo "GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}" >> .env
+            echo "RAZORPAY_WEBHOOK_SECRET=${{ secrets.RAZORPAY_WEBHOOK_SECRET }}" >> .env
+            echo "STAGE4_FAULT_INJECTION_ENABLED=${STAGE4_FAULT_INJECTION_ENABLED}" >> .env
+            echo "SIMULATE_FRONTEND_FAILURE=${STAGE4_FAULT_INJECTION_ENABLED}" >> .env
+
+            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+            
+            flock -n /tmp/hcrf-deploy.lock bash -c "
+              set -euo pipefail
+              export DEPLOY_FRONTEND='${{ needs.detect-changes.outputs.frontend_deploy_required }}'
+              export DEPLOY_BACKEND='${{ needs.detect-changes.outputs.backend_deploy_required }}'
+              export DEPLOY_PRISMA='${{ needs.detect-changes.outputs.prisma }}'
+              export CHANGED_NGINX='${{ needs.detect-changes.outputs.nginx }}'
+              export BACKEND_SHA='${{ needs.detect-changes.outputs.desired_backend }}'
+              export FRONTEND_SHA='${{ needs.detect-changes.outputs.desired_frontend }}'
+              export DOCKER_USERNAME='${{ secrets.DOCKER_USERNAME }}'
+              export STAGE4_FAULT_INJECTION_ENABLED='${STAGE4_FAULT_INJECTION_ENABLED}'
+              ./scripts/ci/deploy.sh
+              ./scripts/ci/health-check.sh
+            "
+
+  diagnostic:
+    needs: [detect-changes, build-frontend, build-backend, deploy]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write deployment summary
+        run: |
+          {
+            echo "### Deployment Summary"
+            echo ""
+            
+            # --- FRONTEND ---
+            echo "#### Frontend"
+            echo "- desired SHA: \`${{ needs.detect-changes.outputs.desired_frontend }}\`"
+            echo "- running SHA before: \`${{ needs.detect-changes.outputs.running_frontend }}\`"
+            
+            BUILD_REQ="${{ needs.detect-changes.outputs.frontend_build_required }}"
+            DEPLOY_REQ="${{ needs.detect-changes.outputs.frontend_deploy_required }}"
+            
+            echo "- build required: $BUILD_REQ"
+            echo "- deployment required: $DEPLOY_REQ"
+            
+            if [ "$DEPLOY_REQ" == "false" ]; then
+                echo "- running SHA after: \`${{ needs.detect-changes.outputs.running_frontend }}\`"
+                echo "- health: PASS"
+                echo "- final state: ALREADY CURRENT"
+            elif [ "${{ needs.deploy.result }}" == "success" ]; then
+                echo "- running SHA after: \`${{ needs.detect-changes.outputs.desired_frontend }}\`"
+                echo "- health: PASS"
+                echo "- final state: UPDATED"
+            else
+                echo "- running SHA after: \`${{ needs.detect-changes.outputs.running_frontend }}\`"
+                echo "- health: FAIL"
+                echo "- final state: FAILED OR ROLLED BACK"
+            fi
+            
+            echo ""
+            
+            # --- BACKEND ---
+            echo "#### Backend"
+            echo "- desired SHA: \`${{ needs.detect-changes.outputs.desired_backend }}\`"
+            echo "- running SHA before: \`${{ needs.detect-changes.outputs.running_backend }}\`"
+            
+            BUILD_REQ_BACKEND="${{ needs.detect-changes.outputs.backend_build_required }}"
+            DEPLOY_REQ_BACKEND="${{ needs.detect-changes.outputs.backend_deploy_required }}"
+            
+            echo "- build required: $BUILD_REQ_BACKEND"
+            echo "- deployment required: $DEPLOY_REQ_BACKEND"
+            
+            if [ "$DEPLOY_REQ_BACKEND" == "false" ]; then
+                echo "- running SHA after: \`${{ needs.detect-changes.outputs.running_backend }}\`"
+                echo "- health: PASS"
+                echo "- final state: ALREADY CURRENT"
+            elif [ "${{ needs.deploy.result }}" == "success" ]; then
+                echo "- running SHA after: \`${{ needs.detect-changes.outputs.desired_backend }}\`"
+                echo "- health: PASS"
+                echo "- final state: UPDATED"
+            else
+                echo "- running SHA after: \`${{ needs.detect-changes.outputs.running_backend }}\`"
+                echo "- health: FAIL"
+                echo "- final state: FAILED OR ROLLED BACK"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+

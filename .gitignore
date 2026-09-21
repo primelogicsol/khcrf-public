@@ -1,0 +1,50 @@
+
+khcrf-backend-husnain-main.zip
+khcrf-frontend-husnain-main.zip
+
+build-rules.txt
+api-data-rule.txt
+vps.pem
+info.txt
+
+# Next.js build output & cache (never commit these - can be 100MB+)
+frontend/.next/
+frontend/.next-dashboard/
+frontend/node_modules/
+
+# Backend
+backend/node_modules/
+
+# Environment files
+.env
+.env.vps
+frontend/.env.local
+backend/.env
+# Deployment Scratch Artifacts
+find-remote.js
+push-remote.js
+hcrf-source.tar.gz
+*.tar.gz
+
+*.dump
+*.sql
+
+# Unignore deployment scripts
+!scripts/*.sql
+
+!backend/prisma/migrations/**/*.sql
+
+# Local auth/session/test state
+tests/e2e/.auth/
+.auth/
+*.env
+.env*
+*.pem
+*.key
+*.p12
+*.pfx
+tmp.html
+*_dump.json
+temp.html
+tmp.html
+*_dump.json

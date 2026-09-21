@@ -1,0 +1,18 @@
+[
+  {
+    "id": "e2e-artisan-id",
+    "slug": "e2e-artisan-id",
+    "name": "E2E Test Artisan",
+    "craft": "Testing",
+    "loc": "Test Region",
+    "award": null,
+    "img": "/assets/images/placeholder.jpg",
+    "stage": null,
+    "desc": null,
+    "years": null,
+    "sig": null,
+    "bio": "A test artisan for e2e.",
+    "createdAt": "2026-07-29T05:33:30.962Z",
+    "updatedAt": "2026-07-29T05:33:30.962Z"
+  }
+]

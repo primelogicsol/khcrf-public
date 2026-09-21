@@ -1,0 +1,8 @@
+@layer hcrf-brand {
+  :root {
+    /* Brand semantics point to primitives */
+    --brand-primary: var(--navy-900);
+    --brand-accent: var(--gold-500);
+    --brand-neutral: var(--neutral-100);
+  }
+}

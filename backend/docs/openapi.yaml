@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: HCRF Knowledge Graph API
+  description: Core APIs for Canonical Entities and Domain Knowledge mappings.
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000/api
+paths:
+  /knowledge:
+    get:
+      summary: Get all Canonical Entities
+      parameters:
+        - in: query
+          name: skip
+          schema:
+            type: integer
+        - in: query
+          name: take
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A paginated list of Canonical Entities
+    post:
+      summary: Create a new Canonical Entity
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CanonicalEntityInput'
+      responses:
+        '201':
+          description: Created
+  /craft:
+    get:
+      summary: Get all Crafts
+      responses:
+        '200':
+          description: A list of Crafts
+    post:
+      summary: Create a Craft
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Created
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    CanonicalEntityInput:
+      type: object
+      properties:
+        title:
+          type: string
+        slug:
+          type: string
+        entityType:
+          type: string
+          enum: [KNOWLEDGE_OBJECT, HUMAN_OBJECT, HERITAGE_OBJECT, ADMINISTRATIVE_OBJECT]

@@ -1,0 +1,1 @@
+const fs = require('fs'); const content = fs.readFileSync('frontend/src/data/evaluationRegistry.ts', 'utf8'); console.log(content.match(/if \(entityType === 'BUSINESS'[\s\S]*?case 'FAIR_WAGES':[\s\S]*?case 'CHILD_LABOUR_SAFEGUARDS':/g)[0].substring(0, 1000));

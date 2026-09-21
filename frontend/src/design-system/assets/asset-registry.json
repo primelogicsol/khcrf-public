@@ -1,0 +1,26 @@
+{
+  "registry": {
+    "Logos": [
+      { "id": "hcrf_logo_new", "file": "hcrf_logo_new.png", "path": "/assets/images/", "format": "png", "surfaceSupport": ["light"], "colorMode": "fixed", "status": "approved", "accessibility": { "defaultAlt": "Hamadan Craft Revival Foundation", "decorativeAllowed": true } },
+      { "id": "khcrf_brown_logo", "file": "khcrf_brown_logo.webp", "path": "/assets/images/", "format": "webp", "surfaceSupport": ["light"], "colorMode": "fixed", "status": "approved", "accessibility": { "defaultAlt": "Hamadan Craft Revival Foundation", "decorativeAllowed": true } },
+      { "id": "logo-dark", "file": "logo-dark.png", "path": "/assets/images/", "format": "png", "surfaceSupport": ["dark"], "colorMode": "fixed", "status": "approved", "accessibility": { "defaultAlt": "Hamadan Craft Revival Foundation", "decorativeAllowed": true } }
+    ],
+    "Icons": [
+      { "id": "donate-icon", "file": "donate-icon.png", "path": "/assets/images/", "format": "png", "surfaceSupport": ["light", "dark"], "status": "approved" }
+    ],
+    "Photography": [
+      { "id": "artisan-portrait", "file": "artisan-portrait.jpg", "path": "/assets/images/", "format": "jpg", "status": "approved" },
+      { "id": "safavid-carpet", "file": "safavid-carpet.jpg", "path": "/assets/images/", "format": "jpg", "status": "approved" }
+    ],
+    "Illustrations": [
+      { "id": "partner-network-map", "file": "partner-network-map.png", "path": "/assets/images/", "format": "png", "status": "approved" }
+    ],
+    "Decorative": [
+      { "id": "pattern_bg", "file": "pattern_bg.png", "path": "/assets/images/", "format": "png", "status": "approved" }
+    ]
+  },
+  "meta": {
+    "totalCount": 621,
+    "primaryDirectory": "frontend/public/assets/images"
+  }
+}

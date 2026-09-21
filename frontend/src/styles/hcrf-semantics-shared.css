@@ -1,0 +1,146 @@
+@layer hcrf-semantics {
+  :root {
+    /* Editorial Accents */
+    --editorial-accent-on-light: #6B2B08;
+
+    /* Icon Semantics */
+    --icon-on-light: #6B2B08;
+
+    /* Z-Index Semantic Stack (Phase 2.5/3A) */
+    --z-content: 0;
+    --z-raised: 10;
+    --z-sticky: 20;
+    --z-header: 40;
+    --z-mega-menu: 50;
+    --z-drawer-backdrop: 60;
+    --z-drawer: 70;
+    --z-popover: 80;
+    --z-modal-backdrop: 90;
+    --z-modal: 100;
+    --z-toast: 110;
+    --z-emergency: 120;
+    
+    /* Semantic focus rings */
+    --ring-focus-on-dark: #F6F2EC;
+    --ring-focus-on-light: #050A1E;
+
+    /* Phase 3B Hero Overlay Roles */
+    --overlay-hero-subtle: rgba(5, 10, 30, 0.4);
+    --overlay-hero-standard: rgba(5, 10, 30, 0.65);
+    --overlay-hero-strong: rgba(5, 10, 30, 0.85);
+    --overlay-editorial: linear-gradient(to top, rgba(5, 10, 30, 0.95) 0%, rgba(5, 10, 30, 0) 100%);
+
+    /* Phase 3B Typography Scale */
+    /* Mobile variables */
+    --text-hero-display: 2.25rem; /* 36px */
+    --text-hero-title: 1.75rem; /* 28px */
+    --text-page-title: 1.5rem; /* 24px */
+    --text-page-lead: 1.125rem; /* 18px */
+    --text-eyebrow: 0.75rem; /* 12px */
+    --text-metadata: 0.75rem; /* 12px */
+    --text-breadcrumb: 0.75rem; /* 12px */
+    
+    @media (min-width: 768px) {
+      --text-hero-display: 3.5rem; /* 56px */
+      --text-hero-title: 2.5rem; /* 40px */
+      --text-page-title: 2rem; /* 32px */
+      --text-page-lead: 1.25rem; /* 20px */
+      --text-eyebrow: 0.875rem; /* 14px */
+      --text-metadata: 0.875rem; /* 14px */
+      --text-breadcrumb: 0.875rem; /* 14px */
+    }
+    @media (min-width: 1024px) {
+      --text-hero-display: 4.5rem; /* 72px */
+      --text-hero-title: 3.25rem; /* 52px */
+      --text-page-title: 2.5rem; /* 40px */
+      --text-page-lead: 1.5rem; /* 24px */
+    }
+  }
+
+  .theme-public {
+    /* Status Semantics (Mapped to current legacy equivalent approximations) */
+    --status-success-bg: #ecfdf5;
+    --status-success-text: #065f46;
+    --status-success-border: #10b981;
+    --status-warning-bg: #fffbeb;
+    --status-warning-text: #92400e;
+    --status-warning-border: #f59e0b;
+    --status-error-bg: #fef2f2;
+    --status-error-text: #991b1b;
+    --status-error-border: #ef4444;
+    --status-info-bg: #eff6ff;
+    --status-info-text: #1e40af;
+    --status-info-border: #3b82f6;
+
+    /* Base Action Semantics (Mapped strictly to legacy values currently used in globals.css) */
+    --action-primary-bg: var(--legacy-public-action-primary);
+    --action-primary-text: #ffffff;
+    --action-primary-border: var(--legacy-public-action-primary);
+    
+    --action-secondary-bg: transparent;
+    --action-secondary-text: var(--legacy-public-text-primary);
+    --action-secondary-border: var(--legacy-public-border);
+    
+    --action-destructive-bg: #ef4444;
+    --action-destructive-text: #ffffff;
+    
+    --action-disabled-bg: #f3f4f6;
+    --action-disabled-text: #9ca3af;
+    --action-disabled-border: #e5e7eb;
+    
+    --link-primary: #3b82f6; /* Tailwind blue-500 equivalent commonly used */
+    --link-hover: #2563eb; /* Tailwind blue-600 */
+    
+    --overlay-backdrop: rgba(0, 0, 0, 0.5); /* Modal backdrops */
+    
+    --focus-ring: var(--legacy-public-action-primary);
+  }
+}
+
+
+.text-icon-on-light {
+  color: var(--icon-on-light);
+}
+
+.text-editorial-accent {
+  color: var(--editorial-accent-on-light);
+}
+.bg-editorial-accent {
+  background-color: var(--editorial-accent-on-light);
+}
+.border-editorial-accent {
+  border-color: var(--editorial-accent-on-light);
+}
+/* hcrf-semantics-shared.css additions */
+:root {
+  /* Semantic Icon Tokens */
+  --hcrf-icon-on-light: #6B2B08;
+  --hcrf-icon-on-dark: #F6F2EC;
+
+  /* Editorial Accent Tokens */
+  --hcrf-editorial-accent-on-light: #6B2B08;
+  --hcrf-editorial-accent-on-dark: #F6F2EC;
+}
+
+:where([data-surface="light"]),
+:root {
+  --icon-default: var(--hcrf-icon-on-light);
+  --editorial-accent: var(--hcrf-editorial-accent-on-light);
+}
+
+:where([data-surface="dark"]) {
+  --icon-default: var(--hcrf-icon-on-dark);
+  --editorial-accent: var(--hcrf-editorial-accent-on-dark);
+}
+
+:where([data-ui-icon]) {
+  color: var(--icon-default);
+}
+
+:where([data-editorial-accent-text]) {
+  color: var(--editorial-accent);
+}
+
+:where([data-editorial-accent-bg]) {
+  background-color: var(--editorial-accent);
+}

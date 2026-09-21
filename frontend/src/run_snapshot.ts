@@ -1,0 +1,1 @@
+import { generateEngagementSnapshot } from './lib/skc/engagement/ConsultationExperimentEngine'; console.log(JSON.stringify(generateEngagementSnapshot(new Date()), null, 2));

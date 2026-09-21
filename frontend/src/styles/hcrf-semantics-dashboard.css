@@ -1,0 +1,65 @@
+@layer hcrf-themes {
+  .theme-dashboard {
+    /* Dashboard Surfaces (Mapped to legacy shadcn/tailwind values) */
+    --surface-page: var(--legacy-dashboard-page);
+    --surface-reading: #ffffff;
+    --surface-card: #ffffff;
+    --surface-elevated: #ffffff;
+    --surface-inverse: var(--legacy-dashboard-inverse);
+    --surface-muted: #f8fafc; /* Tailwind slate-50 */
+
+    /* Dashboard Typography */
+    --text-primary: var(--legacy-dashboard-text-primary);
+    --text-secondary: var(--legacy-dashboard-text-secondary);
+    --text-muted: #94a3b8;
+    --text-inverse: var(--legacy-dashboard-page);
+    --text-disabled: #cbd5e1;
+
+    /* Dashboard Borders */
+    --border-subtle: #f1f5f9;
+    --border-default: var(--legacy-dashboard-border);
+    --border-strong: #cbd5e1;
+    --border-inverse: rgba(255, 255, 255, 0.2);
+
+    /* Dashboard Icons */
+    --icon-primary: var(--legacy-dashboard-text-primary);
+    --icon-muted: var(--legacy-dashboard-text-secondary);
+    --icon-inverse: var(--legacy-dashboard-page);
+
+    /* Dashboard Actions */
+    --action-primary-bg: var(--legacy-dashboard-inverse);
+    --action-primary-text: var(--legacy-dashboard-page);
+    --action-primary-border: var(--legacy-dashboard-inverse);
+    
+    --action-secondary-bg: #ffffff;
+    --action-secondary-text: var(--legacy-dashboard-text-primary);
+    --action-secondary-border: var(--legacy-dashboard-border);
+    
+    --action-destructive-bg: #ef4444;
+    --action-destructive-text: #ffffff;
+    
+    --action-disabled-bg: #f1f5f9;
+    --action-disabled-text: #94a3b8;
+    --action-disabled-border: #e2e8f0;
+    
+    /* Dashboard Links & States */
+    --link-primary: #0f172a;
+    --link-hover: #334155;
+    --focus-ring: #94a3b8;
+    --overlay-backdrop: rgba(15, 23, 42, 0.8);
+
+    /* Dashboard Status */
+    --status-success-bg: #f0fdf4;
+    --status-success-text: #166534;
+    --status-success-border: #22c55e;
+    --status-warning-bg: #fffbeb;
+    --status-warning-text: #92400e;
+    --status-warning-border: #f59e0b;
+    --status-error-bg: #fef2f2;
+    --status-error-text: #991b1b;
+    --status-error-border: #ef4444;
+    --status-info-bg: #eff6ff;
+    --status-info-text: #1e40af;
+    --status-info-border: #3b82f6;
+  }
+}

@@ -1,0 +1,55 @@
+name: Validate Incremental CI
+
+on:
+  push:
+    paths:
+      - "scripts/ci/**"
+      - ".github/workflows/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install actionlint
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="1.7.12"
+          archive="actionlint_${version}_linux_amd64.tar.gz"
+          url="https://github.com/rhysd/actionlint/releases/download/v${version}/${archive}"
+          
+          echo "Downloading actionlint ${version} from ${url}"
+          curl --fail --show-error --location \
+            --retry 3 \
+            --retry-delay 2 \
+            --output "${archive}" \
+            "${url}"
+            
+          tar -xzf "${archive}"
+          sudo install -m 0755 actionlint /usr/local/bin/actionlint
+          actionlint -version
+
+      - name: Validate workflows
+        run: actionlint .github/workflows/*.yml
+
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run ShellCheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
+          shellcheck scripts/ci/*.sh
+
+      - name: Validate Migrations
+        run: |
+          chmod +x scripts/ci/validate-migrations.sh
+          ./scripts/ci/validate-migrations.sh

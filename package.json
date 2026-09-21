@@ -1,0 +1,29 @@
+{
+  "name": "hcrf-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && npx tsc --noEmit && npx eslint .",
+    "test:backend": "cd backend && npx jest",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.63.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0"
+  },
+  "lint-staged": {
+    "frontend/**/*.{js,jsx,ts,tsx}": [
+      "eslint -c frontend/.eslintrc.json"
+    ],
+    "backend/**/*.{js,ts}": [
+      "eslint -c backend/.eslintrc.json"
+    ]
+  },
+  "dependencies": {
+    "puppeteer": "^25.11.0",
+    "ssh2": "^1.17.0"
+  }
+}

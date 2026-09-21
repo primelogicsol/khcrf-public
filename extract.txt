@@ -1,0 +1,146 @@
+          </div>
+
+          <div className="text-left mb-10">
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand-dark tracking-tight mb-3">
+              Assessment Activity Feed
+            </h2>
+            <p className="text-sm sm:text-base text-gray-500 font-semibold leading-relaxed max-w-3xl">
+              Official hearings, consultations, workshops, evidence sessions, validation meetings, and programme updates published by the Assessment Secretariat.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 bg-white border border-gray-200 rounded-[20px] p-6 mb-8 shadow-sm">
+            <div>
+              <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Consultation Opens</div>
+              <div className="text-sm font-bold text-gray-700 mt-1">
+                {overview?.consultationStart
+                  ? new Date(overview.consultationStart).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })
+                  : formatTimelineDate(SKC_2026_SCHEDULE.publicParticipation.plannedStart)}
+              </div>
+            </div>
+            <div>
+              <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Current Phase</div>
+              <div className="text-sm font-bold text-gray-700 mt-1">
+                {overview?.status || 'Design & Pre-Launch'}
+              </div>
+            </div>
+            <div>
+              <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Publication Status</div>
+              <div className="text-sm font-bold text-gray-700 mt-1">Awaiting First Activities</div>
+            </div>
+          </div>
+
+          {activities.length === 0 ? (
+            <div className="bg-white border border-gray-200 rounded-[24px] p-8 md:p-10 shadow-sm hover:shadow-md transition">
+               <h3 className="text-xl font-bold text-gray-800 mb-3">No public assessment activities are currently available.</h3>
+               <p className="text-sm text-gray-500 font-medium leading-relaxed mb-8 max-w-2xl">
+                 Confirmed hearings, district consultations, institutional sessions, workshops, evidence collection windows, and validation activities will appear here once approved by the Assessment Secretariat.
+               </p>
+
+               <div className="border-t border-gray-100 pt-6">
+                 <h4 className="text-xs font-black text-gray-400 uppercase tracking-wider mb-6">Upcoming Programme Milestones</h4>
+                 <div className="grid grid-cols-1 sm:grid-cols-5 gap-6 text-xs font-bold text-gray-500">
+                   <div className="relative pl-4 border-l-2 border-green-500">
+                     <span className="text-[9px] text-green-600 block uppercase mb-1">Completed</span>
+                     <span className="text-gray-800">Platform Preparation</span>
+                   </div>
+                   <div className="relative pl-4 border-l-2 border-brand-primary/30">
+                     <span className="text-[9px] text-brand-secondary block uppercase mb-1">17 Aug 2026</span>
+                     <span className="text-gray-800">Official Launch</span>
+                   </div>
+                   <div className="relative pl-4 border-l-2 border-gray-200">
+                     <span className="text-[9px] text-gray-400 block uppercase mb-1">Aug–Oct 2026</span>
+                     <span className="text-gray-600">District Consultations</span>
+                   </div>
+                   <div className="relative pl-4 border-l-2 border-gray-200">
+                     <span className="text-[9px] text-gray-400 block uppercase mb-1">Nov 2026</span>
+                     <span className="text-gray-600">Validation Round</span>
+                   </div>
+                   <div className="relative pl-4 border-l-2 border-gray-200">
+                     <span className="text-[9px] text-gray-400 block uppercase mb-1">Dec 2026</span>
+                     <span className="text-gray-600">Final Report</span>
+                   </div>
+                 </div>
+               </div>
+
+               <div className="border-t border-gray-100 mt-8 pt-6 flex justify-end">
+                 <a 
+                   href="/state-of-kashmir-crafts/assessment-timeline" 
+                   className="inline-flex items-center gap-2 text-xs font-black text-brand-primary hover:text-brand-secondary transition"
+                 >
+                   View Full Activity Log &rarr;
+                 </a>
+               </div>
+            </div>
+          ) : (
+            <div className="bg-white border border-gray-200 rounded-[24px] p-8 md:p-10 shadow-sm hover:shadow-md transition">
+               <div className="relative border-l-2 border-brand-primary/20 ml-2 space-y-8">
+                  {activities.map((feed: any, idx: number) => {
+                     let statusBadge = 'bg-blue-50 text-blue-700 border-blue-150';
+                     let actionLabel = 'View Details';
+                     
+                     const statusUpper = feed.status?.toUpperCase() || '';
+                     if (statusUpper === 'REGISTRATION_OPEN') {
+                       statusBadge = 'bg-green-50 text-green-700 border-green-150';
+                       actionLabel = 'Register';
+                     } else if (statusUpper === 'ONGOING' || statusUpper === 'LIVE') {
+                       statusBadge = 'bg-red-50 text-red-700 border-red-150 animate-pulse';
+                       actionLabel = 'Join Session';
+                     } else if (statusUpper === 'COMPLETED') {
+                       statusBadge = 'bg-gray-100 text-gray-700 border-gray-200';
+                       actionLabel = 'View Outcome';
+                     } else if (statusUpper === 'POSTPONED') {
+                       statusBadge = 'bg-yellow-50 text-yellow-700 border-yellow-150';
+                       actionLabel = 'Date Pending';
+                     }
+                     
+                     const activityDate = feed.startAt 
+                       ? new Date(feed.startAt).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' })
+                       : 'Date Pending';
+
+                     const locationString = feed.venueName || (feed.virtualPlatform ? `Virtual (${feed.virtualPlatform})` : 'Online Portal');
+
+                     return (
+                       <div key={feed.id || idx} className="relative pl-6">
+                          <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-white border-2 border-brand-primary rounded-full"></div>
+                          <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-6 border-b border-gray-100 pb-6 last:border-0 last:pb-0">
+                             <div className="space-y-1">
+                                <div className="flex flex-wrap items-center gap-2">
+                                   <h3 className="font-bold text-gray-800 text-base">{feed.title}</h3>
+                                   <span className={`text-[9px] px-2 py-0.5 border font-bold rounded-full uppercase tracking-wide ${statusBadge}`}>
+                                     {feed.status?.replace('_', ' ')}
+                                   </span>
+                                </div>
+                                <div className="flex flex-wrap gap-4 text-xs font-semibold text-gray-400">
+                                   <span className="flex items-center gap-1"><FaCalendarAlt className="text-gray-400" /> {activityDate}</span>
+                                   <span className="flex items-center gap-1"><FaMapMarkerAlt className="text-gray-400" /> {locationString}</span>
+                                   {feed.stakeholderCategories?.length > 0 && (
+                                     <span className="flex items-center gap-1"><FaUsers className="text-gray-400" /> {feed.stakeholderCategories.join(', ')}</span>
+                                   )}
+                                </div>
+                             </div>
+                             <div>
+                               <a 
+                                 href={`/state-of-kashmir-crafts/consultations/${feed.slug}`}
+                                 className="inline-block text-center px-4 py-2 bg-brand-primary text-white text-xs font-bold rounded-lg hover:bg-brand-secondary transition"
+                               >
+                                 {actionLabel}
+                               </a>
+                             </div>
+                          </div>
+                       </div>
+                     );
+                  })}
+               </div>
+               
+               <div className="border-t border-gray-100 mt-8 pt-6 flex justify-end">
+                 <a 
+                   href="/state-of-kashmir-crafts/assessment-timeline"
+                   className="inline-flex items-center gap-2 text-xs font-black text-brand-primary hover:text-brand-secondary transition"
+                 >
+                   View Full Activity Log &rarr;
+                 </a>
+               </div>
+            </div>
+          )}
+        </div>

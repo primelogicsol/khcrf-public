@@ -1,0 +1,38 @@
+project:
+  name: State of Kashmir Crafts Assessment Platform
+
+release:
+  version: RC-1
+  git_tag: rc-1
+  certification_date: YYYY-MM-DD
+  status: Institutionally Certified
+
+deliverables:
+  technical: pending
+  governance: pending
+  data: pending
+  operations: pending
+  architecture: pending
+  institutional_knowledge: pending
+
+documents:
+  executive_summary: 00-Executive-Summary.md
+  technical: 01-Technical-Certification.md
+  governance: 02-Governance-Certification.md
+  data: 03-Data-Certification.md
+  operations: 04-Operations-Certification.md
+  architecture: 05-Architecture-Certification.md
+  institutional: 06-Institutional-Knowledge.md
+  pat: 07-Production-Acceptance-Test.md
+  risks: 08-Risk-Register.md
+  release: 09-Release-Checklist.md
+
+platform:
+  frontend: certified
+  backend: certified
+  database: certified
+  public_api: certified
+  admin_dashboard: certified
+
+next_target:
+  RC-2

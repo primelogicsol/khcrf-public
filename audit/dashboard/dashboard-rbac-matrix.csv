@@ -1,0 +1,37 @@
+module,dashboard_route,sidebar_roles,page_guard,proxy_guard,backend_permission,backend_role_check,database_role_dependency,superadmin_access,admin_access,editor_access,contributor_access,viewer_access,alignment_status,evidence
+artisan,/dashboard/artisan,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+business,/dashboard/business,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+campaigns,/dashboard/campaigns,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+career,/dashboard/career,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+ccsi,/dashboard/ccsi,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+cms,/dashboard/cms,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+collection,/dashboard/collection,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+contact-submissions,/dashboard/contact-submissions,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+contributor-intake,/dashboard/contributor-intake,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+crafts,/dashboard/crafts,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+donations,/dashboard/donations,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,Aligned,Visual check
+glossary,/dashboard/glossary,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+graph,/dashboard/graph,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+hr,/dashboard/hr,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+institutional-cms,/dashboard/institutional-cms,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+knowledge,/dashboard/knowledge,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+master-artisans,/dashboard/master-artisans,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,Aligned,Visual check
+materials,/dashboard/materials,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+media,/dashboard/media,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+membership,/dashboard/membership,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,Aligned,Visual check
+motifs,/dashboard/motifs,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+partner-network,/dashboard/partner-network,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+partners,/dashboard/partners,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+products,/dashboard/products,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+relationships,/dashboard/relationships,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+research-publication,/dashboard/research-publication,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,Aligned,Visual check
+search,/dashboard/search,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+skc,/dashboard/skc,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,Aligned,Visual check
+source-references,/dashboard/source-references,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+studio,/dashboard/studio,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+taxonomy,/dashboard/taxonomy,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+techniques,/dashboard/techniques,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+tools,/dashboard/tools,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+users,/dashboard/users,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,Aligned,Visual check
+verification,/dashboard/verification,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check
+workflow,/dashboard/workflow,ADMIN,None,None,None,None,None,Yes,Yes,No,No,No,UI broader than backend,Visual check

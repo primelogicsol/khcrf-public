@@ -1,0 +1,18 @@
+@layer hcrf-legacy {
+  :root {
+    /* Temporary legacy public colors mapped exactly to current occurrences */
+    --legacy-public-page: #ffffff;
+    --legacy-public-text-primary: #071127;
+    --legacy-public-text-secondary: #455167;
+    --legacy-public-action-primary: #6b2b08;
+    --legacy-public-surface-muted: #f7f8fa;
+    --legacy-public-border: #e3e6eb;
+    
+    /* Dashboard legacy (Shadcn default values) */
+    --legacy-dashboard-page: #f8fafc;
+    --legacy-dashboard-inverse: #0f172a;
+    --legacy-dashboard-text-primary: #020817;
+    --legacy-dashboard-text-secondary: #64748b;
+    --legacy-dashboard-border: #e2e8f0;
+  }
+}

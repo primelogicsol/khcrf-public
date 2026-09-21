@@ -1,0 +1,2 @@
+﻿$command = "cmd.exe /c set PM2_HOME=C:\Users\Fayaz\.pm2 && `"C:\Users\Fayaz\AppData\Roaming\npm\pm2.cmd`" start `"C:\Users\Fayaz\Sufipulseupdate2026\HCRF 2026\hcr_foundation_full_govind\ecosystem.config.js`" && `"C:\Users\Fayaz\AppData\Roaming\npm\pm2.cmd`" save"
+Invoke-WmiMethod -Class Win32_Process -Name Create -ArgumentList $command

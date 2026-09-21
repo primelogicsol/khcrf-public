@@ -1,0 +1,1 @@
+const fs = require('fs'); const content = fs.readFileSync('frontend/src/data/evaluationRegistry.ts', 'utf8'); const match = content.match(/if \\(entityType === 'BUSINESS' && isPashmina\\) \\{[\\s\\S]*?case 'FAIR_WAGES':([\\s\\S]*?)case 'CHILD_LABOUR_SAFEGUARDS':/); if(match) console.log(match[1]);

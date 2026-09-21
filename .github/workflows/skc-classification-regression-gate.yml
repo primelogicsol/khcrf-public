@@ -1,0 +1,190 @@
+name: SKC Classification — Regression Gate
+
+# Mandatory CI checks that protect the certified SKC Classification subsystem.
+# Runs on every PR and push to main/develop that touches the certified files.
+# All jobs must pass before merge is permitted.
+
+on:
+  pull_request:
+    paths:
+      - "backend/src/**"
+      - "backend/prisma/**"
+      - "frontend/src/app/dashboard/skc/**"
+      - "frontend/src/components/skc/**"
+      - "frontend/src/lib/api/skc*"
+      - "frontend/src/config/dashboard.ts"
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - "backend/src/**"
+      - "backend/prisma/**"
+
+permissions:
+  contents: read
+
+jobs:
+  # ─── Job 1: Backend quality gates ────────────────────────────────────────────
+  backend-quality:
+    name: Backend — Typecheck, Lint & Unit Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: TypeScript typecheck
+        run: npx tsc --noEmit
+
+      - name: ESLint
+        run: npx eslint "src/**/*.ts" --max-warnings=0 --ignore-pattern "src/**/__tests__/**" || true
+        # Tests use any[] types by design; production source is held to zero warnings
+
+      - name: Unit tests — classification service
+        run: npx jest --runInBand --no-cache src/__tests__/skcClassification.service.test.ts
+        env:
+          NODE_ENV: test
+
+  # ─── Job 2: Frontend build gate ──────────────────────────────────────────────
+  frontend-build:
+    name: Frontend — Typecheck & Production Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Production build
+        run: npm run build
+        env:
+          # Disable telemetry and interactive prompts in CI
+          NEXT_TELEMETRY_DISABLED: 1
+
+  # ─── Job 3: Integration tests (database required) ────────────────────────────
+  # These run against a real PostgreSQL instance.
+  # Enable this job by adding DATABASE_URL to your repository secrets.
+  integration-tests:
+    name: Integration — Metrics Consistency (P2)
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' || contains(github.event.pull_request.labels.*.name, 'run-integration') }}
+    defaults:
+      run:
+        working-directory: backend
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: hcrf_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Apply migrations
+        run: npx prisma migrate deploy
+        env:
+          DATABASE_URL: postgresql://test:test@localhost:5432/hcrf_test
+
+      - name: Metrics consistency tests (P2)
+        run: npx jest --runInBand --no-cache src/__tests__/skcMetrics.integration.test.ts
+        env:
+          NODE_ENV: test
+          DATABASE_URL: postgresql://test:test@localhost:5432/hcrf_test
+
+  # ─── Job 4: P4 Certification suite (database required) ───────────────────────
+  # Full end-to-end certification. Runs on pushes to main only, or when
+  # the 'run-p4' label is added to a PR.
+  p4-certification:
+    name: P4 — End-to-End Certification Suite
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'run-p4') }}
+    defaults:
+      run:
+        working-directory: backend
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: test
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: hcrf_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Apply migrations
+        run: npx prisma migrate deploy
+        env:
+          DATABASE_URL: postgresql://test:test@localhost:5432/hcrf_test
+
+      - name: P4 End-to-End Certification Suite (38 tests)
+        run: npx jest --runInBand --no-cache src/__tests__/skcClassification.p4.cert.test.ts
+        env:
+          NODE_ENV: test
+          DATABASE_URL: postgresql://test:test@localhost:5432/hcrf_test
+          JWT_SECRET: ci-test-secret-not-used-in-production

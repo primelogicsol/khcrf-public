@@ -1,0 +1,13 @@
+[
+  {
+    "id": "EXP-2026-001",
+    "filePattern": "src/app/globals.css",
+    "ruleCategory": "legacy-compatibility",
+    "token": "text-gray",
+    "reason": "globals.css is allowed to define tokens temporarily",
+    "owner": "frontend-architecture",
+    "dateAdded": "2026-07-20",
+    "reviewDate": "2026-08-20",
+    "expiry": "Phase 2C"
+  }
+]

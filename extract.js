@@ -1,0 +1,1 @@
+const fs = require('fs'); const content = fs.readFileSync('frontend/src/data/evaluationRegistry.ts', 'utf8'); const match = content.match(/if \\(entityType === 'BUSINESS' && isPashmina\\) \\{([\\s\\S]*?)(?:\\} else if|\\} \\/\\/ end of BUSINESS)/); if(match) fs.writeFileSync('business_block.txt', match[1]); else console.log('no match');

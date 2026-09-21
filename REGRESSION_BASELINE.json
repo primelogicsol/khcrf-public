@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-09-15T07:45:00Z",
+  "database": "hcrf_db_clean",
+  "schema_migration_count": 20,
+  "git_head": "6736c2d737c97b575468f82b97311da3c344888f",
+  "EXACT_INVARIANTS": {
+    "District": 10,
+    "AssessmentCycle_current": 1,
+    "SkcHearing": 31
+  },
+  "MINIMUM_REGRESSION_FLOORS": {
+    "MasterArtisan": 121,
+    "Publication": 31,
+    "PublicationEdition": 31,
+    "Source": 33
+  },
+  "SNAPSHOT_INFORMATION": {
+    "ArtisanAssertion": 401,
+    "ArtisanAward": 109,
+    "ArtisanAwardRecipient": 99,
+    "ArtisanCraftAffiliation": 55,
+    "ArtisanGiAuthorization": 56,
+    "ArtisanIdentifier": 53,
+    "StagingArtisan": 69,
+    "GiCraft": 16,
+    "Workshop": 3,
+    "WorkshopCommunity": 47,
+    "PublicationCategory": 6,
+    "MagazineIssue": 6,
+    "publication_reviews": 4,
+    "HearingFormat": 3,
+    "HearingType": 7,
+    "SkcConfig": 1,
+    "skc_consultation_categories": 4,
+    "skc_consultation_themes": 16,
+    "HeroConfiguration": 1,
+    "HeroSlide": 3,
+    "User": 1
+  }
+}

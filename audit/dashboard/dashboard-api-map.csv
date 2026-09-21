@@ -1,0 +1,37 @@
+Dashboard route,Frontend caller,Proxy route,Backend route,Method,Controller,Database dependency,Status
+/dashboard/artisan,page.tsx,/api/backend/artisan,/api/artisan,GET,artisanController,artisan,Backend endpoint with no dashboard consumer
+/dashboard/business,page.tsx,/api/backend/business,/api/business,GET,businessController,business,Backend endpoint with no dashboard consumer
+/dashboard/campaigns,page.tsx,/api/backend/campaigns,/api/campaigns,GET,campaignsController,campaigns,Backend endpoint with no dashboard consumer
+/dashboard/career,page.tsx,/api/backend/career,/api/career,GET,careerController,career,Backend endpoint with no dashboard consumer
+/dashboard/ccsi,page.tsx,/api/backend/ccsi,/api/ccsi,GET,ccsiController,ccsi,Backend endpoint with no dashboard consumer
+/dashboard/cms,page.tsx,/api/backend/cms,/api/cms,GET,cmsController,cms,Backend endpoint with no dashboard consumer
+/dashboard/collection,page.tsx,/api/backend/collection,/api/collection,GET,collectionController,collection,Backend endpoint with no dashboard consumer
+/dashboard/contact-submissions,page.tsx,/api/backend/contact-submissions,/api/contact-submissions,GET,contact-submissionsController,contact-submissions,Backend endpoint with no dashboard consumer
+/dashboard/contributor-intake,page.tsx,/api/backend/contributor-intake,/api/contributor-intake,GET,contributor-intakeController,contributor-intake,Backend endpoint with no dashboard consumer
+/dashboard/crafts,page.tsx,/api/backend/crafts,/api/crafts,GET,craftsController,crafts,Backend endpoint with no dashboard consumer
+/dashboard/donations,page.tsx,/api/backend/donations,/api/donations,GET,donationsController,donations,Found
+/dashboard/glossary,page.tsx,/api/backend/glossary,/api/glossary,GET,glossaryController,glossary,Backend endpoint with no dashboard consumer
+/dashboard/graph,page.tsx,/api/backend/graph,/api/graph,GET,graphController,graph,Backend endpoint with no dashboard consumer
+/dashboard/hr,page.tsx,/api/backend/hr,/api/hr,GET,hrController,hr,Backend endpoint with no dashboard consumer
+/dashboard/institutional-cms,page.tsx,/api/backend/institutional-cms,/api/institutional-cms,GET,institutional-cmsController,institutional-cms,Backend endpoint with no dashboard consumer
+/dashboard/knowledge,page.tsx,/api/backend/knowledge,/api/knowledge,GET,knowledgeController,knowledge,Backend endpoint with no dashboard consumer
+/dashboard/master-artisans,page.tsx,/api/backend/master-artisans,/api/master-artisans,GET,master-artisansController,master-artisans,Found
+/dashboard/materials,page.tsx,/api/backend/materials,/api/materials,GET,materialsController,materials,Backend endpoint with no dashboard consumer
+/dashboard/media,page.tsx,/api/backend/media,/api/media,GET,mediaController,media,Backend endpoint with no dashboard consumer
+/dashboard/membership,page.tsx,/api/backend/membership,/api/membership,GET,membershipController,membership,Found
+/dashboard/motifs,page.tsx,/api/backend/motifs,/api/motifs,GET,motifsController,motifs,Backend endpoint with no dashboard consumer
+/dashboard/partner-network,page.tsx,/api/backend/partner-network,/api/partner-network,GET,partner-networkController,partner-network,Backend endpoint with no dashboard consumer
+/dashboard/partners,page.tsx,/api/backend/partners,/api/partners,GET,partnersController,partners,Backend endpoint with no dashboard consumer
+/dashboard/products,page.tsx,/api/backend/products,/api/products,GET,productsController,products,Backend endpoint with no dashboard consumer
+/dashboard/relationships,page.tsx,/api/backend/relationships,/api/relationships,GET,relationshipsController,relationships,Backend endpoint with no dashboard consumer
+/dashboard/research-publication,page.tsx,/api/backend/research-publication,/api/research-publication,GET,research-publicationController,research-publication,Found
+/dashboard/search,page.tsx,/api/backend/search,/api/search,GET,searchController,search,Backend endpoint with no dashboard consumer
+/dashboard/skc,page.tsx,/api/backend/skc,/api/skc,GET,skcController,skc,Found
+/dashboard/source-references,page.tsx,/api/backend/source-references,/api/source-references,GET,source-referencesController,source-references,Backend endpoint with no dashboard consumer
+/dashboard/studio,page.tsx,/api/backend/studio,/api/studio,GET,studioController,studio,Backend endpoint with no dashboard consumer
+/dashboard/taxonomy,page.tsx,/api/backend/taxonomy,/api/taxonomy,GET,taxonomyController,taxonomy,Backend endpoint with no dashboard consumer
+/dashboard/techniques,page.tsx,/api/backend/techniques,/api/techniques,GET,techniquesController,techniques,Backend endpoint with no dashboard consumer
+/dashboard/tools,page.tsx,/api/backend/tools,/api/tools,GET,toolsController,tools,Backend endpoint with no dashboard consumer
+/dashboard/users,page.tsx,/api/backend/users,/api/users,GET,usersController,users,Found
+/dashboard/verification,page.tsx,/api/backend/verification,/api/verification,GET,verificationController,verification,Backend endpoint with no dashboard consumer
+/dashboard/workflow,page.tsx,/api/backend/workflow,/api/workflow,GET,workflowController,workflow,Backend endpoint with no dashboard consumer

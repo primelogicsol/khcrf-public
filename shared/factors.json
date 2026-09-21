@@ -1,0 +1,36 @@
+{
+  "FACTOR_LISTS": {
+    "ARTISAN": [
+      "AUTHENTICITY_PROVENANCE", "CRAFT_QUALITY", "GROUND_PRESENCE", "CHILD_LABOUR_SAFEGUARDS",
+      "WOMEN_EMPOWERMENT", "FAIR_WAGES", "BUYER_EXPERIENCE", "FULFILLMENT",
+      "TRANSPARENCY", "TECHNOLOGY", "DIGITAL_TRACEABILITY", "SUSTAINABILITY", "KNOWLEDGE_TRANSFER"
+    ],
+    "BUSINESS": [
+      "CRAFT_QUALITY", "AUTHENTICITY_PROVENANCE", "FULFILLMENT", "BUYER_EXPERIENCE",
+      "FAIR_WAGES", "CHILD_LABOUR_SAFEGUARDS", "WOMEN_EMPOWERMENT", "GROUND_PRESENCE",
+      "TRANSPARENCY", "TECHNOLOGY", "DIGITAL_TRACEABILITY", "SUSTAINABILITY"
+    ],
+    "INSTITUTION": [
+      "ARTISAN_IMPACT", "WOMEN_EMPOWERMENT", "CHILD_LABOUR_SAFEGUARDS", "TRANSPARENCY",
+      "TECHNOLOGY", "TRAINING", "MARKET_ACCESS", "SUSTAINABILITY"
+    ]
+  },
+  "FACTOR_LABELS": {
+    "AUTHENTICITY_PROVENANCE": "Authenticity & Provenance",
+    "CRAFT_QUALITY": "Craft Quality",
+    "FAIR_WAGES": "Fair Wages & Artisan Treatment",
+    "CHILD_LABOUR_SAFEGUARDS": "Child-Labour Safeguards",
+    "GROUND_PRESENCE": "Ground Presence",
+    "WOMEN_EMPOWERMENT": "Women's Participation & Empowerment",
+    "BUYER_EXPERIENCE": "Buyer Experience",
+    "FULFILLMENT": "Fulfillment & Operations",
+    "TRANSPARENCY": "Business Transparency",
+    "TECHNOLOGY": "Technology Adoption",
+    "DIGITAL_TRACEABILITY": "Digital Traceability",
+    "SUSTAINABILITY": "Environmental Sustainability",
+    "KNOWLEDGE_TRANSFER": "Knowledge Transfer",
+    "ARTISAN_IMPACT": "Artisan Impact",
+    "TRAINING": "Training & Capacity Building",
+    "MARKET_ACCESS": "Market Access"
+  }
+}

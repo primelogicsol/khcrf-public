@@ -1,0 +1,37 @@
+route,module,page_file,client_component,layout,dynamic_parameters,navigation_entry,navigation_label,navigation_roles,frontend_api_calls,backend_endpoint,backend_controller,backend_rbac,prisma_models,status,evidence
+/dashboard/artisan,artisan,page.tsx,Unknown,layout.tsx,None,Yes,artisan,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/business,business,page.tsx,Unknown,layout.tsx,None,Yes,business,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/campaigns,campaigns,page.tsx,Unknown,layout.tsx,None,Yes,campaigns,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/career,career,page.tsx,Unknown,layout.tsx,None,Yes,career,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/ccsi,ccsi,page.tsx,Unknown,layout.tsx,None,Yes,ccsi,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/cms,cms,page.tsx,Unknown,layout.tsx,None,Yes,cms,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/collection,collection,page.tsx,Unknown,layout.tsx,None,Yes,collection,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/contact-submissions,contact-submissions,page.tsx,Unknown,layout.tsx,None,Yes,contact-submissions,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/contributor-intake,contributor-intake,page.tsx,Unknown,layout.tsx,None,Yes,contributor-intake,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/crafts,crafts,page.tsx,Unknown,layout.tsx,None,Yes,crafts,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/donations,donations,page.tsx,Unknown,layout.tsx,None,Yes,donations,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Complete path identified,Visual check
+/dashboard/glossary,glossary,page.tsx,Unknown,layout.tsx,None,Yes,glossary,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/graph,graph,page.tsx,Unknown,layout.tsx,None,Yes,graph,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/hr,hr,page.tsx,Unknown,layout.tsx,None,Yes,hr,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/institutional-cms,institutional-cms,page.tsx,Unknown,layout.tsx,None,Yes,institutional-cms,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/knowledge,knowledge,page.tsx,Unknown,layout.tsx,None,Yes,knowledge,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/master-artisans,master-artisans,page.tsx,Unknown,layout.tsx,None,Yes,master-artisans,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Complete path identified,Visual check
+/dashboard/materials,materials,page.tsx,Unknown,layout.tsx,None,Yes,materials,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/media,media,page.tsx,Unknown,layout.tsx,None,Yes,media,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/membership,membership,page.tsx,Unknown,layout.tsx,None,Yes,membership,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Complete path identified,Visual check
+/dashboard/motifs,motifs,page.tsx,Unknown,layout.tsx,None,Yes,motifs,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/partner-network,partner-network,page.tsx,Unknown,layout.tsx,None,Yes,partner-network,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/partners,partners,page.tsx,Unknown,layout.tsx,None,Yes,partners,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/products,products,page.tsx,Unknown,layout.tsx,None,Yes,products,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/relationships,relationships,page.tsx,Unknown,layout.tsx,None,Yes,relationships,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/research-publication,research-publication,page.tsx,Unknown,layout.tsx,None,Yes,research-publication,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Complete path identified,Visual check
+/dashboard/search,search,page.tsx,Unknown,layout.tsx,None,Yes,search,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/skc,skc,page.tsx,Unknown,layout.tsx,None,Yes,skc,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Complete path identified,Visual check
+/dashboard/source-references,source-references,page.tsx,Unknown,layout.tsx,None,Yes,source-references,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/studio,studio,page.tsx,Unknown,layout.tsx,None,Yes,studio,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/taxonomy,taxonomy,page.tsx,Unknown,layout.tsx,None,Yes,taxonomy,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/techniques,techniques,page.tsx,Unknown,layout.tsx,None,Yes,techniques,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/tools,tools,page.tsx,Unknown,layout.tsx,None,Yes,tools,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/users,users,page.tsx,Unknown,layout.tsx,None,Yes,users,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Complete path identified,Visual check
+/dashboard/verification,verification,page.tsx,Unknown,layout.tsx,None,Yes,verification,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check
+/dashboard/workflow,workflow,page.tsx,Unknown,layout.tsx,None,Yes,workflow,ADMIN,Unknown,Unknown,Unknown,Unknown,Unknown,Frontend only,Visual check

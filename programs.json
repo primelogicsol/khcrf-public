@@ -1,0 +1,112 @@
+[
+  {
+    "id": "prog1",
+    "title": "01 Industry & Governance",
+    "purpose": "Researching the structures, policies and regulatory systems shaping Kashmir's craft economy.",
+    "details": {
+      "activities": ["Handicrafts Industry Research", "Kashmir Craft Policy Insights", "Handicrafts Governance", "Kashmir Craft Regulations"],
+      "outputs": ["Industry research reports", "Policy briefs", "Governance assessments", "Regulatory analysis", "Institutional recommendations"],
+      "stakeholders": ["Government departments", "Artisan organizations", "Researchers & academics", "Industry bodies", "Policy institutions"]
+    }
+  },
+  {
+    "id": "prog2",
+    "title": "02 Advocacy & Action",
+    "purpose": "Advancing artisan interests, craft protection and evidence-based policy engagement.",
+    "details": {
+      "activities": ["Artisan Advocacy", "Craft Protection Campaigns", "Kashmir Legislative Lobbying", "Legislative Office Updates"],
+      "outputs": ["Advocacy briefs", "Campaign initiatives", "Legislative submissions", "Policy representations", "Public-interest interventions"],
+      "stakeholders": ["Artisans", "Craft communities", "Civil society organizations", "Policymakers", "Legislative institutions"]
+    }
+  },
+  {
+    "id": "prog3",
+    "title": "03 Discover",
+    "purpose": "Exploring the depth and breadth of Kashmir's artisan network and craft heritage.",
+    "details": {
+      "activities": ["Artisan Discovery", "Craft Ecosystem Mapping", "Regional Craft Profiling", "Heritage Documentation"],
+      "outputs": ["Interactive directories", "Discovery portals", "Craft maps", "Heritage archives"],
+      "stakeholders": ["General public", "Researchers", "Buyers", "Cultural tourists"]
+    }
+  },
+  {
+    "id": "prog4",
+    "title": "04 People",
+    "purpose": "Documenting, recognizing and connecting the people and communities who sustain Kashmir's craft traditions.",
+    "details": {
+      "activities": ["Kashmir Artisan Registry", "Master Artisans", "Living Legends", "Women Artisans", "Emerging Artisans", "Workshop Communities"],
+      "outputs": ["Artisan records", "Master artisan profiles", "Community documentation", "Recognition records", "Workshop-community mapping"],
+      "stakeholders": ["Artisans", "Master craftspeople", "Women artisans", "Emerging artisans", "Workshop communities"]
+    }
+  },
+  {
+    "id": "prog5",
+    "title": "05 Studio",
+    "purpose": "Capturing the living processes, environments, and narratives of craft creation through multimedia.",
+    "details": {
+      "activities": ["Audio Stories", "Craft Demonstrations", "Documentary Films", "Oral Histories", "Video Interviews", "Workshop Diaries"],
+      "outputs": ["Multimedia documentaries", "Oral history archives", "Video demonstrations", "Studio diaries"],
+      "stakeholders": ["Documentarians", "Artisans", "Media organizations", "Cultural preservers"]
+    }
+  },
+  {
+    "id": "prog6",
+    "title": "06 Collections",
+    "purpose": "Curating and safeguarding rare objects, signature masterpieces, and historical craft collections.",
+    "details": {
+      "activities": ["Contemporary Excellence", "Essays & Curations", "Museum Archive", "Rare Objects", "Signature Masterpieces"],
+      "outputs": ["Digital exhibitions", "Collection catalogues", "Curatorial essays", "Archival records"],
+      "stakeholders": ["Museums", "Curators", "Collectors", "Historians"]
+    }
+  },
+  {
+    "id": "prog7",
+    "title": "07 Knowledge",
+    "purpose": "Codifying the technical vocabulary, motifs, materials, and lineages of Kashmir's crafts.",
+    "details": {
+      "activities": ["Craft Glossary", "Lineages Documentation", "Motifs & Symbols", "Natural Dyes", "Techniques & Tools"],
+      "outputs": ["Technical glossaries", "Motif databases", "Material guides", "Lineage trees"],
+      "stakeholders": ["Students", "Designers", "Researchers", "Master artisans"]
+    }
+  },
+  {
+    "id": "prog8",
+    "title": "08 Industry Intelligence",
+    "purpose": "Providing data-driven market insights and trend analysis for the Kashmir craft sector.",
+    "details": {
+      "activities": ["Market Intelligence", "Sector Analysis", "Trade Data Tracking", "Economic Forecasting"],
+      "outputs": ["Market intelligence reports", "Data dashboards", "Economic analyses", "Trade advisories"],
+      "stakeholders": ["Exporters", "Investors", "Policy makers", "Business owners"]
+    }
+  },
+  {
+    "id": "prog9",
+    "title": "09 Guides & Studies",
+    "purpose": "Publishing foundational research, academic studies, and applied methodologies.",
+    "details": {
+      "activities": ["Policy Briefs", "Research Papers", "Best Practices", "Case Studies", "Knowledge Books"],
+      "outputs": ["Academic papers", "Best practice manuals", "Published books", "Detailed case studies"],
+      "stakeholders": ["Academics", "Practitioners", "Students", "Libraries"]
+    }
+  },
+  {
+    "id": "prog10",
+    "title": "10 Evaluations & Grants",
+    "purpose": "Assessing enterprise performance and facilitating financial support for craft businesses.",
+    "details": {
+      "activities": ["Enterprise Evaluation & Ranking", "Grant Assessment", "Funding Distribution", "Impact Measurement"],
+      "outputs": ["Enterprise rankings", "Grant allocations", "Performance reports", "Impact scorecards"],
+      "stakeholders": ["Craft enterprises", "Donors & philanthropists", "Financial institutions", "Evaluators"]
+    }
+  },
+  {
+    "id": "prog11",
+    "title": "11 Certifications",
+    "purpose": "Validating authenticity, business compliance, and professional standards in the craft ecosystem.",
+    "details": {
+      "activities": ["Business Certification", "Accreditation", "Entrepreneurs Kit", "Quality Standard Verification"],
+      "outputs": ["Official certificates", "Accreditation badges", "Compliance documentation", "Business support kits"],
+      "stakeholders": ["Craft businesses", "Entrepreneurs", "Retailers", "Consumers"]
+    }
+  }
+]
