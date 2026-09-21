@@ -78,7 +78,7 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
       <div className={`hidden lg:block ${isOverlay ? "bg-transparent" : "bg-white"}`}>
         <div className="container-fluid mx-auto">
           <div className="flex justify-end">
-            <div className={`w-[85%] rounded-bl-[10px] flex justify-between items-center py-2 px-6 xl:px-10 text-sm font-medium transition-colors duration-300 ${isOverlay ? 'bg-[#050A1E] text-white' : 'bg-transparent text-[#0f172a]'}`}>
+            <div className={`w-full flex justify-between items-center py-2 px-[clamp(1.5rem,5vw,2.5rem)] md:px-[clamp(3rem,6vw,5rem)] xl:px-[clamp(4.5rem,7vw,8.5rem)] text-sm font-medium transition-colors duration-300 ${isOverlay ? 'bg-[#050A1E] text-white' : 'bg-transparent text-[#0f172a]'}`}>
               <div className="flex items-center space-x-4 xl:space-x-6">
                 <span className={`text-lg ${cormorant.className}`}>
                   Kashmir Hamadan Craft Revival Foundation
@@ -177,7 +177,7 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
       <nav className={`py-4 lg:pt-4 lg:pb-8 relative transition-colors duration-300 ${isOverlay ? "bg-transparent shadow-none" : "bg-white shadow-[0px_10px_60px_0px_rgba(0,0,0,0.1)]"}`}>
         <div className="container-fluid mx-auto">
           <div className="flex justify-end">
-            <div className="w-full lg:w-[85%] px-4 md:px-10 flex max-[405px]:flex-wrap max-[405px]:gap-y-4 justify-between items-center">
+            <div className="w-full px-[clamp(1.5rem,5vw,2.5rem)] md:px-[clamp(3rem,6vw,5rem)] xl:px-[clamp(4.5rem,7vw,8.5rem)] flex max-[405px]:flex-wrap max-[405px]:gap-y-4 justify-between items-center">
           <Link href="/" className="relative z-10 flex items-center gap-3 md:gap-4 shrink-0 mr-4 max-[405px]:w-full max-[405px]:mr-0">
             <Image
               src="/assets/images/HCRF_LOGO_1.png"
