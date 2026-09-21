@@ -190,8 +190,8 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
             {/* Organization Identity - Visible on mobile/tablet, hidden on desktop where Top Bar exists */}
             <div className="flex flex-col lg:hidden min-w-0">
               <span className="text-sm md:text-base font-black uppercase text-[#050A1E] leading-tight">
-                <span className="block md:inline">KASHMIR HAMADAN CRAFT</span>
-                <span className="block md:inline md:ml-1">REVIVAL FOUNDATION</span>
+                <span className="block">KASHMIR HAMADAN CRAFT</span>
+                <span className="block">REVIVAL FOUNDATION</span>
               </span>
               <span className="text-[10px] md:text-xs text-gray-500 font-semibold leading-tight mt-0.5 truncate">
                 A Kashmir Craft Policy Think Tank
