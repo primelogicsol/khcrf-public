@@ -12,6 +12,9 @@ frontend/.next/
 frontend/.next-dashboard/
 frontend/node_modules/
 
+# Root-level tooling dependencies (Playwright/Puppeteer/husky) - never commit
+node_modules/
+
 # Backend
 backend/node_modules/
 
