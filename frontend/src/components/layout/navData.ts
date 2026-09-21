@@ -154,7 +154,7 @@ export const navLinks = [
       ]
     },
     {
-      name: "Publications",
+      name: "KHCRF Publications",
     isMega: true,
     megaAlign: "right",
     megaWidth: "780px",
