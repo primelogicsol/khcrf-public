@@ -1,6 +1,6 @@
-import Link from "next/link";
 import Image from "next/image";
 import { FaCheckCircle } from "react-icons/fa";
+import { Button } from "@/components/ui/Button";
 
 export default function ContributorCTA() {
   return (
@@ -65,18 +65,12 @@ export default function ContributorCTA() {
                 Start Collaborating Today
               </h3>
               <div className="flex flex-wrap gap-3">
-                <Link
-                  href="/publications/intake?role=contributor"
-                  className="bg-brand-primary hover:bg-brand-dark text-white px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all shadow-md shadow-brand-primary/10"
-                >
+                <Button href="/publications/intake?role=contributor">
                   Apply as Knowledge Contributor
-                </Link>
-                <Link
-                  href="/publications/track"
-                  className="border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all"
-                >
+                </Button>
+                <Button href="/publications/track" variant="outline">
                   Track Submission
-                </Link>
+                </Button>
               </div>
               
             </div>
