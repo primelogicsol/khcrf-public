@@ -78,8 +78,8 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
       <div className={`hidden lg:block ${isOverlay ? "bg-transparent" : "bg-white"}`}>
         <div className="container-fluid mx-auto">
           <div className="flex justify-end">
-            <div className={`w-[85%] rounded-bl-[10px] flex justify-between items-center py-2 px-10 text-sm font-medium transition-colors duration-300 ${isOverlay ? 'bg-[#050A1E] text-white' : 'bg-transparent text-[#0f172a]'}`}>
-              <div className="flex items-center space-x-6">
+            <div className={`w-[85%] rounded-bl-[10px] flex justify-between items-center py-2 px-6 xl:px-10 text-sm font-medium transition-colors duration-300 ${isOverlay ? 'bg-[#050A1E] text-white' : 'bg-transparent text-[#0f172a]'}`}>
+              <div className="flex items-center space-x-4 xl:space-x-6">
                 <span className={`text-lg ${cormorant.className}`}>
                   Kashmir Hamadan Craft Revival Foundation
                 </span>
