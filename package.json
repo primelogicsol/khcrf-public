@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd frontend && npm run start",
     "lint:frontend": "cd frontend && npm run lint",
     "lint:backend": "cd backend && npx tsc --noEmit && npx eslint .",
     "test:backend": "cd backend && npx jest",

@@ -20,6 +20,34 @@
   --khcrf-brown-medium: rgba(107, 43, 8, 0.55);
   --khcrf-ivory: #F4F0E8;
 
+  /* ──────────────────────────────────────────────────────────────
+     Canonical control tokens — single source of truth for the
+     Button primitive (src/components/ui/Button.tsx). Additive: does
+     not alter the legacy .button-* classes or brand utilities.
+     ────────────────────────────────────────────────────────────── */
+  --control-radius: 0.625rem;
+  --control-font: var(--font-manrope, ui-sans-serif, system-ui, sans-serif);
+  /* Two-layer ring reads on light surfaces and over imagery alike */
+  --control-focus-ring: 0 0 0 2px #ffffff, 0 0 0 4px rgba(5, 10, 30, 0.55);
+
+  --btn-primary-bg: #050a1e;         /* institutional navy */
+  --btn-primary-bg-hover: #16244c;   /* navy-800 — real hover (fixes dead state) */
+  --btn-primary-bg-active: #020512;  /* navy-950 */
+  --btn-primary-fg: #ffffff;
+
+  --btn-accent-bg: #6b2b08;          /* heritage brown */
+  --btn-accent-bg-hover: #4a1c05;
+  --btn-accent-bg-active: #3a1604;
+  --btn-accent-fg: #ffffff;
+
+  --btn-outline-fg: #050a1e;
+  --btn-outline-border: rgba(5, 10, 30, 0.25);
+  --btn-outline-bg-hover: #050a1e;
+  --btn-outline-fg-hover: #ffffff;
+
+  --btn-ghost-fg: #050a1e;
+  --btn-ghost-bg-hover: rgba(5, 10, 30, 0.06);
+
   --background: #ffffff;
   --foreground: #171717;
 
@@ -140,6 +168,127 @@ body {
 .button-light span,
 .button-light svg {
   color: var(--hcrf-navy-900) !important;
+}
+
+/* ────────────────────────────────────────────────────────────────
+   Canonical Button primitive styles. Placed in the components layer
+   so one-off Tailwind utilities passed via className still win.
+   ──────────────────────────────────────────────────────────────── */
+@layer components {
+  .ui-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--control-radius);
+    font-family: var(--control-font);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.18s ease, color 0.18s ease,
+      border-color 0.18s ease, box-shadow 0.18s ease, transform 0.06s ease;
+  }
+  .ui-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--control-focus-ring);
+  }
+  .ui-btn:active {
+    transform: translateY(0.5px);
+  }
+  .ui-btn:disabled,
+  .ui-btn[aria-disabled="true"] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Sizes — md meets the 44px touch-target minimum */
+  .ui-btn--sm {
+    height: 2.25rem;
+    padding-inline: 0.875rem;
+    font-size: 0.6875rem;
+  }
+  .ui-btn--md {
+    height: 2.75rem;
+    padding-inline: 1.25rem;
+    font-size: 0.75rem;
+  }
+  .ui-btn--lg {
+    height: 3.25rem;
+    padding-inline: 1.75rem;
+    font-size: 0.8125rem;
+  }
+
+  /* Variants */
+  .ui-btn--primary {
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-fg);
+    box-shadow: 0 1px 2px rgba(5, 10, 30, 0.12);
+  }
+  .ui-btn--primary:hover {
+    background: var(--btn-primary-bg-hover);
+  }
+  .ui-btn--primary:active {
+    background: var(--btn-primary-bg-active);
+  }
+
+  .ui-btn--accent {
+    background: var(--btn-accent-bg);
+    color: var(--btn-accent-fg);
+    box-shadow: 0 1px 2px rgba(107, 43, 8, 0.15);
+  }
+  .ui-btn--accent:hover {
+    background: var(--btn-accent-bg-hover);
+  }
+  .ui-btn--accent:active {
+    background: var(--btn-accent-bg-active);
+  }
+
+  .ui-btn--outline {
+    background: transparent;
+    color: var(--btn-outline-fg);
+    border-color: var(--btn-outline-border);
+  }
+  .ui-btn--outline:hover {
+    background: var(--btn-outline-bg-hover);
+    color: var(--btn-outline-fg-hover);
+    border-color: var(--btn-outline-bg-hover);
+  }
+
+  .ui-btn--ghost {
+    background: transparent;
+    color: var(--btn-ghost-fg);
+  }
+  .ui-btn--ghost:hover {
+    background: var(--btn-ghost-bg-hover);
+  }
+
+  .ui-btn--link {
+    height: auto;
+    padding: 0;
+    background: transparent;
+    color: var(--btn-primary-bg);
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 600;
+  }
+  .ui-btn--link:hover {
+    text-decoration: underline;
+  }
+
+  .ui-btn--block {
+    width: 100%;
+  }
+  .ui-btn__icon {
+    display: inline-flex;
+    font-size: 1em;
+    line-height: 0;
+  }
 }
 
 @keyframes kenburns {

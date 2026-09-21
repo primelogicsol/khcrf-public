@@ -78,8 +78,8 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
       <div className={`hidden lg:block ${isOverlay ? "bg-transparent" : "bg-white"}`}>
         <div className="container-fluid mx-auto">
           <div className="flex justify-end">
-            <div className={`w-[85%] rounded-bl-[10px] flex justify-between items-center py-2 px-10 text-sm font-medium transition-colors duration-300 ${isOverlay ? 'bg-[#050A1E] text-white' : 'bg-transparent text-[#0f172a]'}`}>
-              <div className="flex items-center space-x-6">
+            <div className={`w-full flex justify-between items-center py-2 px-[clamp(1.5rem,5vw,2.5rem)] md:px-[clamp(3rem,6vw,5rem)] xl:px-[clamp(4.5rem,7vw,8.5rem)] text-sm font-medium transition-colors duration-300 ${isOverlay ? 'bg-[#050A1E] text-white' : 'bg-transparent text-[#0f172a]'}`}>
+              <div className="flex items-center space-x-4 xl:space-x-6">
                 <span className={`text-lg ${cormorant.className}`}>
                   Kashmir Hamadan Craft Revival Foundation
                 </span>
@@ -177,7 +177,7 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
       <nav className={`py-4 lg:pt-4 lg:pb-8 relative transition-colors duration-300 ${isOverlay ? "bg-transparent shadow-none" : "bg-white shadow-[0px_10px_60px_0px_rgba(0,0,0,0.1)]"}`}>
         <div className="container-fluid mx-auto">
           <div className="flex justify-end">
-            <div className="w-full lg:w-[85%] px-4 md:px-10 flex max-[405px]:flex-wrap max-[405px]:gap-y-4 justify-between items-center">
+            <div className="w-full px-[clamp(1.5rem,5vw,2.5rem)] md:px-[clamp(3rem,6vw,5rem)] xl:px-[clamp(4.5rem,7vw,8.5rem)] flex max-[405px]:flex-wrap max-[405px]:gap-y-4 justify-between items-center">
           <Link href="/" className="relative z-10 flex items-center gap-3 md:gap-4 shrink-0 mr-4 max-[405px]:w-full max-[405px]:mr-0">
             <Image
               src="/assets/images/HCRF_LOGO_1.png"
@@ -190,8 +190,8 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
             {/* Organization Identity - Visible on mobile/tablet, hidden on desktop where Top Bar exists */}
             <div className="flex flex-col lg:hidden min-w-0">
               <span className="text-sm md:text-base font-black uppercase text-[#050A1E] leading-tight">
-                <span className="block md:inline">KASHMIR HAMADAN CRAFT</span>
-                <span className="block md:inline md:ml-1">REVIVAL FOUNDATION</span>
+                <span className="block">KASHMIR HAMADAN CRAFT</span>
+                <span className="block">REVIVAL FOUNDATION</span>
               </span>
               <span className="text-[10px] md:text-xs text-gray-500 font-semibold leading-tight mt-0.5 truncate">
                 A Kashmir Craft Policy Think Tank
@@ -200,10 +200,10 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
           </Link>
 
           {/* Desktop Menu */}
-          <ul className="hidden xl:flex items-center space-x-8">
+          <ul className="hidden xl:flex items-center space-x-8 mr-auto xl:ml-8">
             {navLinks.map((link) => (
               <li key={link.name} className={`relative group py-6`}>
-                <button className={`flex items-center font-bold text-[16px] uppercase tracking-[0.05em] transition-all duration-300 ${isOverlay ? "text-white" : "text-[#050A1E]"} group-hover:text-icon-on-light`}>
+                <button className={`flex items-center text-left font-bold text-[16px] uppercase tracking-[0.05em] transition-all duration-300 ${isOverlay ? "text-white" : "text-[#050A1E]"} group-hover:text-icon-on-light`}>
                   {(link as any).href ? (
                     <Link href={(link as any).href} className="flex items-center w-full">
                       {link.name}
@@ -319,7 +319,7 @@ export function GlobalHeader({ mode = "solid" }: GlobalHeaderProps) {
           <ul className="hidden xl:flex items-center space-x-6">
             {navLinks.map((link) => (
               <li key={link.name} className={`relative group py-4`}>
-                <button className="font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-icon-on-light transition-colors duration-300">
+                <button className="text-left font-bold text-[15px] uppercase tracking-wider text-white group-hover:text-icon-on-light transition-colors duration-300">
                   {(link as any).href ? (
                     <Link href={(link as any).href} className="flex items-center w-full">
                       {link.name}

@@ -435,7 +435,7 @@
 }
 
 .heroOuter[data-hero-height='standard'] {
-  min-height: 92vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
 }
@@ -512,7 +512,7 @@
 
   .heroOuter[data-hero-height='standard'] {
     height: auto;
-    min-height: 86vh;
+    min-height: 100svh;
   }
   .heroOuter[data-hero-height='immersive'] {
     height: auto;
@@ -522,7 +522,7 @@
 
 @media (max-width: 767px) {
   .heroOuter[data-hero-height='standard'] {
-    min-height: 82vh;
+    min-height: 100svh;
   }
   .carouselNavWrapper {
     display: none;

@@ -74,9 +74,10 @@ const API_BASE = getBaseUrl();
     const data = await res.json();
     return Array.isArray(data) ? data : data.data || [];
   } catch (error) {
-    if (process.env.NODE_ENV === "development") {
-      throw error;
-    }
+    // A single optional section must never crash the whole homepage.
+    // Degrade gracefully in every environment (backend may be unreachable,
+    // e.g. in the v0 sandbox preview) while keeping the failure visible.
+    console.warn("[v0] getPublications failed, rendering homepage without publications:", error);
     return [];
   }
 }
